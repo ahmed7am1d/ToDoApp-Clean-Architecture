@@ -1,0 +1,12 @@
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Domain\bin\Debug\net6.0\ToDo.Domain.deps.json
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Domain\bin\Debug\net6.0\ToDo.Domain.dll
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Domain\bin\Debug\net6.0\ToDo.Domain.pdb
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.csproj.AssemblyReference.cache
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.AssemblyInfoInputs.cache
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.AssemblyInfo.cs
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.csproj.CoreCompileInputs.cache
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.dll
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Domain\obj\Debug\net6.0\refint\ToDo.Domain.dll
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Domain\obj\Debug\net6.0\ToDo.Domain.pdb
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Domain\obj\Debug\net6.0\ref\ToDo.Domain.dll

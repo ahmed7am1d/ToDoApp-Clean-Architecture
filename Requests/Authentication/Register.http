@@ -1,0 +1,14 @@
+@host=https://localhost:7188
+POST {{host}}/auth/register
+Content-Type: application/json
+
+{
+    "firstName": "Ahmed",
+    "lastName": "Taha",
+    "email": "a_al_doori@utb.cz",
+    "password": "ahmed",
+    "phoneNumber":"+420 728 728 728"
+}
+
+
+

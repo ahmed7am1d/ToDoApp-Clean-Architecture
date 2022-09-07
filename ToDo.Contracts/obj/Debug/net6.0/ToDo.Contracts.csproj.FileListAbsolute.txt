@@ -1,0 +1,12 @@
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Contracts\bin\Debug\net6.0\ToDo.Contracts.deps.json
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Contracts\bin\Debug\net6.0\ToDo.Contracts.dll
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Contracts\bin\Debug\net6.0\ToDo.Contracts.pdb
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Contracts\obj\Debug\net6.0\ToDo.Contracts.csproj.AssemblyReference.cache
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Contracts\obj\Debug\net6.0\ToDo.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Contracts\obj\Debug\net6.0\ToDo.Contracts.AssemblyInfoInputs.cache
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Contracts\obj\Debug\net6.0\ToDo.Contracts.AssemblyInfo.cs
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Contracts\obj\Debug\net6.0\ToDo.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Contracts\obj\Debug\net6.0\ToDo.Contracts.dll
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Contracts\obj\Debug\net6.0\refint\ToDo.Contracts.dll
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Contracts\obj\Debug\net6.0\ToDo.Contracts.pdb
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Contracts\obj\Debug\net6.0\ref\ToDo.Contracts.dll

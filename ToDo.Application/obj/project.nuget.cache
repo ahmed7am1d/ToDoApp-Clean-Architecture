@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "PctxcrilC+aIA/2FQNM+7GBaJIdCjppxu5Y0aFn28RTMHCOuZi4/fZ3fwTz9NL/Cu5ifkTIBGnv39vKlYG4nkA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\a_al_\\OneDrive\\Desktop\\ToDo\\ToDo.Application\\ToDo.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\a_al_\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
+    "C:\\Users\\a_al_\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\a_al_\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
