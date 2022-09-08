@@ -33,3 +33,4 @@ C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.Identit
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\ErrorOr.dll

@@ -1,11 +1,12 @@
 using System.Diagnostics;
+using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Options;
+using ToDo.Api.Common.Http;
 
-
-namespace ToDo.Api.Errors;
+namespace ToDo.Api.Common.Errors;
 
 public class ToDoProblemDetailsFactory : ProblemDetailsFactory
 {
@@ -91,6 +92,10 @@ public class ToDoProblemDetailsFactory : ProblemDetailsFactory
         {
             problemDetails.Extensions["traceId"] = traceId;
         }
-        problemDetails.Extensions.Add("customProperty", "customValue");
+        var errors = httpContext?.Items[HttpContextItemKeys.Errors] as List<Error>;
+        if (errors is not null) {
+            problemDetails.Extensions.Add("errorCode",errors.Select(e=>e.Code));
+        }
+
     }
 }

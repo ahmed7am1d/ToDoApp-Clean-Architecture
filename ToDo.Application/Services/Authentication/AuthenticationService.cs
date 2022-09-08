@@ -1,5 +1,8 @@
+using ErrorOr;
+using ToDo.Application.Common.Errors;
 using ToDo.Application.Common.Interfaces.Authentication;
 using ToDo.Application.Common.Interfaces.Persistence;
+using ToDo.Domain.Common.Errors;
 using ToDo.Domain.Entities;
 namespace ToDo.Application.Services.Authentication
 {
@@ -7,8 +10,8 @@ namespace ToDo.Application.Services.Authentication
     {
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
         private readonly IUserRepository _userRepository;
-/* This is the constructor for the AuthenticationService class. It is taking in two parameters, an
-IJwtTokenGenerator and an IUserRepository. */
+        /* This is the constructor for the AuthenticationService class. It is taking in two parameters, an
+        IJwtTokenGenerator and an IUserRepository. */
         public AuthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository)
         {
             _jwtTokenGenerator = jwtTokenGenerator;
@@ -23,12 +26,12 @@ IJwtTokenGenerator and an IUserRepository. */
         /// <param name="email">The email address of the user.</param>
         /// <param name="password">The password for the new user.</param>
         /// <param name="phoneNumber">+11234567890</param>
-        public AuthenticationResult Register(string firstName, string lastName, string email, string password, string phoneNumber)
+        public ErrorOr<AuthenticationResult> Register(string firstName, string lastName, string email, string password, string phoneNumber)
         {
             //[1] Validate user does not exist
             if (_userRepository.GetUserByEmail(email) is not null)
             {
-                throw new Exception("User with given Email already exists");
+                return Errors.User.DuplicateEmail;
             }
             //[2]Create user (generate unique Id) & Persist to DB
             var user = new User
@@ -43,7 +46,7 @@ IJwtTokenGenerator and an IUserRepository. */
             //[3] Create JWT token
             var token = _jwtTokenGenerator.GenerateToken(user);
             //[4] Return AuthenticationResult
-            return new AuthenticationResult( user,token);
+            return new AuthenticationResult(user, token);
         }
 
         /// <summary>
@@ -51,20 +54,15 @@ IJwtTokenGenerator and an IUserRepository. */
         /// </summary>
         /// <param name="email">The email address of the user.</param>
         /// <param name="password">"password"</param>
-        public AuthenticationResult Login(string email, string password)
+        public ErrorOr<AuthenticationResult> Login(string email, string password)
         {
-            //[1] Validate user exists
-            if (_userRepository.GetUserByEmail(email) is not User user)
+            //[1] Validate user exists and password is correct
+            if (_userRepository.GetUserByEmail(email) is not User user || user.Password != password)
             {
-                throw new Exception("User with given Email does not exist");
+                return new[] {Errors.Authentication.InvalidCredentials};
             }
 
-            //[2] Validate password is correct
-            if (user.Password != password)
-            {
-                throw new Exception("Password is incorrect");
-            }
-            //[3] Create JWT token
+            //[2] Create JWT token
             var token = _jwtTokenGenerator.GenerateToken(user);
 
             return new AuthenticationResult(

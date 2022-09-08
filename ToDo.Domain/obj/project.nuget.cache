@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "IDskXj0TkEHYIuCTQyBzQvgcdblqJGvHmAcuW9DGWcF+iQLU5EiTMzQZSWSp7kREMfZT2jp4kgkqW9xP/ax5lA==",
+  "dgSpecHash": "RAxaHaxV5kRXRs2UO/kxrLUytIYDSkHBWYoz3I1F7tjm3hNHXogY5bkyc6qmr2i7WdPgy62La2TYBIP+f6TpJQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\a_al_\\OneDrive\\Desktop\\ToDo\\ToDo.Domain\\ToDo.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\a_al_\\.nuget\\packages\\erroror\\1.0.0\\erroror.1.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

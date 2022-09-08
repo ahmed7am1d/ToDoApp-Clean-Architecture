@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "oLIszneEiceK+2CSoW7Zr8BKq7a4xbphfQJNNf+KIWysRjoHE1j7neZECelcZTwQ3c6z8MUYn0wdfdaYFtvK5A==",
+  "dgSpecHash": "34EsYSgSK+0DlQr+eVRTupIeG2wKoGQkgbqPeWj21sPlbwFMTIr+oG4R1ebzhDuGFrht8yPpBrPJBrBQVJx3xQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\a_al_\\OneDrive\\Desktop\\ToDo\\ToDo.Api\\ToDo.Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\a_al_\\.nuget\\packages\\erroror\\1.0.0\\erroror.1.0.0.nupkg.sha512",
     "C:\\Users\\a_al_\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\a_al_\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.1\\microsoft.extensions.configuration.6.0.1.nupkg.sha512",
     "C:\\Users\\a_al_\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
