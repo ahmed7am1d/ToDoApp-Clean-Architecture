@@ -1,5 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using ToDo.Application.Services.Authentication;
+using ToDo.Application.Services.Authentication.Commands;
+using ToDo.Application.Services.Authentication.Queries;
 
 namespace ToDo.Application
 {
@@ -7,7 +9,8 @@ namespace ToDo.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddScoped<IAuthenticationCommandService, AuthenticationCommandService>();
+            services.AddScoped<IAuthenticationQueryService, AuthenticationQueryService>();
             return services;
         }
     }

@@ -54,6 +54,9 @@ function App() {
 
   return (
     <div className="App">
+      <div className="HeaderLogin">
+        <h1>Welcome to your Do List</h1>
+      </div>
       <div className="inputGroupWrapper">
         <input type="text" placeholder="First Name..." value={firstName} onChange={handleFirstNameChange}/>
         <input type="text" placeholder="Last Name..." value={lastName} onChange={handleLastNameChange}/>

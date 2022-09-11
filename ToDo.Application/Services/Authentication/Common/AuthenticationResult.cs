@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ToDo.Domain.Entities;
 
-namespace ToDo.Application.Services.Authentication
+namespace ToDo.Application.Services.Authentication.Common
 {
     public record AuthenticationResult
 (

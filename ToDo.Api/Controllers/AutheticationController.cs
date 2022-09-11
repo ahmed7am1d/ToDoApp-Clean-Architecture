@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 using ToDo.Application.Services.Authentication;
+using ToDo.Application.Services.Authentication.Commands;
+using ToDo.Application.Services.Authentication.Common;
+using ToDo.Application.Services.Authentication.Queries;
 using ToDo.Contracts.Authentication.Requests;
 using ToDo.Contracts.Authentication.Responses;
 using ToDo.Domain.Common.Errors;
@@ -16,16 +19,19 @@ namespace ToDo.Api.Controllers
     //[ErrorHandlingFilter]
     public class AutheticationController : ApiController
     {
-        private readonly IAuthenticationService _authenticationService;
-        public AutheticationController(IAuthenticationService authenticationService)
+        private readonly IAuthenticationCommandService _authenticationCommandService;
+        private readonly IAuthenticationQueryService _authenticationQueryService;
+
+        public AutheticationController(IAuthenticationCommandService authenticationCommandService, IAuthenticationQueryService authenticationQueryService)
         {
-            _authenticationService = authenticationService;
+            _authenticationCommandService = authenticationCommandService;
+            _authenticationQueryService = authenticationQueryService;
         }
 
         [HttpPost("register")]
         public IActionResult Register([FromBody] RegisterRequest registerRequest)
         {
-            ErrorOr<AuthenticationResult> authResult = _authenticationService.Register(registerRequest.FirstName,
+            ErrorOr<AuthenticationResult> authResult = _authenticationCommandService.Register(registerRequest.FirstName,
                 registerRequest.LastName,
                 registerRequest.Email,
                 registerRequest.Password,
@@ -41,7 +47,7 @@ namespace ToDo.Api.Controllers
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginRequest loginRequest)
         {
-            var authResult = _authenticationService.Login(
+            var authResult = _authenticationQueryService.Login(
                 loginRequest.Email,
                 loginRequest.Password);
 
