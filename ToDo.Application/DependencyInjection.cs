@@ -1,7 +1,5 @@
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using ToDo.Application.Services.Authentication;
-using ToDo.Application.Services.Authentication.Commands;
-using ToDo.Application.Services.Authentication.Queries;
 
 namespace ToDo.Application
 {
@@ -9,8 +7,7 @@ namespace ToDo.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<IAuthenticationCommandService, AuthenticationCommandService>();
-            services.AddScoped<IAuthenticationQueryService, AuthenticationQueryService>();
+            services.AddMediatR(typeof(DependencyInjection).Assembly);
             return services;
         }
     }

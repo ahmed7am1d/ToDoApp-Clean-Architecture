@@ -1,0 +1,43 @@
+@import "../../utilities/scss/varaibles";
+
+.login-wrapper {
+  .login-header-wrapper {
+    span {
+      font-size: 40px;
+      color: $secondary-color;
+    }
+    p {
+        color: $main-text-color-gray;
+    }
+    a {
+        color: $secondary-color;
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: none;
+    }
+    
+  }
+
+  h1,
+  input {
+    color: $main-text-color;
+  }
+  input {
+    background-color: $input-background-color;
+    border: none;
+    padding: 20px 10px 20px 10px;
+    border-radius: 25px;
+    margin-right: 10px;
+  }
+
+  .buttons-wrapper {
+    input {
+        padding: 10px 50px 10px 50px;
+        background-color: $secondary-color;
+        border-radius: 20px;
+        border: none;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+  }
+}

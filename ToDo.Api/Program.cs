@@ -1,20 +1,12 @@
-using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using ToDo.Api.Common.Errors;
+using ToDo.Api;
 using ToDo.Application;
 using ToDo.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 {
-    builder.Services.AddApplication();
-    builder.Services.AddInfrastructure(builder.Configuration);
-    builder.Services.AddControllers();
-    builder.Services.AddSingleton<ProblemDetailsFactory, ToDoProblemDetailsFactory>();
-    builder.Services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
-        {
-            builder.AllowAnyOrigin()
-                   .AllowAnyMethod()
-                   .AllowAnyHeader();
-        }));
+    //Each Layer has its own dependencies injection registration
+    builder.Services.AddApplication()
+    .AddInfrastructure(builder.Configuration)
+    .AddPresentation();
 }
 
 var app = builder.Build();
