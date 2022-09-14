@@ -8,7 +8,7 @@ const Login = () => {
       <Col span={12}>
         <div className="login-wrapper">
           <div className="login-header-wrapper">
-            <p>START FOR FREE</p>
+            <p>START FOR FREE - Be More Productive</p>
             <h1>
               Create new account<span>.</span>
             </h1>

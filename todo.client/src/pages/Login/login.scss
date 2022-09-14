@@ -1,23 +1,7 @@
 @import "../../utilities/scss/varaibles";
 
 .login-wrapper {
-  .login-header-wrapper {
-    span {
-      font-size: 40px;
-      color: $secondary-color;
-    }
-    p {
-        color: $main-text-color-gray;
-    }
-    a {
-        color: $secondary-color;
-        font-weight: bold;
-        text-decoration: none;
-        text-transform: none;
-    }
-    
-  }
-
+  padding: 50px;
   h1,
   input {
     color: $main-text-color;
@@ -29,15 +13,63 @@
     border-radius: 25px;
     margin-right: 10px;
   }
+  input:focus {
+    outline: none;
+    border-bottom: 1px solid $secondary-color;
+  }
 
-  .buttons-wrapper {
-    input {
+  .login-header-wrapper {
+    span {
+      font-size: 40px;
+      color: $secondary-color;
+    }
+    p {
+      color: $main-text-color-gray;
+      margin: 0;
+    }
+    a {
+      color: $secondary-color;
+      font-weight: bold;
+      text-decoration: none;
+      text-transform: none;
+    }
+  }
+
+  .login-form-inputs-wrapper {
+    margin-top: 15px;
+    div {
+      margin-bottom: 20px;
+    }
+
+    .first-last-name-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      input {
+        width: 48%;
+      }
+
+
+    }
+    .email-wrapper,
+    .password-wrapper,
+    .buttons-wrapper {
+      input {
+        width: 100%;
+      }
+    }
+    
+
+
+    .buttons-wrapper {
+      input {
         padding: 10px 50px 10px 50px;
         background-color: $secondary-color;
         border-radius: 20px;
         border: none;
         text-transform: uppercase;
         cursor: pointer;
+      }
     }
   }
 }
