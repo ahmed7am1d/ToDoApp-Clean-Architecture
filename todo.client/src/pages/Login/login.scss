@@ -1,7 +1,64 @@
 @import "../../utilities/scss/varaibles";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Telex&display=swap');$column-padding:50px;
+
+.login-headerTitle {
+  color: $main-text-color;
+  text-align: center;
+  font-size: 3rem;
+  padding: 10px;
+  font-family: 'Bebas Neue', cursive;
+  text-shadow: 3px 7px 20px $secondary-color;
+  animation : login-headerTitle-animation 2s ease-in-out;
+}
+@keyframes login-headerTitle-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-column,
+.image-column {
+  padding: $column-padding;
+}
+
+.login-column {
+  animation : login-column-animation 2s ease-in-out;
+}
+
+.image-column {
+  animation : image-column-animation 2s ease-in-out;
+}
+
+@keyframes image-column-animation {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes login-column-animation {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
 .login-wrapper {
-  padding: 50px;
   h1,
   input {
     color: $main-text-color;
@@ -58,8 +115,6 @@
         width: 100%;
       }
     }
-    
-
 
     .buttons-wrapper {
       input {
@@ -71,5 +126,20 @@
         cursor: pointer;
       }
     }
+  }
+}
+
+.image-wrapper {
+   display: flex;
+  justify-content: center;
+   align-items: center;
+  
+   height: 100%;
+   width: 100%;
+  .todo-image {
+    height: auto;
+    width:100%;
+    min-width: 300px;
+    max-width: 700px;
   }
 }
