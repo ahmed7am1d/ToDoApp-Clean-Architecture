@@ -10,6 +10,8 @@ body {
   background-color: $body-background-color;
   margin: 0;
   padding: 0;
+  // for the purpose of animation:
+  overflow-x: hidden;
 }
 
 code {

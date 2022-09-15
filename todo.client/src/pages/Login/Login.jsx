@@ -1,12 +1,24 @@
 import React from "react";
 import { Col, Row } from "antd";
+import {
+  ContactsFilled,
+  ContactsOutlined,
+  MailOutlined,
+  EyeOutlined,
+  EyeInvisibleOutlined,
+} from "@ant-design/icons";
 import "./login.scss";
 import ToDoPicture from "../../assets/images/Todo-list.png";
+import { useState } from "react";
+import ShowHidePasswordIcon from "../../components/Login/ShowHidePasswordIcon";
 
 const Login = () => {
+  const [isShowPasswordClicked, setIsShowPasswordClicked] = useState(false);
+  const handleShowPassword = () => {};
+
   return (
     <>
-    <h1 className="login-headerTitle">Be Productive, Be Successful</h1>
+      <h1 className="login-headerTitle">Be Productive, Be Successful</h1>
       <Row>
         <Col xs={24} sm={14} lg={12} className="login-column">
           <div className="login-wrapper">
@@ -22,14 +34,35 @@ const Login = () => {
 
             <form className="login-form-inputs-wrapper">
               <div className="first-last-name-wrapper">
-                <input type="text" className="firstname" />
-                <input type="text" className="lastname" />
+                <div className="first-name-wrapper">
+                  <span>First Name:</span>
+                  <input type="text" className="firstname" />
+                  <ContactsOutlined />
+                </div>
+                <div className="last-name-wrapper">
+                  <span>Last Name:</span>
+                  <input type="text" className="lastname" />
+                  <ContactsOutlined />
+                </div>
               </div>
               <div className="email-wrapper">
+                <span>Email:</span>
                 <input type="email" className="email" />
+                <MailOutlined />
               </div>
               <div className="password-wrapper">
-                <input type="password" className="password" />
+                <span>Password:</span>
+                <input
+                  type={isShowPasswordClicked ? "text" : "password"}
+                  className="password"
+                />
+
+                <ShowHidePasswordIcon
+                  showPasswordState={{isShowPasswordClicked, setIsShowPasswordClicked}}
+                />
+
+                {/* <EyeOutlined/>
+                <EyeInvisibleOutlined /> */}
               </div>
               <div className="buttons-wrapper">
                 <input type="submit" />

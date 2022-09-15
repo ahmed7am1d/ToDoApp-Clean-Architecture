@@ -1,14 +1,16 @@
 @import "../../utilities/scss/varaibles";
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Telex&display=swap');$column-padding:50px;
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Telex&display=swap");
+$column-padding: 50px;
 
 .login-headerTitle {
   color: $main-text-color;
   text-align: center;
   font-size: 3rem;
   padding: 10px;
-  font-family: 'Bebas Neue', cursive;
+  font-family: "Bebas Neue", cursive;
   text-shadow: 3px 7px 20px $secondary-color;
-  animation : login-headerTitle-animation 2s ease-in-out;
+  animation: login-headerTitle-animation 2s ease-in-out;
+  text-decoration: underline;
 }
 @keyframes login-headerTitle-animation {
   0% {
@@ -27,11 +29,11 @@
 }
 
 .login-column {
-  animation : login-column-animation 2s ease-in-out;
+  animation: login-column-animation 2s ease-in-out;
 }
 
 .image-column {
-  animation : image-column-animation 2s ease-in-out;
+  animation: image-column-animation 2s ease-in-out;
 }
 
 @keyframes image-column-animation {
@@ -44,7 +46,6 @@
     transform: translateX(0);
   }
 }
-
 
 @keyframes login-column-animation {
   from {
@@ -66,7 +67,7 @@
   input {
     background-color: $input-background-color;
     border: none;
-    padding: 20px 10px 20px 10px;
+    padding: 25px 10px 20px 19px;
     border-radius: 25px;
     margin-right: 10px;
   }
@@ -102,12 +103,60 @@
       position: relative;
       display: flex;
       justify-content: space-between;
-      input {
-        width: 48%;
+      div {
+        width: 100%;
+        position: relative;
+      }
+      .first-name-wrapper,
+      .last-name-wrapper {
+        position: relative;
+      }
+      .first-name-wrapper span:nth-child(1),
+      .last-name-wrapper span:nth-child(1) {
+        position: absolute;
+        left: 19px;
+        top: 5px;
+        color: $main-text-color-gray;
+      }
+      .first-name-wrapper span:nth-child(3),
+      .last-name-wrapper span:nth-child(3) {
+        display: flex;
+        position: absolute;
+        right: 19px;
+        top: 18px;
+        padding-right: 4px;
+        color: $main-text-color-gray;
+        font-size: 1.7rem;
       }
 
-
+      input {
+        width: 98%;
+      }
     }
+    .email-wrapper,
+    .password-wrapper {
+      position: relative;
+    }
+    .email-wrapper span:nth-child(1),
+    .password-wrapper span:nth-child(1) {
+      position: absolute;
+      left: 19px;
+      top: 5px;
+      color: $main-text-color-gray;
+    }
+
+    .email-wrapper span:nth-child(3),
+    .password-wrapper span:nth-child(3) {
+      display: flex;
+      position: absolute;
+      right: 19px;
+      top: 18px;
+      padding-right: 4px;
+      color: $main-text-color-gray;
+      font-size: 1.7rem;
+    }
+
+
     .email-wrapper,
     .password-wrapper,
     .buttons-wrapper {
@@ -130,15 +179,15 @@
 }
 
 .image-wrapper {
-   display: flex;
+  display: flex;
   justify-content: center;
-   align-items: center;
-  
-   height: 100%;
-   width: 100%;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
   .todo-image {
     height: auto;
-    width:100%;
+    width: 100%;
     min-width: 300px;
     max-width: 700px;
   }
