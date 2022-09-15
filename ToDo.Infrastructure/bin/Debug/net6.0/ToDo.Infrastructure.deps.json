@@ -28,6 +28,38 @@
           }
         }
       },
+      "FluentValidation/11.2.2": {
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.2.2.0"
+          }
+        }
+      },
+      "FluentValidation.AspNetCore/11.2.2": {
+        "dependencies": {
+          "FluentValidation": "11.2.2",
+          "FluentValidation.DependencyInjectionExtensions": "11.2.1"
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.AspNetCore.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.2.2.0"
+          }
+        }
+      },
+      "FluentValidation.DependencyInjectionExtensions/11.2.1": {
+        "dependencies": {
+          "FluentValidation": "11.2.2",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.2.1.0"
+          }
+        }
+      },
       "Mapster/7.3.0": {
         "dependencies": {
           "Mapster.Core": "1.2.0",
@@ -115,55 +147,24 @@
       "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "6.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
         }
       },
       "Microsoft.Extensions.Configuration.Binder/6.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
         }
       },
       "Microsoft.Extensions.DependencyInjection/6.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.Extensions.DependencyInjection.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {
-        "runtime": {
-          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
-        }
-      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {},
       "Microsoft.Extensions.Options/6.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
           "Microsoft.Extensions.Primitives": "6.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.1/Microsoft.Extensions.Options.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
         }
       },
       "Microsoft.Extensions.Options.ConfigurationExtensions/6.0.0": {
@@ -173,23 +174,11 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
           "Microsoft.Extensions.Options": "6.0.0",
           "Microsoft.Extensions.Primitives": "6.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
         }
       },
       "Microsoft.Extensions.Primitives/6.0.0": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        },
-        "runtime": {
-          "lib/net6.0/Microsoft.Extensions.Primitives.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
         }
       },
       "Microsoft.IdentityModel.Logging/1.0.0": {
@@ -775,6 +764,8 @@
       "ToDo.Application/1.0.0": {
         "dependencies": {
           "ErrorOr": "1.0.0",
+          "FluentValidation": "11.2.2",
+          "FluentValidation.AspNetCore": "11.2.2",
           "Mapster": "7.3.0",
           "MediatR": "10.0.1",
           "MediatR.Extensions.Microsoft.DependencyInjection": "10.0.1",
@@ -809,6 +800,27 @@
       "sha512": "sha512-ebUnOo0kV+KWzEHGG/7nbSZXsGQQaG6fvrvAV62Zx75GoXz3YAbMNeirJORzvAdYynNssk77aATo3NLrjgzCKQ==",
       "path": "erroror/1.0.0",
       "hashPath": "erroror.1.0.0.nupkg.sha512"
+    },
+    "FluentValidation/11.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5QEte2BUZZF6Sezeekr7Zu1THfgpxU7pmuL2SjIrajuGMah+pxPGiRiLtw+x/tSUSSVmcv9LrUe41lKu4l0n4A==",
+      "path": "fluentvalidation/11.2.2",
+      "hashPath": "fluentvalidation.11.2.2.nupkg.sha512"
+    },
+    "FluentValidation.AspNetCore/11.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jU/MHXqg9cnOU18dY75vorP2c2WDKMan4zegOPsoc34xZVjzTEtXP0fKvkDEdeaChUVooNWuRr27u9w3sYbEFA==",
+      "path": "fluentvalidation.aspnetcore/11.2.2",
+      "hashPath": "fluentvalidation.aspnetcore.11.2.2.nupkg.sha512"
+    },
+    "FluentValidation.DependencyInjectionExtensions/11.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WqR2kt0OidUCg9xS+YOoiDmdCu7EnYLLgQb/bX+5fTTVor+90dWmr1OdJaWlLZvg2nbwV9EfxA9FZp91+JmQtg==",
+      "path": "fluentvalidation.dependencyinjectionextensions/11.2.1",
+      "hashPath": "fluentvalidation.dependencyinjectionextensions.11.2.1.nupkg.sha512"
     },
     "Mapster/7.3.0": {
       "type": "package",

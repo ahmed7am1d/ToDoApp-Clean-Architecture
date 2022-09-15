@@ -48,6 +48,14 @@
               "target": "Package",
               "version": "[1.0.0, )"
             },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.2.2, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.2.2, )"
+            },
             "Mapster": {
               "target": "Package",
               "version": "[7.3.0, )"

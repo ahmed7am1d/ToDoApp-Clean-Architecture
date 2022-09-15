@@ -60,9 +60,6 @@ const Login = () => {
                 <ShowHidePasswordIcon
                   showPasswordState={{isShowPasswordClicked, setIsShowPasswordClicked}}
                 />
-
-                {/* <EyeOutlined/>
-                <EyeInvisibleOutlined /> */}
               </div>
               <div className="buttons-wrapper">
                 <input type="submit" />

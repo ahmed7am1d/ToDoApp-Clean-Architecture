@@ -11,7 +11,7 @@ const ShowHidePasswordIcon = (prop) => {
     };
   return (
     <>
-        {isShowPasswordClicked ? <EyeInvisibleOutlined onClick={handleShowPassword}/> : <EyeOutlined onClick={handleShowPassword}/>}
+        {isShowPasswordClicked ? <EyeInvisibleOutlined onClick={handleShowPassword} className="eye-icon"/> : <EyeOutlined className="eye-icon" onClick={handleShowPassword}/>}
     </>
   )
 }

@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "EGkX62lBcBTWUCGnmeBVls+dUiEzW3htFFqmEQn5U/37T+enKIEfUOdlw25N8mfXfPOxAqDgF8ZdliiYKmJKXA==",
+  "dgSpecHash": "LctB5w0amNQrSz+UQgo38V8fFBd1gOQtMtWuKZ8Q1m6juo1tsJ2fH5KcU7WzTd0Bt93IIf/JKnRvv6CWcsWjsA==",
   "success": true,
   "projectFilePath": "C:\\Users\\a_al_\\OneDrive\\Desktop\\ToDo\\ToDo.Application\\ToDo.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\a_al_\\.nuget\\packages\\erroror\\1.0.0\\erroror.1.0.0.nupkg.sha512",
+    "C:\\Users\\a_al_\\.nuget\\packages\\fluentvalidation\\11.2.2\\fluentvalidation.11.2.2.nupkg.sha512",
+    "C:\\Users\\a_al_\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.2.2\\fluentvalidation.aspnetcore.11.2.2.nupkg.sha512",
+    "C:\\Users\\a_al_\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.1\\fluentvalidation.dependencyinjectionextensions.11.2.1.nupkg.sha512",
     "C:\\Users\\a_al_\\.nuget\\packages\\mapster\\7.3.0\\mapster.7.3.0.nupkg.sha512",
     "C:\\Users\\a_al_\\.nuget\\packages\\mapster.core\\1.2.0\\mapster.core.1.2.0.nupkg.sha512",
     "C:\\Users\\a_al_\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",

@@ -77,6 +77,7 @@ $column-padding: 50px;
   }
 
   .login-header-wrapper {
+    margin-left: 10px;
     span {
       font-size: 40px;
       color: $secondary-color;
@@ -164,6 +165,13 @@ $column-padding: 50px;
         width: 100%;
       }
     }
+    .eye-icon {
+      transition: .5s;
+    }
+    .eye-icon:hover {
+     transform: scale(1) !important;
+     font-size: 35px !important;
+    }
 
     .buttons-wrapper {
       input {
@@ -173,6 +181,12 @@ $column-padding: 50px;
         border: none;
         text-transform: uppercase;
         cursor: pointer;
+        transition: 0.5s;
+      }
+      input:hover {
+        background-color: $body-background-color;
+        outline: 1px solid $secondary-color;
+        color: $secondary-color;
       }
     }
   }
