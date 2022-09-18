@@ -21,7 +21,7 @@ namespace ToDo.Api
                            .AllowAnyMethod()
                            .AllowAnyHeader();
                 }));
-            //scanning and mapping all various mapping configurations that we have 
+            //scanning and mapping all various mapping configurations that we have
             services.AddMapping();
             services.AddControllers();
             return services;

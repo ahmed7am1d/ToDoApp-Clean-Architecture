@@ -353,6 +353,10 @@
               "target": "Package",
               "version": "[7.3.0, )"
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[6.0.1, )"
@@ -371,7 +375,7 @@
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[6.23.1, )"
             }
           },
           "imports": [

@@ -4,7 +4,8 @@ using ToDo.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 {
     //Each Layer has its own dependencies injection registration
-    builder.Services.AddApplication()
+    builder.Services
+    .AddApplication()
     .AddInfrastructure(builder.Configuration)
     .AddPresentation();
 }
@@ -13,7 +14,9 @@ var app = builder.Build();
 {
     app.UseCors("MyPolicy");
     app.UseExceptionHandler("/error");
-    app.UseHttpsRedirection();
+    //app.UseHttpsRedirection();
+    app.UseAuthentication();
+    app.UseAuthorization();
     app.MapControllers();
     app.Run();
 }

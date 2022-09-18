@@ -15,9 +15,10 @@ namespace ToDo.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddMediatR(typeof(DependencyInjection).Assembly);
-            services.AddScoped<IPipelineBehavior<RegisterCommand,ErrorOr<AuthenticationResult>>, ValidateRegisterCommandBehavior>();
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             //services.AddScoped<IValidator<RegisterCommand>, RegisterCommandValidator>();
             //we don't want to add every validator to the DI container, so we will use the extension method below
+            //every validator will be added to the DI container automatically using assembly scanning
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             return services;
         }

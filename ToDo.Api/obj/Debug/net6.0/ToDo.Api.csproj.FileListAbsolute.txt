@@ -30,7 +30,6 @@ C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\ToDo.Infrastructu
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\ToDo.Domain.pdb
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\ErrorOr.dll
@@ -44,3 +43,8 @@ C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\FluentValidation.
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\obj\Debug\net6.0\ToDo.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

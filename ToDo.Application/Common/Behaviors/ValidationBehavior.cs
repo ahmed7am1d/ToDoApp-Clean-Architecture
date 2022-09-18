@@ -11,11 +11,15 @@ using ToDo.Application.Authentication.Common;
 namespace ToDo.Application.Common.Behaviors;
 
 //managing commands and queries before they are sent to the handler
-public class ValidateRegisterCommandBehavior : IPipelineBehavior<RegisterCommand, ErrorOr<AuthenticationResult>>
+//it will recive RegisterCommand and will return ErroOr or Authentication result
+public class ValidationBehavior<TRequest,TResponse>
+ : IPipelineBehavior<TRequest, TResponse>
+ where TRequest: IRequest<TResponse>
+ where TResponse : IErrorOr
 {
-    private readonly IValidator<RegisterCommand> _validator;
+    private readonly IValidator<TRequest>? _validator;
 
-    public ValidateRegisterCommandBehavior(IValidator<RegisterCommand> validator)
+    public ValidationBehavior(IValidator<TRequest>? validator = null)
     {
         _validator = validator;
     }
@@ -28,22 +32,29 @@ public class ValidateRegisterCommandBehavior : IPipelineBehavior<RegisterCommand
     /// <param name="CancellationToken">This is a token that can be used to cancel the request.</param>
     /// <param name="next">The next handler in the pipeline.</param>
 
-    public async Task<ErrorOr<AuthenticationResult>> Handle(
-        RegisterCommand request,
+    public async Task<TResponse> Handle(
+        TRequest request,
         CancellationToken cancellationToken,
-        RequestHandlerDelegate<ErrorOr<AuthenticationResult>> next)
+        RequestHandlerDelegate<TResponse> next)
     {
+        if (_validator is null) {
+            return await next();
+        }
+        
         var validationResult = await _validator.ValidateAsync(request, cancellationToken);
         if(validationResult.IsValid) {
-            //if the validation is successful, we will call the our handler 
+            //if the validation is successful, we will call our handler and return the result
             return await next();
         }
         //if the validation is not successful, we will return list of ErrorOrs
+        //we are reciving a list of errors from the validator and we are converting it to a list of ErrorOrs
+        // every time we return list and then to async we can use instead ConvertAll method
+        //var errors = validationResult.Errors.Select(error =>  Error.Validation(error.ErrorMessage, error.ErrorMessage)).ToList();
         var errors = validationResult.Errors
         .ConvertAll(validationFailure => Error.Validation(
             validationFailure.PropertyName,
             validationFailure.ErrorMessage));
 
-        return errors;
+        return (dynamic)errors;
     }
 }

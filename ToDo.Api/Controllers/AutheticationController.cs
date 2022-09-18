@@ -1,6 +1,7 @@
 using ErrorOr;
 using MapsterMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ToDo.Application.Authentication.Commands.Register;
 using ToDo.Application.Authentication.Common;
@@ -13,6 +14,7 @@ namespace ToDo.Api.Controllers
 {
 
     [Route("auth")]
+    [AllowAnonymous]
     //[ErrorHandlingFilter]
     public class AuthenticationController : ApiController
     {
@@ -25,7 +27,7 @@ namespace ToDo.Api.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterRequest registerRequest)
+        public async Task<IActionResult> Register(RegisterRequest registerRequest)
         {
             //mapping request to command (var command will be register command filled from request)
             var command = _mapper.Map<RegisterCommand>(registerRequest);
