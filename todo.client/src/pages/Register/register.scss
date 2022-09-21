@@ -210,3 +210,12 @@ $column-padding: 50px;
 .required-field {
   color:$input-required-color;
 }
+
+.validation-error-input {
+  color: $input-required-color;
+  font-weight: bold;
+  margin-left: 10px;
+  overflow: hidden;
+  overflow:hidden; display:block;
+
+}

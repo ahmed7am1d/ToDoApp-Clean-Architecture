@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./styles/mainlayout/main.scss";
-import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 
 function App() {
   return <div className="App">
-    <Login/>
+    <Register/>
   </div>;
 }
 

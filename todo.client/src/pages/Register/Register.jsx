@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row ,Form,Input} from "antd";
+import { Col, Row, Form, Input } from "antd";
 import {
   ContactsFilled,
   ContactsOutlined,
@@ -7,18 +7,34 @@ import {
   EyeOutlined,
   EyeInvisibleOutlined,
 } from "@ant-design/icons";
-import "./login.scss";
+import "./register.scss";
 import ToDoPicture from "../../assets/images/Todo-list.png";
 import { useState } from "react";
-import ShowHidePasswordIcon from "../../components/Login/ShowHidePasswordIcon";
+import ShowHidePasswordIcon from "../../components/Register/ShowHidePasswordIcon";
 
-const Login = () => {
+const Register = () => {
   const [isShowPasswordClicked, setIsShowPasswordClicked] = useState(false);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [jwtToken, setJwtToken] = useState("");
+  const [firstNameInputError, setFirstNameInputError] = useState({
+    isError: false,
+    errorMessage: "",
+  });
+  const [lastNameInputError, setLastNameInputError] = useState({
+    isError: false,
+    errorMessage: "",
+  });
+  const [emailInputError, setEmailInputError] = useState({
+    isError: false,
+    errorMessage: "",
+  });
+  const [passwordInputError, setPasswordInputError] = useState({
+    isError: false,
+    errorMessage: "",
+  });
 
   const handleInputChange = (e) => {
     const { className, value } = e.target;
@@ -53,10 +69,42 @@ const Login = () => {
         PhoneNumber: "123456789",
       }),
     }).then(async (response) => {
-      await response.json().then((data)=>{
-        //console.log(data.token);
-        localStorage.setItem("jwtToken", data.token);
-      })
+      await response
+        .json()
+        .then((data) => {
+          //console.log(data.token);
+          if (response.ok) {
+            localStorage.setItem("jwtToken", data.token);
+          } else {
+            data.errors
+              ? Object.keys(data.errors).forEach((key, index) => {
+                  key === "FirstName" &&
+                    setFirstNameInputError({
+                      isError: true,
+                      errorMessage: data.errors[key][0],
+                    });
+                  key === "LastName" &&
+                    setLastNameInputError({
+                      isError: true,
+                      errorMessage: data.errors[key][0],
+                    });
+                  key === "Email" &&
+                    setEmailInputError({
+                      isError: true,
+                      errorMessage: data.errors[key][0],
+                    });
+                  key === "Password" &&
+                    setPasswordInputError({
+                      isError: true,
+                      errorMessage: data.errors[key][0],
+                    });
+                })
+              : console.log(data.title);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     });
   };
   return (
@@ -81,7 +129,9 @@ const Login = () => {
             >
               <div className="first-last-name-wrapper">
                 <div className="first-name-wrapper">
-                  <span><b className="required-field">*</b> First Name:</span>
+                  <span>
+                    <b className="required-field">*</b> First Name:
+                  </span>
                   <input
                     type="text"
                     className="firstname"
@@ -89,9 +139,16 @@ const Login = () => {
                     onChange={(e) => handleInputChange(e)}
                   />
                   <ContactsOutlined />
+                  {firstNameInputError.isError && (
+                    <span className="validation-error-input">
+                      {firstNameInputError.errorMessage}
+                    </span>
+                  )}
                 </div>
                 <div className="last-name-wrapper">
-                  <span><b className="required-field">*</b> Last Name:</span>
+                  <span>
+                    <b className="required-field">*</b> Last Name:
+                  </span>
                   <input
                     type="text"
                     className="lastname"
@@ -99,10 +156,15 @@ const Login = () => {
                     onChange={(e) => handleInputChange(e)}
                   />
                   <ContactsOutlined />
+                  <span className="validation-error-input">
+                    {lastNameInputError.errorMessage}
+                  </span>
                 </div>
               </div>
               <div className="email-wrapper">
-                <span><b className="required-field">*</b> Email:</span>
+                <span>
+                  <b className="required-field">*</b> Email:
+                </span>
                 <input
                   type="email"
                   className="email"
@@ -110,9 +172,14 @@ const Login = () => {
                   onChange={(e) => handleInputChange(e)}
                 />
                 <MailOutlined />
+                <span className="validation-error-input">
+                  {emailInputError.errorMessage}
+                </span>
               </div>
               <div className="password-wrapper">
-                <span><b className="required-field">*</b> Password:</span>
+                <span>
+                  <b className="required-field">*</b> Password:
+                </span>
                 <input
                   type={isShowPasswordClicked ? "text" : "password"}
                   value={password}
@@ -126,6 +193,9 @@ const Login = () => {
                     setIsShowPasswordClicked,
                   }}
                 />
+                <span className="validation-error-input">
+                  {passwordInputError.errorMessage}
+                </span>
               </div>
               <div className="buttons-wrapper">
                 <input type="submit" />
@@ -142,4 +212,4 @@ const Login = () => {
     </>
   );
 };
-export default Login;
+export default Register;
