@@ -11,6 +11,9 @@ import "./register.scss";
 import ToDoPicture from "../../assets/images/Todo-list.png";
 import { useState } from "react";
 import ShowHidePasswordIcon from "../../components/Register/ShowHidePasswordIcon";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import RegisterValidationSchema from "../../validation/Auth/RegisterValidationSchema";
 
 const Register = () => {
   const [isShowPasswordClicked, setIsShowPasswordClicked] = useState(false);
@@ -56,8 +59,14 @@ const Register = () => {
     }
   };
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(RegisterValidationSchema()),
+  });
   const handleRegisterSubmit = (e) => {
-    e.preventDefault();
     fetch("http://localhost:5133/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -125,7 +134,7 @@ const Register = () => {
 
             <form
               className="login-form-inputs-wrapper"
-              onSubmit={handleRegisterSubmit}
+              onSubmit={handleSubmit(handleRegisterSubmit)}
             >
               <div className="first-last-name-wrapper">
                 <div className="first-name-wrapper">
@@ -133,8 +142,10 @@ const Register = () => {
                     <b className="required-field">*</b> First Name:
                   </span>
                   <input
+                    {...register("firstName")}
                     type="text"
                     className="firstname"
+                    name="firstName"
                     value={firstName}
                     onChange={(e) => handleInputChange(e)}
                   />
@@ -144,21 +155,35 @@ const Register = () => {
                       {firstNameInputError.errorMessage}
                     </span>
                   )}
+                  {errors.firstName && (
+                    <span className="validation-error-input">
+                      {errors.firstName?.message}
+                    </span>
+                  )}
                 </div>
                 <div className="last-name-wrapper">
                   <span>
                     <b className="required-field">*</b> Last Name:
                   </span>
                   <input
+                    {...register("lastName")}
                     type="text"
                     className="lastname"
+                    name="lastName"
                     value={lastName}
                     onChange={(e) => handleInputChange(e)}
                   />
                   <ContactsOutlined />
-                  <span className="validation-error-input">
-                    {lastNameInputError.errorMessage}
-                  </span>
+                  {lastNameInputError.isError && (
+                    <span className="validation-error-input">
+                      {lastNameInputError.errorMessage}
+                    </span>
+                  )}
+                  {errors.lastName && (
+                    <span className="validation-error-input">
+                      {errors.lastName?.message}
+                    </span>
+                  )}
                 </div>
               </div>
               <div className="email-wrapper">
@@ -166,25 +191,36 @@ const Register = () => {
                   <b className="required-field">*</b> Email:
                 </span>
                 <input
+                  {...register("email")}
                   type="email"
                   className="email"
+                  name="email"
                   value={email}
                   onChange={(e) => handleInputChange(e)}
                 />
                 <MailOutlined />
-                <span className="validation-error-input">
-                  {emailInputError.errorMessage}
-                </span>
+                {emailInputError.isError && (
+                  <span className="validation-error-input">
+                    {emailInputError.errorMessage}
+                  </span>
+                )}
+                {errors.email && (
+                  <span className="validation-error-input">
+                    {errors.email?.message}
+                  </span>
+                )}
               </div>
               <div className="password-wrapper">
                 <span>
                   <b className="required-field">*</b> Password:
                 </span>
                 <input
+                  {...register("password")}
                   type={isShowPasswordClicked ? "text" : "password"}
                   value={password}
-                  onChange={(e) => handleInputChange(e)}
                   className="password"
+                  onChange={(e) => handleInputChange(e)}
+                  name="password"
                 />
 
                 <ShowHidePasswordIcon
@@ -193,9 +229,16 @@ const Register = () => {
                     setIsShowPasswordClicked,
                   }}
                 />
-                <span className="validation-error-input">
-                  {passwordInputError.errorMessage}
-                </span>
+                {passwordInputError.isError && (
+                  <span className="validation-error-input">
+                    {passwordInputError.errorMessage}
+                  </span>
+                )}
+                {errors.password && (
+                  <span className="validation-error-input">
+                    {errors.password?.message}
+                  </span>
+                )}
               </div>
               <div className="buttons-wrapper">
                 <input type="submit" />
