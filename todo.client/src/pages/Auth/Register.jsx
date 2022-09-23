@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Form, Input } from "antd";
+import { Col, Row, Form, Input, message } from "antd";
 import {
   ContactsFilled,
   ContactsOutlined,
@@ -10,10 +10,12 @@ import {
 import "./register.scss";
 import ToDoPicture from "../../assets/images/Todo-list.png";
 import { useState } from "react";
-import ShowHidePasswordIcon from "../../components/Register/ShowHidePasswordIcon";
+import ShowHidePasswordIcon from "../../components/Auth/Register/ShowHidePasswordIcon";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import RegisterValidationSchema from "../../validation/Auth/RegisterValidationSchema";
+import axios from "../../api/axios";
+import ApiConstants from "../../constants/ApiConstants";
 
 const Register = () => {
   const [isShowPasswordClicked, setIsShowPasswordClicked] = useState(false);
@@ -38,6 +40,13 @@ const Register = () => {
     isError: false,
     errorMessage: "",
   });
+
+  const clearInputFields = () => {
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPassword("");
+  };
 
   const handleInputChange = (e) => {
     const { className, value } = e.target;
@@ -66,55 +75,57 @@ const Register = () => {
   } = useForm({
     resolver: yupResolver(RegisterValidationSchema()),
   });
-  const handleRegisterSubmit = (e) => {
-    fetch("http://localhost:5133/auth/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        FirstName: firstName,
-        LastName: lastName,
-        Email: email,
-        Password: password,
-        PhoneNumber: "123456789",
-      }),
-    }).then(async (response) => {
-      await response
-        .json()
-        .then((data) => {
-          //console.log(data.token);
-          if (response.ok) {
-            localStorage.setItem("jwtToken", data.token);
-          } else {
-            data.errors
-              ? Object.keys(data.errors).forEach((key, index) => {
-                  key === "FirstName" &&
-                    setFirstNameInputError({
-                      isError: true,
-                      errorMessage: data.errors[key][0],
-                    });
-                  key === "LastName" &&
-                    setLastNameInputError({
-                      isError: true,
-                      errorMessage: data.errors[key][0],
-                    });
-                  key === "Email" &&
-                    setEmailInputError({
-                      isError: true,
-                      errorMessage: data.errors[key][0],
-                    });
-                  key === "Password" &&
-                    setPasswordInputError({
-                      isError: true,
-                      errorMessage: data.errors[key][0],
-                    });
-                })
-              : console.log(data.title);
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    });
+  const handleRegisterSubmit = async (e) => {
+    try {
+      const response = await axios.post(
+        ApiConstants.REGISTER_ENDPOINT,
+        JSON.stringify({
+          FirstName: firstName,
+          LastName: lastName,
+          Email: email,
+          Password: password,
+          PhoneNumber: "123456789",
+        }),
+        {
+          headers: ApiConstants.CONTENT_TYPE_POST_REQUEST,
+        }
+      );
+      message.success("You are registered successfully, Please Login to access your to do list :)");
+      clearInputFields();
+    } catch (error) {
+      if (error?.response) {
+        console.log(error);
+        message.error("No server response, please try again later");
+      } else {
+        error.response.data.errors
+          ? Object.keys(error.response.data.errors).forEach((key, index) => {
+              key === "FirstName" &&
+                setFirstNameInputError({
+                  isError: true,
+                  errorMessage: error.response.data.errors[key][0],
+                });
+              key === "LastName" &&
+                setLastNameInputError({
+                  isError: true,
+                  errorMessage: error.response.data.errors[key][0],
+                });
+              key === "Email" &&
+                setEmailInputError({
+                  isError: true,
+                  errorMessage: error.response.data.errors[key][0],
+                });
+              key === "Password" &&
+                setPasswordInputError({
+                  isError: true,
+                  errorMessage: error.response.data.errors[key][0],
+                });
+            })
+          : message.error({
+              content: error.response.data.title,
+              className: "error-pop-up-message",
+            });
+      }
+    }
   };
   return (
     <>

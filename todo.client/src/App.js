@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
 import "./styles/mainlayout/main.scss";
-import Register from "./pages/Register/Register";
+import Register from "./pages/Auth/Register";
 
 function App() {
-  return <div className="App">
+  return <main className="App">
     <Register/>
-  </div>;
+    {/* Navbar */}
+    {/* Main layout content that is inside it routing  */}
+    {/* footer */}
+  </main>;
 }
 
 export default App;
