@@ -40,17 +40,12 @@ namespace ToDo.Api.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
+        public async Task<IActionResult> Login( LoginRequest loginRequest)
         {
             //mapping request to query (var query will be login query filled from request)
             var query = _mapper.Map<LoginQuery>(loginRequest);
             var authResult = await _mediator.Send(query);
 
-            if (authResult.IsError && authResult.FirstError == Errors.Authentication.InvalidCredentials)
-            {
-                //even we specified the method Proble we can still use the Problem method from the base class of asp.net core
-                return Problem(statusCode: StatusCodes.Status401Unauthorized, title: authResult.FirstError.Description);
-            }
 
             return authResult.Match(
                     authResult => Ok(_mapper.Map<AutheticationResponse>(authResult)),

@@ -88,7 +88,6 @@ const Register = () => {
       clearInputFields();
     } catch (error) {
       if (error?.response) {
-        console.log(error);
         message.error("No server response, please try again later");
       } else {
         error.response.data.errors
@@ -133,7 +132,7 @@ const Register = () => {
                 Create new account<span>.</span>
               </h1>
               <p>
-                Already A Member? <a href="https://google.com">Log in</a>
+                Already A Member? <a href="/login">Log in</a>
               </p>
             </div>
 
