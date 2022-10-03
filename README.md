@@ -27,7 +27,7 @@ The system will allow you to do the following:
  - Loggin daily tasks
  - Logging weekly tasks
  - Tracking your habits 
- - Usage of pormodo technique 
+ - Usage of pormodo technique <br>
  And More is coming ... !
  
  App Internal Features:
