@@ -9,8 +9,12 @@ html {
 body {
   margin: 0;
   padding: 0;
-  // for the purpose of animation:
   overflow-x: hidden;
+  background-color: $body-background-color;
+}
+
+a {
+  text-decoration: none;
 }
 
 code {

@@ -1,0 +1,90 @@
+@import "../../utilities/scss/varaibles";
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Telex&display=swap");
+aside {
+  font-family: "Bebas Neue", cursive;
+  font-family: "Telex", sans-serif;
+
+  padding: 10px;
+  width: 200px;
+  height: 100vh;
+  background-color: white;
+  float: left;
+  .navigation-anchor {
+    color: black;
+  }
+
+  .user-wrapper {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    margin-bottom: 30px;
+    p {
+      font-weight: bold;
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: 18px;
+    }
+    .quote {
+      color: $main-text-color-gray;
+
+    }
+    p,
+    img {
+      margin: 0;
+      padding: 0;
+    }
+    .user-image-wrapper {
+      width: 85px;
+      height: 85px;
+      overflow: hidden;
+      border: 5px solid $body-background-color;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .navigation-category-paragraph {
+    color: $main-text-color-gray;
+  }
+  .navigation-wrapper {
+    margin-left: 10px;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      li:not(:first-child) {
+        margin-top: 30px;
+      }
+      li {
+        width: 170px;
+        transition: 0.5s;
+      }
+      li:hover {
+        background-color: $body-background-color;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        .navigation-anchor {
+          color: white;
+        }
+      }
+
+      svg {
+        color: $secondary-color;
+        margin-right: 25px;
+      }
+    }
+
+    .settings-navigation-wrapper {
+      margin-top: 30px;
+    }
+  }
+}

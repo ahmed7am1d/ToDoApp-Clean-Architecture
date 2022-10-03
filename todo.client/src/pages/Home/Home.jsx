@@ -1,8 +1,16 @@
-import React from 'react'
-
- const Home = () => {
+import React from "react";
+import Navbar from "../../components/Layout/Navbar";
+import { Outlet } from "react-router-dom";
+import "./home.scss"
+const Home = () => {
   return (
-    <div>Yep you are authorized :) </div>
-  )
+    <>
+      <Navbar />
+      <main className="main-content">
+        <Outlet />
+      </main>
+      {/* footer */}
+    </>
+  );
 };
 export default Home;

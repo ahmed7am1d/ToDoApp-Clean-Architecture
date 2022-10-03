@@ -1,18 +1,31 @@
-@import "../../utilities/scss/varaibles";
+@import "../../../utilities/scss/varaibles";
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Telex&display=swap");
-body {
+// body {
+//   background-image: linear-gradient(
+//       to left,
+//       rgba(29, 144, 244, 0.3),
+//       rgba(57, 61, 78, 2)
+//     ),
+//     url("../../../assets/images/leaves_plant_bw_167185_3840x2160.jpg");
+//   background-repeat: no-repeat;
+//   background-size: 100% 100%;
+//   background-position: center;
+//   background-clip: content-box;
+// }
+.login-Page-Wrapper {
   background-image: linear-gradient(
       to left,
       rgba(29, 144, 244, 0.3),
       rgba(57, 61, 78, 2)
     ),
-    url("../../assets/images/leaves_plant_bw_167185_3840x2160.jpg");
+    url("../../../assets/images/leaves_plant_bw_167185_3840x2160.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center;
   background-clip: content-box;
-  position: relative;
+  height: 100vh;
 }
+
 .login-form-wrapper {
   padding: 15px;
   position: absolute;
@@ -24,10 +37,28 @@ body {
   max-width: 500px;
   min-width: 350px;
   border-radius: 8px;
+  animation-name: login-form-wrapper-animation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
   h2 {
     margin-bottom: 50px;
     text-align: center;
   }
+}
+
+@keyframes login-form-wrapper-animation {
+  from {
+    top: -20%;
+    right: 50%;
+    background-color: darkgrey;
+    opacity: 0.6;
+  }
+  to {
+    top: 50%;
+    right: 50%;
+    opacity: 1;
+  }
+  
 }
 
 .form-wrapper {
@@ -162,6 +193,10 @@ body {
     margin: 0;
     margin-right: 10px;
     padding: 0;
+  }
+  a {
+    color: olive;
+    font-weight: bold;
   }
 }
 

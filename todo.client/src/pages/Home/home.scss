@@ -1,0 +1,15 @@
+@import "../../utilities/scss/varaibles";
+
+.main-content {
+    background-image: linear-gradient(
+        to left,
+        rgba(29, 144, 244, 0.3),
+        rgba(57, 61, 78, 2)
+      ),
+      url("../../assets/images/leaves_plant_bw_167185_3840x2160.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    background-clip: content-box;
+    height: 100vh;
+}
