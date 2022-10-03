@@ -8,8 +8,8 @@ Welcome to To-Do managment application where you manage:
   - Weekly Tasks
   - Monthly Tasks
   - Habit tracking
-  - Pormodo Timer
-  More is coming !
+  - Pormodo Timer <br>
+  And more is coming !
 
 App Inforamtion:
 ------
