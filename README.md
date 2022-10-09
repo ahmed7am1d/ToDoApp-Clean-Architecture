@@ -57,26 +57,10 @@ The system will allow you to do the following:
 
 Internal App ScreenShots:
 -----------
- **- Splash Screen:**
-<img src="AppScreenShots/SplashScreen.PNG"></img>
  **- Login Page:**
-<img src="AppScreenShots/SignInPage.PNG"></img>
- **- Account Settings Page:**
-<img src="AppScreenShots/AccountSettings.PNG"></img>
- **- Contracts Page:**
-<img src="AppScreenShots/ContractsPage.PNG"></img>
- **- Edit Contract Page:**
-<img src="AppScreenShots/ModifyContract.PNG"></img>
- **- Add Advisor :**
-<img src="AppScreenShots/Add-Advisor.PNG"></img>
- **- Clients Page:**
-<img src="AppScreenShots/ClientPage.PNG"></img>
- **- Advisors Page:**
-<img src="AppScreenShots/AdvisorsPage.PNG"></img>
- **- Responsive Account Settings:**<br>
-<img src="AppScreenShots/ResponsiveAccountSettings.png"></img><br>
- **- Responsive SignIn Page:**<br>
-<img src="AppScreenShots/ResponsiveSignInView.png"></img><br>
-**- Responsive Contracts Page:**<br>
-<img src="AppScreenShots/ResponsiveContractsView.png"></img><br>
->>>>>>> 122e6cba014d019c1d9aa396efdf5f3e59aee96f
+<img src="todo.client/src/assets/appScreenShots/LoginPage.png"></img>
+ **- Register Page:**
+<img src="todo.client/src/assets/appScreenShots/SignupPage.png"></img>
+ **- Home Page:**
+<img src="todo.client/src/assets/appScreenShots/HomePageGIF.gif"></img>
+
