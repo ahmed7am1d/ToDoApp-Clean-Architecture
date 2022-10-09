@@ -1,15 +1,45 @@
 @import "../../utilities/scss/varaibles";
 
-.main-content {
-    background-image: linear-gradient(
-        to left,
-        rgba(29, 144, 244, 0.3),
-        rgba(57, 61, 78, 2)
-      ),
-      url("../../assets/images/leaves_plant_bw_167185_3840x2160.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center;
-    background-clip: content-box;
-    height: 100vh;
+.main-content-wrapper {
+  background-image: linear-gradient(
+      to left,
+      rgba(161, 167, 173, 0.3),
+      rgba(57, 61, 78, 2)
+    ),
+    url("../../assets/images/leaves_plant_bw_167185_3840x2160.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-clip: content-box;
+  height: 100vh;
+  color: $main-text-color;
+
+  .main-content {
+    position: fixed;
+    float: right;
+  }
+}
+.main-content-ml-200 {
+  margin-left: 200px;
+  animation: maincontent-ml-200 0.7s;
+}
+@keyframes maincontent-ml-200 {
+  from {
+    margin-left: 20px;
+  }
+  to {
+    margin-left: 200px;
+  }
+}
+.main-content-ml-20 {
+  margin-left: 100px;
+  animation: maincontent-ml-20 1.3s;
+}
+@keyframes maincontent-ml-20 {
+  from {
+    margin-left: 200px;
+  }
+  to {
+    margin-left: 100px;
+  }
 }

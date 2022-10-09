@@ -27,6 +27,7 @@ namespace ToDo.Infrastructure
             this IServiceCollection services,
             ConfigurationManager configuration)
         {
+            //getting configuration from the json file 
             var jwtSettings = new JwtSettings();
             configuration.Bind(JwtSettings.SectionName, jwtSettings);
 

@@ -1,14 +1,48 @@
 @import "../../utilities/scss/varaibles";
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Telex&display=swap");
-aside {
+.aside-nav-full {
   font-family: "Bebas Neue", cursive;
   font-family: "Telex", sans-serif;
-
+  position: fixed;
   padding: 10px;
   width: 200px;
-  height: 100vh;
+  height: 100%;
   background-color: white;
   float: left;
+  animation-name: expand-navbar;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+
+  @keyframes expand-navbar {
+    from {
+      width: 50px;
+ 
+    }
+
+    to {
+      width: 200px;
+
+    }
+  }
+
+  .arrowWrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0;
+    padding-right: 0;
+    position: absolute;
+    top: 35px;
+    right: 0;
+    cursor: pointer;
+
+    .arrow-icon {
+      background-color: $secondary-color;
+      padding: 10px;
+      color: white;
+      border-radius: 20px 0px 0px 20px;
+    }
+  }
   .navigation-anchor {
     color: black;
   }
@@ -16,17 +50,18 @@ aside {
   .user-wrapper {
     display: flex;
     flex-direction: column;
-    
+
     align-items: center;
     margin-bottom: 30px;
     p {
-      font-weight: bold;
-      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-weight: 600;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
       font-size: 18px;
+      text-transform: uppercase;
     }
     .quote {
       color: $main-text-color-gray;
-
+      text-align: center;
     }
     p,
     img {
@@ -51,7 +86,7 @@ aside {
   }
   .navigation-wrapper {
     margin-left: 10px;
-
+    height: 150px;
     ul {
       margin: 0;
       padding: 0;
@@ -86,5 +121,140 @@ aside {
     .settings-navigation-wrapper {
       margin-top: 30px;
     }
+
+    .logout-navigation-wrapper {
+      height: 100%;
+      li {
+        margin-top: 30px;
+      }
+      li:hover {
+        cursor: pointer;
+      }
+    }
   }
+}
+
+// Collapsed asideNav
+.aside-nav-collapsed {
+  font-family: "Bebas Neue", cursive;
+  font-family: "Telex", sans-serif;
+  position: fixed;
+  padding: 10px;
+  width: 220px;
+  height: 100%;
+  background-color: white;
+  float: left;
+  animation-name: collapse-navbar;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+
+  
+  .arrowWrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0;
+    padding-right: 0;
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    
+    cursor: pointer;
+
+    .arrow-icon {
+      background-color: $secondary-color;
+      padding: 10px;
+      color: white;
+      border-radius: 0px 20px 20px 0px;
+    }
+  }
+
+  @keyframes collapse-navbar {
+    from {
+      width: 200px;
+    }
+
+    to {
+      width: 50px;
+    }
+  }
+  // user wrapper [logo + name]
+  .user-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    margin-bottom: 30px;
+    p {
+      font-weight: 600;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+    .quote {
+      color: $main-text-color-gray;
+      text-align: center;
+    }
+    p,
+    img {
+      margin: 0;
+      padding: 0;
+    }
+    .user-image-wrapper {
+      width: 85px;
+      height: 85px;
+      overflow: hidden;
+      border: 5px solid $body-background-color;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      animation-name: ImageAnimation;
+      animation-duration: 0.7s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      @keyframes ImageAnimation {
+        from {
+          width: 85px;
+          height: 85px;
+          border: 5px solid $body-background-color;
+        }
+        to {
+          width: 30px;
+          height: 30px;
+          border: none;
+
+        }
+      }
+    }
+  }
+  //navigation links
+  .navigation-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-content: space-around;
+      gap:15px;
+    }
+    svg {
+      font-size: 12px;
+      background-color: $body-background-color;
+      color: white;
+      padding: 10px;
+      border-radius: 40%;
+    }
+  }
+  
 }

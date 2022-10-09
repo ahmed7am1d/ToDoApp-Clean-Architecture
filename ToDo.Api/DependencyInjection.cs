@@ -1,16 +1,20 @@
+using System.Collections.Immutable;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using ToDo.Api.Common.Errors;
 using ToDo.Api.Common.Mapping;
+using ToDo.Infrastructure;
 
 namespace ToDo.Api
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddPresentation(this IServiceCollection services)
+        
+        public static IServiceCollection AddPresentation(this IServiceCollection services,WebApplicationBuilder builder)
         {
             //override the default problem details factory to use our custom problem details factory
             services.AddSingleton<ProblemDetailsFactory, ToDoProblemDetailsFactory>();
@@ -24,6 +28,10 @@ namespace ToDo.Api
             //scanning and mapping all various mapping configurations that we have
             services.AddMapping();
             services.AddControllers();
+            //DbContext 
+            services.AddDbContext<DataContext>(options=>{
+                options.UseSqlServer(builder.Configuration.GetConnectionString("ToDoDB"));
+            });
             return services;
         }
     }
