@@ -61,6 +61,6 @@ Internal App ScreenShots:
 <img src="todo.client/src/assets/appScreenShots/LoginPage.png"></img>
  **- Register Page:**
 <img src="todo.client/src/assets/appScreenShots/SignupPage.png"></img>
- **- Home Page:**
+ **- Home Page:** <br/>
 <img src="todo.client/src/assets/appScreenShots/HomePageGIF.gif"></img>
 
