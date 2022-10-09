@@ -15,13 +15,10 @@ namespace ToDo.Domain.Entities.Tasks
             builder.Property(t => t.DateCreated)
                    .HasColumnType("DATETIME")
                    .HasDefaultValueSql("GETDATE()");
-
             builder.HasOne(t => t.User).WithMany().HasForeignKey(t => t.UserId);
-            //enums
-            builder.Property(t => t.TaskPriortyId).HasConversion<int>();
-            builder.Property(t => t.TaskProgressId).HasConversion<int>();
-            builder.Property(t=> t.TaskTypeId).HasConversion<int>();
-
+            builder.HasOne(t => t.Type).WithMany().HasForeignKey(t => t.TaskTypeId);
+            builder.HasOne(t => t.Progress).WithMany().HasForeignKey(t => t.TaskProgressId);
+            builder.HasOne(t => t.Priority).WithMany().HasForeignKey(t => t.TaskPriorityId);
         }
     }
 }

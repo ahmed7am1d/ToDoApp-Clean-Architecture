@@ -1,4 +1,5 @@
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Infrastructure\bin\Debug\net6.0\ToDo.Infrastructure.deps.json
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Infrastructure\bin\Debug\net6.0\ToDo.Infrastructure.runtimeconfig.json
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Infrastructure\bin\Debug\net6.0\ToDo.Infrastructure.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Infrastructure\bin\Debug\net6.0\ToDo.Infrastructure.pdb
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Infrastructure\bin\Debug\net6.0\ToDo.Application.dll
@@ -14,4 +15,5 @@ C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Infrastructure\obj\Debug\net6.0\ToDo.I
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Infrastructure\obj\Debug\net6.0\ToDo.Infrastructure.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Infrastructure\obj\Debug\net6.0\refint\ToDo.Infrastructure.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Infrastructure\obj\Debug\net6.0\ToDo.Infrastructure.pdb
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Infrastructure\obj\Debug\net6.0\ToDo.Infrastructure.genruntimeconfig.cache
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Infrastructure\obj\Debug\net6.0\ref\ToDo.Infrastructure.dll

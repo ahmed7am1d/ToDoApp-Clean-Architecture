@@ -9,6 +9,7 @@ C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\ErrorOr.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Humanizer.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Mapster.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Mapster.Core.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Mapster.DependencyInjection.dll
@@ -19,6 +20,7 @@ C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.AspNetC
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll

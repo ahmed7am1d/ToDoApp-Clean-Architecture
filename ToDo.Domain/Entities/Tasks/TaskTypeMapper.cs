@@ -1,10 +1,10 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ToDo.Domain.Enums.Tasks;
 
 namespace ToDo.Domain.Entities.Tasks
 {
@@ -12,16 +12,8 @@ namespace ToDo.Domain.Entities.Tasks
     {
         public void Configure(EntityTypeBuilder<TaskType> builder)
         {
-            builder.Property(tt => tt.TaskTypeId).HasConversion<int>();
-            //seeding table TaskType from the enum
-            builder.HasData(Enum.GetValues(typeof(TaskTypeId))
-            .Cast<TaskTypeId>()
-            .Select(tt => new TaskType()
-            {
-                TaskTypeId = tt,
-                Name = tt.ToString()
-            })
-            );
+            builder.ToTable("TaskType");
+            builder.HasKey(tp => tp.TaskTypeId);
         }
     }
 }

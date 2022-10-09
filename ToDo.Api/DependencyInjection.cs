@@ -30,7 +30,8 @@ namespace ToDo.Api
             services.AddControllers();
             //DbContext 
             services.AddDbContext<DataContext>(options=>{
-                options.UseSqlServer(builder.Configuration.GetConnectionString("ToDoDB"));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("ToDoDB"),
+                x => x.MigrationsAssembly("ToDo.Infrastructure"));
             });
             return services;
         }
