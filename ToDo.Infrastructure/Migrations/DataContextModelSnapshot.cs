@@ -33,6 +33,9 @@ namespace ToDo.Infrastructure.Migrations
                         .HasColumnType("DATETIME")
                         .HasDefaultValueSql("GETDATE()");
 
+                    b.Property<DateTime>("DeadlineDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("TaskDescription")
                         .IsRequired()
                         .HasMaxLength(512)

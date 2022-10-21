@@ -14,7 +14,8 @@ import { message } from "antd";
 import { useForm } from "react-hook-form";
 import LoginValidationSchema from "../../../validation/Auth/LoginValidationSchema";
 import useAuth from "../../../hooks/useAuth";
-import { Link, useNavigate,useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 const Login = () => {
   const { setAuth } = useAuth({});
@@ -23,9 +24,9 @@ const Login = () => {
   //Remembering user where they came from
   //so we know where the user wanted to go before sending him to login page
   const from = location.state?.from?.pathname || "/home";
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [cookies,setCookie] = useCookies(['user']);
 
   const [emailInputError, setEmailInputError] = useState({
     isError: false,
@@ -79,8 +80,12 @@ const Login = () => {
       const userObject = response?.data;
       const accessToken = response?.data?.token;
       setAuth({ userObject, password, accessToken });
-     
-        navigate(from,{replace:true});
+      //store the auth object in cookies
+      // setCookie("accessToken",accessToken);
+      // setCookie("FirstName",userObject.firstName);
+      // setCookie("LastName",userObject.lastName);
+      // setCookie("Email",JSON.stringify(userObject?.email));
+      navigate(from, { replace: true });
       //message.success("You are successfully logged in");
     } catch (error) {
       if (!error.response.data) {
@@ -185,7 +190,6 @@ const Login = () => {
               <p>Don't have an account?</p>
               <Link to="/auth/register"> Sign up using Email</Link>
             </div>
-
           </form>
         </div>
       </div>

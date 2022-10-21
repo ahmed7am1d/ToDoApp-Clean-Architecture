@@ -72,6 +72,7 @@ namespace ToDo.Infrastructure.Migrations
                     TaskTitle = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     TaskDescription = table.Column<string>(type: "nvarchar(512)", maxLength: 512, nullable: false),
                     DateCreated = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValueSql: "GETDATE()"),
+                    DeadlineDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TaskPriorityId = table.Column<int>(type: "int", nullable: false),
                     TaskProgressId = table.Column<int>(type: "int", nullable: false),

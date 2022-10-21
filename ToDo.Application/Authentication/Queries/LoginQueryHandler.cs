@@ -5,6 +5,7 @@ using ToDo.Application.Common.Interfaces.Persistence;
 using ToDo.Domain.Entities;
 using ToDo.Domain.Common.Errors;
 using ToDo.Application.Authentication.Common;
+using ToDo.Application.Common.Services;
 
 namespace ToDo.Application.Authentication.Queries
 {
@@ -12,11 +13,13 @@ namespace ToDo.Application.Authentication.Queries
     {
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
         private readonly IUserRepository _userRepository;
+        private readonly IPasswordEncoder _passwordEncoder;
 
-        public LoginQueryHandler(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository)
+        public LoginQueryHandler(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository, IPasswordEncoder passwordEncoder)
         {
             _jwtTokenGenerator = jwtTokenGenerator;
             _userRepository = userRepository;
+            _passwordEncoder = passwordEncoder;
         }
 
 
@@ -24,7 +27,7 @@ namespace ToDo.Application.Authentication.Queries
         {
             await Task.CompletedTask;
             //[1] Validate user exists and password is correct
-            if (_userRepository.GetUserByEmail(query.Email) is not User user || user.Password != query.Password)
+            if (_userRepository.GetUserByEmail(query.Email) is not User user || user.Password != _passwordEncoder.GetHashedPassword(query.Password))
             {
                 return new[] { Errors.Authentication.InvalidCredentials };
             }

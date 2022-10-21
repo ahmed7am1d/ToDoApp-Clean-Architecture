@@ -74,23 +74,23 @@ const Navbar = () => {
           )}
           <ul>
             <li>
-              <Link to="/home/dailytasks" className="navigation-anchor">
+              <Link to="/home/overview" className="navigation-anchor">
                 <FontAwesomeIcon icon={faListCheck} />
-                {!collapseButtonClicked && "Daily Tasks"}
+                {!collapseButtonClicked && "Home"}
               </Link>
             </li>
             <li>
-              <Link to="/home/weeklytasks" className="navigation-anchor">
+              <Link to="/home/upcoming" className="navigation-anchor">
                 <FontAwesomeIcon icon={faCalendarWeek} />
-                {!collapseButtonClicked && "Weekly Tasks"}
+                {!collapseButtonClicked && "Upcoming tasks"}
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/home/monthlytasks" className="navigation-anchor">
                 <FontAwesomeIcon icon={faCalendar} />
                 {!collapseButtonClicked && "Monthly Tasks"}
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="settings-navigation-wrapper">

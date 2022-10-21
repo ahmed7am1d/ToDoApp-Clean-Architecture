@@ -15,6 +15,7 @@
     "axios": "^0.27.2",
     "cors": "^2.8.5",
     "react": "^18.2.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.36.0",
     "react-router-dom": "^6.3.0",
@@ -38,7 +39,7 @@
   "browserslist": {
     "production": [
       ">0.2%",
-      "not dead", 
+      "not dead",
       "not op_mini all"
     ],
     "development": [
@@ -48,5 +49,4 @@
     ]
   },
   "homepage": "http://localhost:3000/auth/register"
-  
 }

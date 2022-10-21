@@ -20,6 +20,8 @@ namespace ToDo.Infrastructure
             services.AddAuth(configuration);
             services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ITaskRepository, TaskRepository>();
+            services.AddSingleton<IPasswordEncoder, PasswordEncoder>();
             return services;
         }
 

@@ -8,9 +8,11 @@
     ),
     url("../../assets/images/leaves_plant_bw_167185_3840x2160.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  overflow: hidden;
+
   background-position: center;
   background-clip: content-box;
+  object-fit: cover;
   height: 100vh;
   color: $main-text-color;
 

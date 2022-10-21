@@ -11,17 +11,22 @@ namespace ToDo.Infrastructure.Persistence
     //that's why we have application layer and infrastructure layer
     public class UserRepository : IUserRepository
     {
-        // it is static because we don't want to create a new list every time we create a new instance of the user repository
-        //because we want to use the same list for all the instances of the user repository (and we will AddScoped)
-        private static readonly List<User> _users = new();
+        private readonly DataContext _dataContext;
+
+        public UserRepository(DataContext dataContext)
+        {
+            _dataContext = dataContext;
+        }
+
         public void Add(User user)
         {
-            _users.Add(user);
+            _dataContext.Users.Add(user);
+            _dataContext.SaveChanges();
         }
 
         public User? GetUserByEmail(string email)
         {
-           return  _users.FirstOrDefault(user => user.Email == email);
+           return  _dataContext.Users.FirstOrDefault(user => user.Email == email);
         }
     }
 }

@@ -1,0 +1,166 @@
+@import "../../utilities/scss/varaibles";
+$overview-page-padding-total: 9px;
+$overview-page-padding-right-left: 20px;
+$content-margin-top: 10px;
+@import "https://fonts.googleapis.com/css?family=Courgette";
+
+.overview-wrapper {
+  padding: 20px;
+  height: 100%;
+
+  //Header wrapper for title and dropdown menu
+  .header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 10px;
+    background-color: $main-text-color;
+    padding: $overview-page-padding-total;
+    padding-left: $overview-page-padding-right-left;
+    padding-right: $overview-page-padding-right-left;
+    width: 100%;
+    font-family: "Courgette";
+    .pageTitle {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      color: black;
+    }
+    .pageTitle::first-letter {
+      background-color: $secondary-color;
+      font-weight: bold;
+      color: $main-text-color;
+      padding: 5px;
+    }
+
+    .ant-dropdown-tasksDate {
+      color: black;
+    }
+  }
+
+  //Main content [ToDo, InProgress, Done]
+  .tasks-overview-wrapper {
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: $content-margin-top;
+
+    .innertask-container-header {
+
+      background: linear-gradient(
+        0deg,
+        rgba(118, 180, 149, 0.009138689655549759) 0%,
+        rgba(29, 144, 244, 0.288) 100%
+      );
+      padding: 5px 10px 0px 10px;
+      border-radius: 15px 15px 0px 0px;
+      width: 100%;
+
+      .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .counter {
+        background-color: rgba(29, 144, 244, 0.667);
+        color: $main-text-color;
+        padding: 3px;
+        font-weight: bold;
+        border-radius: 4px;
+      }
+      .innertask-headerContainer-button-container {
+        button {
+          width: 100%;
+          border-radius: 15px;
+          border: none;
+          outline: none;
+          background-color: rgba(29, 144, 244, 0.21);
+          padding: 5px 0px 5px 0px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .addButtonIcon {
+          color: rgb(61, 94, 78);
+        }
+        
+      }
+    }
+
+
+
+  }
+
+  .task-item-container {
+    background-color: $secondary-color;
+    padding: 5px;
+    margin: 6px;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: white;
+    .header-container{
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      margin-bottom: 5px;
+      .pinIcon {
+        font-size: 1.4rem;
+      }
+
+    }
+  }
+
+  .addTask-container,
+  .todayTasks-container,
+  .tomorrowTasks-container {
+    background-color: #eee;
+    color: black;
+    width: 30%;
+    border-radius: 15px;
+  }
+
+  //Extra small devices
+  @media (max-width: 355px) {
+    .header-wrapper {
+      flex-direction: column;
+    }
+  }
+  // Small devices (landscape phones, 576px and up)
+
+  @media (max-width: 766px) {
+    .header-wrapper {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .tasks-overview-wrapper {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-around;
+    }
+    .addTask-container,
+    .todayTasks-container,
+    .tomorrowTasks-container {
+      width: 100%;
+    }
+  }
+
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) {
+    .addTask-container,
+    .todayTasks-container,
+    .tomorrowTasks-container {
+      width: 32%;
+    }
+  }
+
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) {
+  }
+
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) {
+  }
+}

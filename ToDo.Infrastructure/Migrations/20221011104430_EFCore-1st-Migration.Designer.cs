@@ -12,7 +12,7 @@ using ToDo.Infrastructure;
 namespace ToDo.Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221009133156_EFCore-1st-Migration")]
+    [Migration("20221011104430_EFCore-1st-Migration")]
     partial class EFCore1stMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,6 +34,9 @@ namespace ToDo.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
                         .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<DateTime>("DeadlineDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("TaskDescription")
                         .IsRequired()
