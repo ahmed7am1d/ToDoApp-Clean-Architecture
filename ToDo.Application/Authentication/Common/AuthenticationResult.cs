@@ -9,5 +9,8 @@ namespace ToDo.Application.Authentication.Common
     public record AuthenticationResult
     (
         User User,
-        string Token);
+        string Token,
+        string RefreshToken,
+        DateTime? DateCreated,
+        DateTime? Expires);
 }

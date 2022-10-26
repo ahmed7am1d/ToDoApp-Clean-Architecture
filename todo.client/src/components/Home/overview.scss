@@ -41,17 +41,16 @@ $content-margin-top: 10px;
 
   //Main content [ToDo, InProgress, Done]
   .tasks-overview-wrapper {
-    height: 50%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     margin-top: $content-margin-top;
 
     .innertask-container-header {
-
       background: linear-gradient(
         0deg,
         rgba(118, 180, 149, 0.009138689655549759) 0%,
-        rgba(29, 144, 244, 0.288) 100%
+        rgba(29, 144, 244, 0.105) 100%
       );
       padding: 5px 10px 0px 10px;
       border-radius: 15px 15px 0px 0px;
@@ -84,30 +83,49 @@ $content-margin-top: 10px;
         .addButtonIcon {
           color: rgb(61, 94, 78);
         }
-        
       }
     }
-
-
-
   }
 
+  //Single task container
   .task-item-container {
-    background-color: $secondary-color;
-    padding: 5px;
+    background-color: white;
+    padding: 12px 10px 15px 12px;
     margin: 6px;
     margin-top: 10px;
-    border-radius: 5px;
-    color: white;
-    .header-container{
+    border-radius: 15px;
+    color: black;
+    .header-container {
       display: flex;
       justify-content: space-between;
       align-content: center;
       margin-bottom: 5px;
       .pinIcon {
         font-size: 1.4rem;
+        color: gray;
       }
-
+    }
+    .task-description-container {
+      color: gray;
+      padding: 2px;
+    }
+    .overdue-priority-container {
+      display: flex;
+      justify-content: space-around;
+    }
+    .priority-highest,
+    .priority-medium {
+      font-weight: bold;
+      border-radius: 10px;
+      padding: 5px 10px 5px 10px;
+      width: fit-content;
+      color: white;
+    }
+    .priority-highest {
+      background-color: red;
+    }
+    .priority-medium {
+      background-color: darkgoldenrod;
     }
   }
 
@@ -152,7 +170,7 @@ $content-margin-top: 10px;
     .addTask-container,
     .todayTasks-container,
     .tomorrowTasks-container {
-      width: 32%;
+      width: 27%;
     }
   }
 

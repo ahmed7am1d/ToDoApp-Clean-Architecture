@@ -11,5 +11,8 @@ namespace ToDo.Contracts.Authentication.Responses;
         string LastName,
         string Email,
         string PhoneNumber,
-        string Token
+        string Token,
+        string RefreshToken,
+        DateTime? DateCreated,
+        DateTime? Expires
     );

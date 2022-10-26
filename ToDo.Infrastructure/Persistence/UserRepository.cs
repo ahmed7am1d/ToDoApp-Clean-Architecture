@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using ToDo.Application.Common.Interfaces.Persistence;
 using ToDo.Domain.Entities;
 
@@ -26,7 +29,15 @@ namespace ToDo.Infrastructure.Persistence
 
         public User? GetUserByEmail(string email)
         {
-           return  _dataContext.Users.FirstOrDefault(user => user.Email == email);
+            return _dataContext.Users.FirstOrDefault(user => user.Email == email);
+        }
+        public bool SetUserRefereshToken(string refreshToken, User user, DateTime DateCreated, DateTime RefreshTokenExipryTime)
+        {
+            user.RefreshToken = refreshToken;
+            user.TokenExpires = RefreshTokenExipryTime;
+            user.TokenCreated = DateCreated;
+            _dataContext.Entry(user).State = EntityState.Modified;
+            return _dataContext.SaveChanges() > 0;
         }
     }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./overview.scss";
 import { DownOutlined, SmileOutlined } from "@ant-design/icons";
-import { Col, Dropdown, Menu, Row, Space } from "antd";
+import { Dropdown, Menu, Space, DatePicker, DatePickerProps } from "antd";
 import { PlusOutlined, PushpinOutlined } from "@ant-design/icons";
 
 const Overview = () => {
@@ -62,15 +62,56 @@ const Overview = () => {
           </div>
           {/* task item */}
           <div className="task-item-container">
+            
             <div className="header-container">
               <h4> • Learn Petrl</h4>
-              <PushpinOutlined className="pinIcon"/>
+              <PushpinOutlined className="pinIcon" />
             </div>
             <div className="task-description-container">
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse porro dolores quia nam soluta consequuntur saepe recusandae mollitia error rerum impedit maxime aliquam, sed minus doloribus sit quaerat quam necessitatibus.</p>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
+                porro dolores quia nam soluta consequuntur saepe recusandae
+                mollitia error rerum impedit maxime aliquam, sed minus doloribus
+                sit quaerat quam necessitatibus.
+              </p>
             </div>
-            <div className="task-overduedate-container"></div>
-            <div className="task-priority-container"></div>
+            <div className="overdue-priority-container">
+              <div className="task-overduedate-container">
+                <h5>Overdue date:</h5>
+                <DatePicker />
+              </div>
+              <div className="task-priority-container">
+                {/* example of Very important */}
+                <h5>Priority:</h5>
+                <div className="priority-highest">H</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="task-item-container">
+            <div className="header-container">
+              <h4> • Learn Petrl</h4>
+              <PushpinOutlined className="pinIcon" />
+            </div>
+            <div className="task-description-container">
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
+                porro dolores quia nam soluta consequuntur saepe recusandae
+                mollitia error rerum impedit maxime aliquam, sed minus doloribus
+                sit quaerat quam necessitatibus.
+              </p>
+            </div>
+            <div className="overdue-priority-container">
+              <div className="task-overduedate-container">
+                <h5>Overdue date:</h5>
+                <DatePicker />
+              </div>
+              <div className="task-priority-container">
+                {/* example of Very important */}
+                <h5>Priority:</h5>
+                <div className="priority-medium">M</div>
+              </div>
+            </div>
           </div>
         </div>
 

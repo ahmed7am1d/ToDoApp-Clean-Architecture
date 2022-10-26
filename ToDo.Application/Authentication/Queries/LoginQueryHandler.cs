@@ -14,12 +14,14 @@ namespace ToDo.Application.Authentication.Queries
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
         private readonly IUserRepository _userRepository;
         private readonly IPasswordEncoder _passwordEncoder;
+        private readonly IDateTimeProvider _dateTimeProvider;
 
-        public LoginQueryHandler(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository, IPasswordEncoder passwordEncoder)
+        public LoginQueryHandler(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository, IPasswordEncoder passwordEncoder, IDateTimeProvider dateTimeProvider = null)
         {
             _jwtTokenGenerator = jwtTokenGenerator;
             _userRepository = userRepository;
             _passwordEncoder = passwordEncoder;
+            _dateTimeProvider = dateTimeProvider;
         }
 
 
@@ -34,10 +36,17 @@ namespace ToDo.Application.Authentication.Queries
 
             //[2] Create JWT token
             var token = _jwtTokenGenerator.GenerateToken(user);
-
+            //[3] Generate refresh token
+            var refreshToken = _jwtTokenGenerator.GenerateRefreshToken();
+            //[4] Update user refresh token (set the refresh token)
+            _userRepository.SetUserRefereshToken(refreshToken,user,_dateTimeProvider.UtcNow,_dateTimeProvider.RefreshTokenExipryTime);
             return new AuthenticationResult(
              user,
-             token);
+             token,
+             refreshToken,
+             _dateTimeProvider.UtcNow,
+             _dateTimeProvider.RefreshTokenExipryTime
+             );
         }
     }
 }

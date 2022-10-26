@@ -3,9 +3,9 @@ POST {{host}}/auth/register
 Content-Type: application/json
 
 {
-    "firstName": "Ahmed",
-    "lastName": "Taha",
-    "email": "a_al_doori@utb.cz",
-    "password": "ahmed",
+    "firstName": "Yousef",
+    "lastName": "Raid",
+    "email": "yraid@utb.cz",
+    "password": "yousef",
     "phoneNumber":"+420 728 728 728"
 }

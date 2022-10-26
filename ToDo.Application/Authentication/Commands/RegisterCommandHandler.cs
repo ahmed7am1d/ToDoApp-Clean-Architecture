@@ -35,7 +35,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
             return Errors.User.DuplicateEmail;
         }
         //[2]Create user (generate unique Id) & Persist to DB & With hashed password
-        //creation of the hashed password 
+        //creation of the hashed password
 
         var user = new User
         {
@@ -49,6 +49,6 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         //[3] Create JWT token
         var token = _jwtTokenGenerator.GenerateToken(user);
         //[4] Return AuthenticationResult
-        return new AuthenticationResult(user, token);
+        return new AuthenticationResult(user, token,"",null,null);
     }
 }

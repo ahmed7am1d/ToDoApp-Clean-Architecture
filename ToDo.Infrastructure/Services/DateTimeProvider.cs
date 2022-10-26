@@ -9,6 +9,8 @@ namespace ToDo.Infrastructure.Services
     public class DateTimeProvider : IDateTimeProvider
     {
         public DateTime UtcNow => DateTime.UtcNow;
+        public DateTime RefreshTokenExipryTime => DateTime.Now.AddDays(7);
+
     }
 
 }

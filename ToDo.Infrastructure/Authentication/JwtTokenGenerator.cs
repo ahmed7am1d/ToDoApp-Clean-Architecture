@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -17,7 +18,7 @@ namespace ToDo.Infrastructure.Authentication
     {
         private readonly JwtSettings _jwtSettings;
         private readonly IDateTimeProvider _dateTimeProvider;
-        public JwtTokenGenerator(IDateTimeProvider dateTimeProvider,IOptions<JwtSettings> jwtOptions)
+        public JwtTokenGenerator(IDateTimeProvider dateTimeProvider, IOptions<JwtSettings> jwtOptions)
         {
             _dateTimeProvider = dateTimeProvider;
             _jwtSettings = jwtOptions.Value;
@@ -43,11 +44,16 @@ namespace ToDo.Infrastructure.Authentication
                 issuer: _jwtSettings.Issuer,
                 audience: _jwtSettings.Audience,
                 expires: _dateTimeProvider.UtcNow.AddMinutes(_jwtSettings.ExpiryTime),
-                claims:claims,
-                signingCredentials:signingCredentials
+                claims: claims,
+                signingCredentials: signingCredentials
             );
 
             return new JwtSecurityTokenHandler().WriteToken(securityToken);
+        }
+
+        public string GenerateRefreshToken()
+        {
+            return Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
         }
     }
 }

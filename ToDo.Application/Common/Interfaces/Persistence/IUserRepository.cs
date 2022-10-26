@@ -10,5 +10,6 @@ namespace ToDo.Application.Common.Interfaces.Persistence
     {
         User? GetUserByEmail(string email);
         void Add(User user);
+        bool SetUserRefereshToken(string refreshToken, User user, DateTime DateCreated, DateTime RefreshTokenExipryTime);
     }
 }
