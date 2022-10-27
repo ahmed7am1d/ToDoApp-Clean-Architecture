@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ToDo.Api",
+    "\\ToDo.Application\\Common",
+    "\\ToDo.Application\\Common\\Behaviors"
   ],
+  "SelectedNode": "\\ToDo.Api\\ToDo.Api.csproj",
   "PreviewInSolutionExplorer": false
 }

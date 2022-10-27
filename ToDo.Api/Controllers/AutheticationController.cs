@@ -40,17 +40,27 @@ namespace ToDo.Api.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login( LoginRequest loginRequest)
+        public async Task<IActionResult> Login(LoginRequest loginRequest)
         {
             //mapping request to query (var query will be login query filled from request)
             var query = _mapper.Map<LoginQuery>(loginRequest);
             var authResult = await _mediator.Send(query);
 
 
-            return authResult.Match(
-                    authResult => Ok(_mapper.Map<AutheticationResponse>(authResult)),
-                    errors => Problem(errors)
-            );
+            if (!authResult.IsError)
+            {
+                //[1]- Put the refresh token in the cookie
+                var cookieOptions = new CookieOptions
+                {
+                    HttpOnly = true,
+                    Expires = DateTime.UtcNow.AddDays(7)
+                };
+                Response.Cookies.Append("refreshToken", authResult.Value.RefreshToken, cookieOptions);
+                //[2]- Return Ok with the auth result
+                return Ok(_mapper.Map<AutheticationResponse>(authResult.Value));
+            }
+            return Problem(authResult.Errors);
         }
+
     }
 }
