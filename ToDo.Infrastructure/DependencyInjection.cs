@@ -10,6 +10,7 @@ using ToDo.Infrastructure.Persistence;
 using ToDo.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Http;
 
 namespace ToDo.Infrastructure
 {
@@ -19,9 +20,12 @@ namespace ToDo.Infrastructure
         {
             services.AddAuth(configuration);
             services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
+            services.AddSingleton<IUserContext, UserContext>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ITaskRepository, TaskRepository>();
             services.AddSingleton<IPasswordEncoder, PasswordEncoder>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             return services;
         }
 

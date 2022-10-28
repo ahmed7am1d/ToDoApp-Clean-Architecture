@@ -53,7 +53,7 @@ namespace ToDo.Api.Controllers
                 var cookieOptions = new CookieOptions
                 {
                     HttpOnly = true,
-                    Expires = DateTime.UtcNow.AddDays(7)
+                    Expires = authResult.Value.Expires
                 };
                 Response.Cookies.Append("refreshToken", authResult.Value.RefreshToken, cookieOptions);
                 //[2]- Return Ok with the auth result
@@ -62,5 +62,25 @@ namespace ToDo.Api.Controllers
             return Problem(authResult.Errors);
         }
 
+        [HttpPost("refresh-token")]
+        public async Task<IActionResult> RefreshToken()
+        {
+            var refreshToken = Request.Cookies["refreshToken"];
+            //var query = _mapper.Map<RefreshTokenQuery>(refreshToken);
+            var authResult = await _mediator.Send(new RefreshTokenQuery(refreshToken));
+
+            if (!authResult.IsError) {
+                //[1]- Put the refresh token in the cookie
+                var cookieOptions = new CookieOptions
+                {
+                    HttpOnly = true,
+                    Expires = authResult.Value.Expires
+                };
+                Response.Cookies.Append("refreshToken", authResult.Value.RefreshToken, cookieOptions);
+                //[2]- Return Ok with the auth result
+                return Ok(_mapper.Map<AutheticationResponse>(authResult.Value));
+            }
+            return Problem(authResult.Errors);
+        }
     }
 }

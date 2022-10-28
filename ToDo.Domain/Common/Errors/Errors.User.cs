@@ -10,9 +10,11 @@ namespace ToDo.Domain.Common.Errors
     {
         public static class User
         {
-            public static Error DuplicateEmail => Error.Conflict(
+            public static Error DuplicateEmail => Error.Conflict
+            (
                 code: "User.DuplicateEmail",
-                description: "Email already exists");
+                description: "Email already exists"
+            );
         }
     }
 }

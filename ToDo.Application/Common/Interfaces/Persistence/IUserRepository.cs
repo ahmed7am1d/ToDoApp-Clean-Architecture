@@ -9,7 +9,9 @@ namespace ToDo.Application.Common.Interfaces.Persistence
     public interface IUserRepository
     {
         User? GetUserByEmail(string email);
+        User? GetUserById(string userId);
         void Add(User user);
         bool SetUserRefereshToken(string refreshToken, User user, DateTime DateCreated, DateTime RefreshTokenExipryTime);
+        User? GetUserByRefreshToken(string refreshToken);
     }
 }

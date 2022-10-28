@@ -31,6 +31,17 @@ namespace ToDo.Infrastructure.Persistence
         {
             return _dataContext.Users.FirstOrDefault(user => user.Email == email);
         }
+
+        public User? GetUserById(string userId)
+        {
+            return _dataContext.Users.FirstOrDefault(user => user.Id.ToString().Equals(userId));
+        }
+
+        public User? GetUserByRefreshToken(string refreshToken)
+        {
+            return _dataContext.Users.FirstOrDefault(user => user.RefreshToken.Equals(refreshToken));
+        }
+
         public bool SetUserRefereshToken(string refreshToken, User user, DateTime DateCreated, DateTime RefreshTokenExipryTime)
         {
             user.RefreshToken = refreshToken;

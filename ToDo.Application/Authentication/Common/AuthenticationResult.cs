@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using ToDo.Domain.Entities;
 
@@ -10,7 +11,8 @@ namespace ToDo.Application.Authentication.Common
     (
         User User,
         string Token,
-        string RefreshToken,
+        string? RefreshToken,
         DateTime? DateCreated,
-        DateTime? Expires);
+        DateTime? Expires
+        );
 }

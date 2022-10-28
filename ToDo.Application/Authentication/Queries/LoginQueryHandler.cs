@@ -38,6 +38,7 @@ namespace ToDo.Application.Authentication.Queries
             var token = _jwtTokenGenerator.GenerateToken(user);
             //[3] Generate refresh token
             var refreshToken = _jwtTokenGenerator.GenerateRefreshToken();
+
             //[4] Update user refresh token (set the refresh token)
             _userRepository.SetUserRefereshToken(refreshToken,user,_dateTimeProvider.UtcNow,_dateTimeProvider.RefreshTokenExipryTime);
             return new AuthenticationResult(

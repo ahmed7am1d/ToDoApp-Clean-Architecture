@@ -4,15 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace ToDo.Contracts.Authentication.Responses;
-    public record AutheticationResponse
-    (
-        Guid Id,
-        string FirstName,
-        string LastName,
-        string Email,
-        string PhoneNumber,
-        string Token,
-        string RefreshToken,
-        DateTime? DateCreated,
-        DateTime? Expires
-    );
+public record AutheticationResponse
+(
+    Guid Id,
+    string FirstName,
+    string LastName,
+    string Email,
+    string PhoneNumber,
+    string Token
+);
