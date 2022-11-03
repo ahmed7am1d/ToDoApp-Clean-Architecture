@@ -1,12 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using MapsterMapper;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ToDo.Application.Common.Interfaces.Persistence;
 using ToDo.Application.ToDos.Queries;
+using ToDo.Contracts.ToDos.Requests;
+using ToDo.Contracts.ToDos.Responses;
 
 namespace ToDo.Api.Controllers;
 
@@ -24,8 +28,36 @@ public class ToDosController : ApiController
     }
 
     [HttpGet("ToDos")]
-    public async Task<IActionResult> GetToDos()
+    public async Task<IActionResult> GetToDos([FromBody] UserTasksRequest userTasksRequest)
     {
-        return Ok(await _mediator.Send(new GetAllToDosQuery()));
+        var toDos = await _mediator.Send(new GetAllToDosQuery(userTasksRequest.userId));
+
+        if (toDos is null) 
+            return NoContent();
+
+        return Ok(_mapper.Map<List<UserTaskResponse>>(toDos));
+    }
+
+    [HttpGet("task-types")]
+    public async Task<IActionResult> GetTaskTypes() {
+        var taskTypes = await _mediator.Send(new GetTaskTypesQuery());
+        if (taskTypes is null) return NoContent();
+        return Ok(taskTypes);
+    }
+
+    [HttpGet("task-progresses")]
+    public async Task<IActionResult> GetTaskProgresses()
+    {
+        var taskProgresses = await _mediator.Send(new GetTaskProgressesQuery());
+        if (taskProgresses is null) return NoContent();
+        return Ok(taskProgresses);
+    }
+
+    [HttpGet("task-priorities")]
+    public async Task<IActionResult> GetTaskPriorities()
+    {
+        var taskPriorities = await _mediator.Send(new GetTaskPrioritiesQuery());
+        if (taskPriorities is null) return NoContent();
+        return Ok(taskPriorities);
     }
 }

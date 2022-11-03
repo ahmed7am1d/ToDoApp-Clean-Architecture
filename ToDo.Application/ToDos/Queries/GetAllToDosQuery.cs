@@ -7,5 +7,7 @@ using System.Threading.Tasks;
 using ClientTask = ToDo.Domain.Entities.Tasks.Task;
 namespace ToDo.Application.ToDos.Queries
 {
-    public record GetAllToDosQuery : IRequest<List<ClientTask>>;
+    public record GetAllToDosQuery(
+        string UserId
+    ) : IRequest<List<ClientTask>>;
 }

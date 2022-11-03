@@ -52,5 +52,8 @@ namespace ToDo.Infrastructure
         //DbSets
         public DbSet<User> Users { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<TaskType> TaskTypes { get; set; }
+        public DbSet<TaskProgress> TaskProgresses { get; set; }
+        public DbSet<TaskPriority> TaskPriorities { get; set; }
     }
 }

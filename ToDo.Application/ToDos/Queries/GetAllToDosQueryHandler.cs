@@ -20,7 +20,7 @@ namespace ToDo.Application.ToDos.Queries
 
         public async Task<List<ClientTask>> Handle(GetAllToDosQuery request, CancellationToken cancellationToken)
         {
-            return await _taskRepository.GetAllTasksAsync();
+            return await _taskRepository.GetAllTasksAsync(request.UserId);
         }
     }
 }

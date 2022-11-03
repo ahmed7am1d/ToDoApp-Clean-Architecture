@@ -8,7 +8,8 @@ import "./styles/ant-design/antd.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  // i REMOVED THE STRICT MODE SO EACH COPONENT DOES NOT LOAD TWITC
+  // <React.StrictMode>
     <BrowserRouter>
       <SideBarNavProvider>
         <AuthProvider>
@@ -18,5 +19,5 @@ root.render(
         </AuthProvider>
       </SideBarNavProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  // {/* </React.StrictMode> */}
 );
