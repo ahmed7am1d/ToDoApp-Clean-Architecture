@@ -10,18 +10,18 @@ import {
   faLessThan,
   faGreaterThan
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./navbar.scss";
 import QuotesAPI from "../../api/RandomQuotesAPI";
 import ApiConstants from "../../constants/ApiConstants";
 import { useState } from "react";
 import { useEffect } from "react";
 import useSideNavBarToggle from "../../hooks/useSideNavBarToggle";
-
+import useAuth from "../../hooks/useAuth";
 const Navbar = () => {
   const [randomQuotes, setRandomQuotes] = useState([]);
   const {collapseButtonClicked, setCollapseButtonClicked} = useSideNavBarToggle({});
-
+  const {setAuth} = useAuth();
   const loadQuotes = async () => {
     try {
       const quotesAPIResponse = await QuotesAPI.get(
@@ -38,6 +38,11 @@ const Navbar = () => {
   useEffect(() => {
     loadQuotes();
   }, []);
+
+  const logout = () => {
+    setAuth({});
+    Navigate('/auth/login');
+  }
 
   const CollapseNav = () => {
     setCollapseButtonClicked(!collapseButtonClicked);
@@ -106,7 +111,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className="logout-navigation-wrapper">
+        <div className="logout-navigation-wrapper" onClick={() => logout() }>
           <ul>
             <li>
               <FontAwesomeIcon icon={faSignOut} />
