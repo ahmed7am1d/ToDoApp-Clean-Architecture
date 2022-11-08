@@ -1,10 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import "./overview.scss";
-import { DownOutlined, SmileOutlined } from "@ant-design/icons";
+import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Menu, Space, DatePicker, DatePickerProps } from "antd";
 import { PlusOutlined, PushpinOutlined } from "@ant-design/icons";
+import useAxiosPrivate from "../../hooks/useAxiosPrivate";
+import ApiConstants from "../../constants/ApiConstants";
+import useAuth from "../../hooks/useAuth";
+import { useEffect } from "react";
 
 const Overview = () => {
+  const axiosPrivate = useAxiosPrivate();
+  //[1]- Accessing react context / user object + getting JWT Token
+  const authObject = useAuth();
+  const userObject = authObject?.auth?.userObject;
+  const [userToDoTasks, setUserToDoTasks] = useState([]);
+  //[2]- Getting the tasks of the current user
+  useEffect(() => {
+    let isMounted = true;
+    //to cancel our request if the component is unmounted
+    const controller = new AbortController();
+    const getUserTasks = async () => {
+      try {
+        const response = await axiosPrivate.post(
+          ApiConstants.GETALL_USER_TASKS_ENDPOINT(userObject?.id),
+          {
+            signal: controller.signal,
+          }
+        );
+        console.log(response.data);
+        isMounted && setUserToDoTasks(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    getUserTasks();
+
+    //clean up function of useEffect - it runs when the component unmount
+    return () => {
+      isMounted = false;
+      //cancel any request when the component unmount
+      controller.abort();
+    };
+  }, []);
+  //[3]- call the function one time when the page load
+
+  //[4]- for the purpose of date pickers
   const menu = (
     <Menu
       items={[
@@ -61,58 +102,35 @@ const Overview = () => {
             </div>
           </div>
           {/* task item */}
-          <div className="task-item-container">
-            
-            <div className="header-container">
-              <h4> • Learn Petrl</h4>
-              <PushpinOutlined className="pinIcon" />
-            </div>
-            <div className="task-description-container">
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
-                porro dolores quia nam soluta consequuntur saepe recusandae
-                mollitia error rerum impedit maxime aliquam, sed minus doloribus
-                sit quaerat quam necessitatibus.
-              </p>
-            </div>
-            <div className="overdue-priority-container">
-              <div className="task-overduedate-container">
-                <h5>Overdue date:</h5>
-                <DatePicker />
-              </div>
-              <div className="task-priority-container">
-                {/* example of Very important */}
-                <h5>Priority:</h5>
-                <div className="priority-highest">H</div>
-              </div>
-            </div>
-          </div>
 
-          <div className="task-item-container">
-            <div className="header-container">
-              <h4> • Learn Petrl</h4>
-              <PushpinOutlined className="pinIcon" />
-            </div>
-            <div className="task-description-container">
-              <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
-                porro dolores quia nam soluta consequuntur saepe recusandae
-                mollitia error rerum impedit maxime aliquam, sed minus doloribus
-                sit quaerat quam necessitatibus.
-              </p>
-            </div>
-            <div className="overdue-priority-container">
-              <div className="task-overduedate-container">
-                <h5>Overdue date:</h5>
-                <DatePicker />
+          {userToDoTasks?.length ? (
+            userToDoTasks.map((task) => (
+              <div className="task-item-container" key={task.taskId}>
+                <div className="header-container">
+                  <h4> • {task.taskTitle}</h4>
+                  <PushpinOutlined className="pinIcon" />
+                </div>
+                <div className="task-description-container">
+                  <p>{task.taskDescription}</p>
+                </div>
+                <div className="overdue-priority-container">
+                  <div className="task-overduedate-container">
+                    <h5>Overdue date:</h5>
+                    <DatePicker />
+                  </div>
+                  <div className="task-priority-container">
+                    {/* example of Very important */}
+                    <h5>Priority:</h5>
+                    <div className="priority-highest">{task.priority}</div>
+                  </div>
+                </div>
               </div>
-              <div className="task-priority-container">
-                {/* example of Very important */}
-                <h5>Priority:</h5>
-                <div className="priority-medium">M</div>
-              </div>
-            </div>
-          </div>
+            ))
+          ) : (
+            <>
+              <p>No Current tasks to do :( </p>
+            </>
+          )}
         </div>
 
         {/* In Progress container */}

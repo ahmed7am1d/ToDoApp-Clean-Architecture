@@ -21,9 +21,11 @@ namespace ToDo.Api
             //add cors policy to allow all origins and methods to be able to test the api from outside application (different port)
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
                 {
-                    builder.AllowAnyOrigin()
-                           .AllowAnyMethod()
-                           .AllowAnyHeader();
+                    builder.WithOrigins("http://localhost:3000", "http://localhost:3000/", "https://localhost:3000/",
+                        "localhost:3000/")
+                           .AllowAnyMethod() 
+                           .AllowAnyHeader()
+                           .AllowCredentials();
                 }));
             //scanning and mapping all various mapping configurations that we have
             services.AddMapping();

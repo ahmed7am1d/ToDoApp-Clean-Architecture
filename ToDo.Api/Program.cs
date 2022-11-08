@@ -15,6 +15,7 @@ var app = builder.Build();
     app.UseCors("MyPolicy");
     app.UseExceptionHandler("/error");
     //app.UseHttpsRedirection();
+    //app.UseCookiePolicy();
     app.UseAuthentication();
     app.UseAuthorization();
     app.MapControllers();

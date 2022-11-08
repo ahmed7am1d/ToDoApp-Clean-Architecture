@@ -26,11 +26,13 @@ public class ToDosController : ApiController
         _mediator = mediator;
         _mapper = mapper;
     }
+    //[FromBody] UserTasksRequest userTasksRequest
 
-    [HttpGet("ToDos")]
-    public async Task<IActionResult> GetToDos([FromBody] UserTasksRequest userTasksRequest)
+    [Authorize]
+    [HttpPost("{userId}")]
+    public async Task<IActionResult> GetToDos(string userId)
     {
-        var toDos = await _mediator.Send(new GetAllToDosQuery(userTasksRequest.userId));
+        var toDos = await _mediator.Send(new GetAllToDosQuery(userId));
 
         if (toDos is null) 
             return NoContent();

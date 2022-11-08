@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +11,7 @@ using ToDo.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ToDo.Infrastructure
 {
@@ -25,7 +26,6 @@ namespace ToDo.Infrastructure
             services.AddScoped<ITaskRepository, TaskRepository>();
             services.AddSingleton<IPasswordEncoder, PasswordEncoder>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
             return services;
         }
 
@@ -54,6 +54,12 @@ namespace ToDo.Infrastructure
                             Encoding.UTF8.GetBytes(jwtSettings.Secret))
 
                     });
+            services.AddAuthorization(auth =>
+            {
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
+                    .RequireAuthenticatedUser().Build());
+            });
             return services;
         }
     }

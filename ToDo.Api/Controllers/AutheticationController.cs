@@ -53,7 +53,8 @@ namespace ToDo.Api.Controllers
                 var cookieOptions = new CookieOptions
                 {
                     HttpOnly = true,
-                    Expires = authResult.Value.Expires
+                    Expires = authResult.Value.Expires,
+                    IsEssential = true,
                 };
                 Response.Cookies.Append("refreshToken", authResult.Value.RefreshToken, cookieOptions);
                 //[2]- Return Ok with the auth result

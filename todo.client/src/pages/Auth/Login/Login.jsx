@@ -10,7 +10,7 @@ import {
   TwitterCircleFilled,
   SecurityScanOutlined,
 } from "@ant-design/icons";
-import { message } from "antd";
+import { message, Tree } from "antd";
 import { useForm } from "react-hook-form";
 import LoginValidationSchema from "../../../validation/Auth/LoginValidationSchema";
 import useAuth from "../../../hooks/useAuth";
@@ -73,6 +73,7 @@ const Login = () => {
         }),
         {
           headers: ApiConstants.CONTENT_TYPE_POST_REQUEST,
+          withCredentials: true
         }
       );
 

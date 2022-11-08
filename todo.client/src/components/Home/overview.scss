@@ -4,6 +4,10 @@ $overview-page-padding-right-left: 20px;
 $content-margin-top: 10px;
 @import "https://fonts.googleapis.com/css?family=Courgette";
 
+body {
+  background-color: #023042;
+}
+
 .overview-wrapper {
   padding: 20px;
   height: 100%;
