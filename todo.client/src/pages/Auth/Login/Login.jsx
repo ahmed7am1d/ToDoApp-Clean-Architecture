@@ -15,18 +15,14 @@ import { useForm } from "react-hook-form";
 import LoginValidationSchema from "../../../validation/Auth/LoginValidationSchema";
 import useAuth from "../../../hooks/useAuth";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useCookies } from "react-cookie";
 
 const Login = () => {
   const { setAuth } = useAuth({});
   const navigate = useNavigate();
   const location = useLocation();
-  //Remembering user where they came from
-  //so we know where the user wanted to go before sending him to login page
-  const from = location.state?.from?.pathname || "/home";
+  const from = location.state?.from?.pathname || "/home/overview";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [cookies,setCookie] = useCookies(['user']);
 
   const [emailInputError, setEmailInputError] = useState({
     isError: false,
@@ -46,7 +42,6 @@ const Login = () => {
     resolver: yupResolver(LoginValidationSchema()),
   });
 
-  //handle input changes
   const handleInputChange = (e) => {
     const { className, value } = e.target;
     switch (className) {
@@ -61,7 +56,6 @@ const Login = () => {
     }
   };
 
-  //handle submission of the form
   const handleFormSubmission = async (data, e) => {
     e.preventDefault();
     try {
@@ -76,18 +70,11 @@ const Login = () => {
           withCredentials: true
         }
       );
-
-      //const roles = ;
       const userObject = response?.data;
       const accessToken = response?.data?.token;
       setAuth({ userObject, password, accessToken });
-      //store the auth object in cookies
-      // setCookie("accessToken",accessToken);
-      // setCookie("FirstName",userObject.firstName);
-      // setCookie("LastName",userObject.lastName);
-      // setCookie("Email",JSON.stringify(userObject?.email));
       navigate(from, { replace: true });
-      //message.success("You are successfully logged in");
+
     } catch (error) {
       if (!error.response.data) {
         message.error("No server response, please try again later");

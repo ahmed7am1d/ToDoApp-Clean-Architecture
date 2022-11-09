@@ -5,7 +5,7 @@ $content-margin-top: 10px;
 @import "https://fonts.googleapis.com/css?family=Courgette";
 
 body {
-  background-color: #023042;
+  background-color: $body-background-color;
 }
 
 .overview-wrapper {

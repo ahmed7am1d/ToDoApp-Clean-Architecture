@@ -4,15 +4,12 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ToDo.Application.Authentication.Commands.Register;
-using ToDo.Application.Authentication.Common;
 using ToDo.Application.Authentication.Queries;
 using ToDo.Contracts.Authentication.Requests;
 using ToDo.Contracts.Authentication.Responses;
-using ToDo.Domain.Common.Errors;
 
 namespace ToDo.Api.Controllers
 {
-
     [Route("auth")]
     [AllowAnonymous]
     //[ErrorHandlingFilter]
@@ -29,13 +26,11 @@ namespace ToDo.Api.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterRequest registerRequest)
         {
-            //mapping request to command (var command will be register command filled from request)
             var command = _mapper.Map<RegisterCommand>(registerRequest);
             var authResult = await _mediator.Send(command);
 
             return authResult.Match(
                 authResult => Ok(_mapper.Map<AutheticationResponse>(authResult)),
-                //passing the list of errors to the Problem method in the ApiController
                 errors => Problem(errors));
         }
 
@@ -49,15 +44,14 @@ namespace ToDo.Api.Controllers
 
             if (!authResult.IsError)
             {
-                //[1]- Put the refresh token in the cookie
                 var cookieOptions = new CookieOptions
                 {
                     HttpOnly = true,
                     Expires = authResult.Value.Expires,
                     IsEssential = true,
+                    Secure= false
                 };
                 Response.Cookies.Append("refreshToken", authResult.Value.RefreshToken, cookieOptions);
-                //[2]- Return Ok with the auth result
                 return Ok(_mapper.Map<AutheticationResponse>(authResult.Value));
             }
             return Problem(authResult.Errors);
@@ -67,18 +61,15 @@ namespace ToDo.Api.Controllers
         public async Task<IActionResult> RefreshToken()
         {
             var refreshToken = Request.Cookies["refreshToken"];
-            //var query = _mapper.Map<RefreshTokenQuery>(refreshToken);
             var authResult = await _mediator.Send(new RefreshTokenQuery(refreshToken));
 
             if (!authResult.IsError) {
-                //[1]- Put the refresh token in the cookie
                 var cookieOptions = new CookieOptions
                 {
                     HttpOnly = true,
                     Expires = authResult.Value.Expires
                 };
                 Response.Cookies.Append("refreshToken", authResult.Value.RefreshToken, cookieOptions);
-                //[2]- Return Ok with the auth result
                 return Ok(_mapper.Map<AutheticationResponse>(authResult.Value));
             }
             return Problem(authResult.Errors);

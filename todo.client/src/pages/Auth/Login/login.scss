@@ -1,17 +1,6 @@
 @import "../../../utilities/scss/varaibles";
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Telex&display=swap");
-// body {
-//   background-image: linear-gradient(
-//       to left,
-//       rgba(29, 144, 244, 0.3),
-//       rgba(57, 61, 78, 2)
-//     ),
-//     url("../../../assets/images/leaves_plant_bw_167185_3840x2160.jpg");
-//   background-repeat: no-repeat;
-//   background-size: 100% 100%;
-//   background-position: center;
-//   background-clip: content-box;
-// }
+
 .login-Page-Wrapper {
   background-image: linear-gradient(
       to left,
@@ -32,7 +21,7 @@
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-  background-color: white;
+  background-color: $login-form-background-color;
   height: 600px;
   max-width: 500px;
   min-width: 350px;
@@ -58,7 +47,6 @@
     right: 50%;
     opacity: 1;
   }
-  
 }
 
 .form-wrapper {
@@ -88,7 +76,7 @@
     text-transform: uppercase;
     cursor: pointer;
     transition: 0.5s;
-    color: white;
+    color: $button-white-text-color;
   }
 }
 

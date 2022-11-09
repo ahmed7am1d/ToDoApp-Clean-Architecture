@@ -7,9 +7,12 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import ApiConstants from "../../constants/ApiConstants";
 import useAuth from "../../hooks/useAuth";
 import { useEffect } from "react";
+import {useNavigate, useLocation} from "react-router-dom";
 
 const Overview = () => {
   const axiosPrivate = useAxiosPrivate();
+  const navigate = useNavigate();
+  const location = useLocation();
   //[1]- Accessing react context / user object + getting JWT Token
   const authObject = useAuth();
   const userObject = authObject?.auth?.userObject;
@@ -28,9 +31,15 @@ const Overview = () => {
           }
         );
         console.log(response.data);
+        console.log(authObject);
         isMounted && setUserToDoTasks(response.data);
       } catch (err) {
         console.error(err);
+        //in case of error (exipre of refresh token) - send them back to login
+        navigate('/auth/login',{
+          state:  {from:location},
+          replace: true
+        })
       }
     };
 

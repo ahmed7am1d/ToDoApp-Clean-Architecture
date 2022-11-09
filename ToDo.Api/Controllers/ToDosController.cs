@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using MapsterMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ToDo.Application.Common.Interfaces.Persistence;
@@ -32,6 +33,7 @@ public class ToDosController : ApiController
     [HttpPost("{userId}")]
     public async Task<IActionResult> GetToDos(string userId)
     {
+        //string accessTokenExpire =  HttpContext.User.Claims.FirstOrDefault(c => c.Type == "exp").Value;
         var toDos = await _mediator.Send(new GetAllToDosQuery(userId));
 
         if (toDos is null) 
