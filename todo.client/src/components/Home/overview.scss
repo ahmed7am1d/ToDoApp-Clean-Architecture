@@ -1,16 +1,19 @@
-@import "../../utilities/scss/varaibles";
+@import "../../styles/varaibles";
 $overview-page-padding-total: 9px;
 $overview-page-padding-right-left: 20px;
 $content-margin-top: 10px;
 @import "https://fonts.googleapis.com/css?family=Courgette";
+@import "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BenchNine&family=DM+Serif+Display&family=Quattrocento+Sans&family=Telex&display=swap";
 
 body {
-  background-color: $body-background-color;
+
 }
 
 .overview-wrapper {
   padding: 20px;
   height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   //Header wrapper for title and dropdown menu
   .header-wrapper {
@@ -19,12 +22,15 @@ body {
     align-items: center;
     flex-direction: row;
     border-radius: 10px;
-    background-color: $main-text-color;
     padding: $overview-page-padding-total;
     padding-left: $overview-page-padding-right-left;
     padding-right: $overview-page-padding-right-left;
     width: 100%;
-    font-family: "Courgette";
+    font-family: "Bebas Neue", cursive;
+    font-family: "BenchNine", sans-serif;
+    font-family: "DM Serif Display", serif;
+    font-family: "Quattrocento Sans", sans-serif;
+    font-family: "Telex", sans-serif;
     .pageTitle {
       text-align: center;
       margin: 0;
@@ -32,12 +38,11 @@ body {
       color: black;
     }
     .pageTitle::first-letter {
-      background-color: $secondary-color;
+      background-color: $body-background-color;
       font-weight: bold;
       color: $main-text-color;
       padding: 5px;
     }
-
     .ant-dropdown-tasksDate {
       color: black;
     }
@@ -51,11 +56,11 @@ body {
     margin-top: $content-margin-top;
 
     .innertask-container-header {
-      background: linear-gradient(
-        0deg,
-        rgba(118, 180, 149, 0.009138689655549759) 0%,
-        rgba(29, 144, 244, 0.105) 100%
-      );
+      // background: linear-gradient(
+      //   0deg,
+      //   rgba(118, 180, 149, 0) 0%,
+      //   rgba(29, 144, 244, 0.404) 100%
+      // );
       padding: 5px 10px 0px 10px;
       border-radius: 15px 15px 0px 0px;
       width: 100%;
@@ -66,11 +71,12 @@ body {
         align-items: center;
       }
       .counter {
-        background-color: rgba(29, 144, 244, 0.667);
+        background-color: $body-background-color;
         color: $main-text-color;
         padding: 3px;
         font-weight: bold;
         border-radius: 4px;
+        margin: 3px;
       }
       .innertask-headerContainer-button-container {
         button {
@@ -80,14 +86,94 @@ body {
           outline: none;
           background-color: rgba(29, 144, 244, 0.21);
           padding: 5px 0px 5px 0px;
+          transition: .5s;
           &:hover {
             cursor: pointer;
+            background-color: $body-background-color;
           }
         }
         .addButtonIcon {
-          color: rgb(61, 94, 78);
+          color: white;
         }
       }
+    }
+  }
+
+  //Add Task fields 
+  .addTask-inputFields-container {
+    input, textarea {
+      width: 100%;
+      background-color: rgba(238, 238, 238, 0.557);
+      padding: 5px;
+      outline: none;
+      border: none;
+      margin-bottom: 5px;
+      transition: .3s;
+      font-size: 0.8rem;
+    }
+    :focus {
+      border-bottom: 1px solid $secondary-color;
+    }
+  }
+  .addTask-overdue-priorty-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    .deadline-container,
+    .priorty-container {
+      width: 120px;
+      .ant-picker,
+      .ant-select-selector {
+        border-radius: 5px;
+      }
+    }
+    .deadline-container {
+
+    }
+    .priorty-container {
+      
+    }
+  }
+
+  .addTask-cancel-add-container {
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: flex-end;
+    button {
+      padding: 5px 17px 5px 17px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: .3s;
+    }
+    :hover {
+      opacity: 0.6;
+    }
+    :nth-child(1) {
+      background-color: #36CB80;
+      margin-right: 7px;
+      color: white;
+    }
+    :nth-child(2) {
+    }
+  }
+
+  //Single task container for the input fields
+   .addTask {
+   animation-name: addTaskFieldsAnimation;
+   animation-duration: 1.7s;
+   opacity: 1;
+   box-shadow: 1px 2px 5px $secondary-color;
+    @keyframes addTaskFieldsAnimation {
+      from {
+        opacity: 0.4;
+        box-shadow: 1px 1px 6px $secondary-color;
+      } to { 
+        opacity: 1;
+      }
+      
     }
   }
 
@@ -105,43 +191,73 @@ body {
       align-content: center;
       margin-bottom: 5px;
       .pinIcon {
-        font-size: 1.4rem;
-        color: gray;
+        font-size: 1.2rem;
+        color: $secondary-color;
+      }
+      .task-header-bullet {
+        color: $secondary-color;
+        font-weight: bold;
+        font-size: 18px;
       }
     }
     .task-description-container {
       color: gray;
       padding: 2px;
+      font-size: 12px;
     }
+
     .overdue-priority-container {
       display: flex;
       justify-content: space-around;
+      .ant-picker {
+        border-radius: 5px;
+      }
     }
     .priority-highest,
-    .priority-medium {
-      font-weight: bold;
+    .priority-medium,
+    .priority-low {
       border-radius: 10px;
-      padding: 5px 10px 5px 10px;
+      padding: 5px 7px 5px 7px;
       width: fit-content;
       color: white;
+      font-size: 12px;
     }
     .priority-highest {
-      background-color: red;
+      background-color: #b20000;
     }
     .priority-medium {
-      background-color: darkgoldenrod;
+      background-color: rgb(229, 173, 31);
+    }
+    .priority-low {
+      background-color: gray;
     }
   }
 
   .addTask-container,
   .todayTasks-container,
   .tomorrowTasks-container {
-    background-color: #eee;
     color: black;
     width: 30%;
     border-radius: 15px;
+    background: linear-gradient(
+      0deg,
+      rgba(118, 180, 149, 0) 0%,
+      rgba(29, 144, 244, 0.073) 100%
+    );
   }
 
+  .NoTasks-Image-Container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+    align-items: flex-end;
+    margin-top: 60px;
+    img {
+      width: 60%;
+    }
+  }
   //Extra small devices
   @media (max-width: 355px) {
     .header-wrapper {

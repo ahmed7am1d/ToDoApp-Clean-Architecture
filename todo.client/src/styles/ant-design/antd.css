@@ -1,4 +1,4 @@
-@import url( "./../../utilities/scss/_varaibles.scss");
+@import url( "../_varaibles.scss");
 [class^=ant-]::-ms-clear,
 [class*= ant-]::-ms-clear,
 [class^=ant-] input::-ms-clear,
@@ -8,11 +8,7 @@
   display: none;
 }
 /* stylelint-disable property-no-vendor-prefix, at-rule-no-vendor-prefix */
-html,
-body {
-  width: 100%;
-  height: 100%;
-}
+
 input::-ms-clear,
 input::-ms-reveal {
   display: none;
@@ -5636,7 +5632,6 @@ a.ant-btn-sm {
   align-items: center;
   background: #fff;
   border: 1px solid #d9d9d9;
-  border-radius: 40px;
   transition: border 0.3s, box-shadow 0.3s;
 }
 .ant-picker:hover,
@@ -19534,7 +19529,7 @@ span.ant-radio + * {
   line-height: 22px;
   background: #f5f5f5;
   border: 1px solid #f0f0f0;
-  border-radius: 40px;
+  /* border-radius: 40px; */
   cursor: default;
   transition: font-size 0.3s, line-height 0.3s, height 0.3s;
   user-select: none;
@@ -19722,7 +19717,7 @@ span.ant-radio + * {
   position: relative;
   background-color: #fff;
   border: 1px solid #d9d9d9;
-  border-radius: 40px;
+  /* border-radius: 40px; */
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .ant-select:not(.ant-select-customize-input) .ant-select-selector input {
@@ -19902,7 +19897,7 @@ span.ant-radio + * {
   font-size: 14px;
   font-variant: initial;
   background-color: #fff;
-  border-radius: 40px;
+  /* border-radius: 40px; */
   outline: none;
   box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
 }
@@ -20183,7 +20178,7 @@ span.ant-radio + * {
   display: inline-block;
   vertical-align: top;
   background: rgba(190, 190, 190, 0.2);
-  border-radius: 40px;
+  /* border-radius: 40px; */
   width: 64px;
   min-width: 64px;
   height: 32px;
@@ -20196,10 +20191,10 @@ span.ant-radio + * {
 .ant-skeleton-element .ant-skeleton-button.ant-skeleton-button-circle {
   width: 32px;
   min-width: 32px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 .ant-skeleton-element .ant-skeleton-button.ant-skeleton-button-round {
-  border-radius: 32px;
+  /* border-radius: 32px; */
 }
 .ant-skeleton-element .ant-skeleton-button-lg {
   width: 80px;
@@ -20214,10 +20209,10 @@ span.ant-radio + * {
 .ant-skeleton-element .ant-skeleton-button-lg.ant-skeleton-button-circle {
   width: 40px;
   min-width: 40px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 .ant-skeleton-element .ant-skeleton-button-lg.ant-skeleton-button-round {
-  border-radius: 40px;
+  /* border-radius: 40px; */
 }
 .ant-skeleton-element .ant-skeleton-button-sm {
   width: 48px;
@@ -20232,10 +20227,10 @@ span.ant-radio + * {
 .ant-skeleton-element .ant-skeleton-button-sm.ant-skeleton-button-circle {
   width: 24px;
   min-width: 24px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 .ant-skeleton-element .ant-skeleton-button-sm.ant-skeleton-button-round {
-  border-radius: 24px;
+  /* border-radius: 24px; */
 }
 .ant-skeleton-element .ant-skeleton-avatar {
   display: inline-block;
@@ -20246,7 +20241,7 @@ span.ant-radio + * {
   line-height: 32px;
 }
 .ant-skeleton-element .ant-skeleton-avatar.ant-skeleton-avatar-circle {
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 .ant-skeleton-element .ant-skeleton-avatar-lg {
   width: 40px;
@@ -20254,7 +20249,7 @@ span.ant-radio + * {
   line-height: 40px;
 }
 .ant-skeleton-element .ant-skeleton-avatar-lg.ant-skeleton-avatar-circle {
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 .ant-skeleton-element .ant-skeleton-avatar-sm {
   width: 24px;
@@ -20262,7 +20257,7 @@ span.ant-radio + * {
   line-height: 24px;
 }
 .ant-skeleton-element .ant-skeleton-avatar-sm.ant-skeleton-avatar-circle {
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 .ant-skeleton-element .ant-skeleton-input {
   display: inline-block;
@@ -20309,7 +20304,7 @@ span.ant-radio + * {
   max-height: 192px;
 }
 .ant-skeleton-element .ant-skeleton-image-svg.ant-skeleton-image-circle {
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 @keyframes ant-skeleton-loading {
   0% {

@@ -15,6 +15,7 @@ const ApiConstants = {
     GETALL_USER_TASKS_ENDPOINT:(userId) =>{
         return `/todo/${userId}`
     },
+    GET_TASK_PRIORITIES: '/todo/task-priorities',
 
     //Content type for post request
     CONTENT_TYPE_POST_REQUEST: { 'Content-Type': 'application/json' },
