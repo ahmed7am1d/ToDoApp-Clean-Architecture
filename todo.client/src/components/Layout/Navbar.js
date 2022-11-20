@@ -1,27 +1,33 @@
 import React from "react";
+import { useState,useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+
 import ProfileIcon from "../../assets/images/262883343_743681627026575_2615310581595321543_n.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faListCheck,
   faCalendarWeek,
-  faCalendar,
   faGear,
   faSignOut,
   faLessThan,
-  faGreaterThan
+  faGreaterThan,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link, Navigate } from "react-router-dom";
-import "./navbar.scss";
+
 import QuotesAPI from "../../api/RandomQuotesAPI";
 import ApiConstants from "../../constants/ApiConstants";
-import { useState } from "react";
-import { useEffect } from "react";
+
 import useSideNavBarToggle from "../../hooks/useSideNavBarToggle";
-import useAuth from "../../hooks/useAuth";
+import useLogout from "../../hooks/useLogout";
+
+import "./navbar.scss";
+
 const Navbar = () => {
   const [randomQuotes, setRandomQuotes] = useState([]);
-  const {collapseButtonClicked, setCollapseButtonClicked} = useSideNavBarToggle({});
-  const {setAuth} = useAuth();
+  const { collapseButtonClicked, setCollapseButtonClicked } =useSideNavBarToggle({});
+  const logOut = useLogout();
+  const navigate = useNavigate();
+
   const loadQuotes = async () => {
     try {
       const quotesAPIResponse = await QuotesAPI.get(
@@ -31,18 +37,18 @@ const Navbar = () => {
       const selectedQoutes = quotesAPIResponse?.data.filter((quote, index) => {
         return quote.text.length < 50;
       });
-      console.log(selectedQoutes[0].text);
       await setRandomQuotes(selectedQoutes);
     } catch {}
   };
+
   useEffect(() => {
     loadQuotes();
   }, []);
 
-  const logout = () => {
-    setAuth({});
-    Navigate('/auth/login');
-  }
+  const signOut = async () => {
+    await logOut();
+    navigate("/auth/login");
+  };
 
   const CollapseNav = () => {
     setCollapseButtonClicked(!collapseButtonClicked);
@@ -55,7 +61,10 @@ const Navbar = () => {
       }
     >
       <div className="arrowWrapper" onClick={CollapseNav}>
-        <FontAwesomeIcon icon={!collapseButtonClicked? faLessThan : faGreaterThan} className="arrow-icon" />
+        <FontAwesomeIcon
+          icon={!collapseButtonClicked ? faLessThan : faGreaterThan}
+          className="arrow-icon"
+        />
       </div>
       {/* profile picture & user name  */}
       <div className="user-wrapper">
@@ -111,7 +120,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className="logout-navigation-wrapper" onClick={() => logout() }>
+        <div className="logout-navigation-wrapper" onClick={signOut}>
           <ul>
             <li>
               <FontAwesomeIcon icon={faSignOut} />

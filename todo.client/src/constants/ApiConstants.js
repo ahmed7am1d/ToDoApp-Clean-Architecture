@@ -10,6 +10,7 @@ const ApiConstants = {
     REGISTER_ENDPOINT: '/auth/register',
     LOGIN_ENDPOINT: '/auth/login',
     REFRESHTOKEN_ENDPOINT: '/auth/refresh-token',
+    LOGOUT_ENDPOINT:'/auth/log-out',
 
     //--ToDos EndPoints 
     GETALL_USER_TASKS_ENDPOINT:(userId) =>{

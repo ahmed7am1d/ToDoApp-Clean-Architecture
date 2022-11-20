@@ -9,8 +9,8 @@ import RequireAuth from "./components/Auth/RequireAuth";
 import AuthLayout from "./pages/Auth/AuthLayout";
 import DailyTasks from "./components/Home/Overview";
 import WeeklyTasks from "./components/Home/UpComingTasks";
-import MonthlyTasks from "./components/Home/MonthlyTasks";
 import AccountSettings from "./components/Home/AccountSettings";
+import PersistLogin from "./components/Auth/PersistLogin";
 function App() {
   return (
     <Routes>
@@ -23,12 +23,14 @@ function App() {
         </Route>
         {/* we want to protect the following routes */}
         {/* RequireAuth having outlet => return child only if context auth has user object */}
-        <Route element={<RequireAuth />}>
-          <Route path="/home" element={<Home />}>
-            <Route path="overview" element={<DailyTasks />} />
-            <Route path="upcoming" element={<WeeklyTasks />} />
-            {/* <Route path="monthlytasks" element={<MonthlyTasks/>}/> */}
-            <Route path="accountsettings" element={<AccountSettings />} />
+        <Route element={<PersistLogin />}>
+          <Route element={<RequireAuth />}>
+            <Route path="/home" element={<Home />}>
+              <Route path="overview" element={<DailyTasks />} />
+              <Route path="upcoming" element={<WeeklyTasks />} />
+              {/* <Route path="monthlytasks" element={<MonthlyTasks/>}/> */}
+              <Route path="accountsettings" element={<AccountSettings />} />
+            </Route>
           </Route>
         </Route>
         {/* catch all */}

@@ -23,7 +23,6 @@ export const TaskPrioritiesProvider = ({ children }) => {
           value: element.taskPriorityId,
           label: element.priority,
         }));
-        console.log(filteredArray)
         setTaskPriorities(filteredArray);
       } catch (err) {
         console.log(err);

@@ -15,9 +15,10 @@ import { useForm } from "react-hook-form";
 import LoginValidationSchema from "../../../validation/Auth/LoginValidationSchema";
 import useAuth from "../../../hooks/useAuth";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const Login = () => {
-  const { setAuth } = useAuth({});
+  const { setAuth, persist, setPersist } = useAuth({});
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/home/overview";
@@ -67,14 +68,13 @@ const Login = () => {
         }),
         {
           headers: ApiConstants.CONTENT_TYPE_POST_REQUEST,
-          withCredentials: true
+          withCredentials: true,
         }
       );
       const userObject = response?.data;
       const accessToken = response?.data?.token;
-      setAuth({ userObject, password, accessToken });
+      setAuth({ userObject, accessToken });
       navigate(from, { replace: true });
-
     } catch (error) {
       if (!error.response.data) {
         message.error("No server response, please try again later");
@@ -105,6 +105,13 @@ const Login = () => {
       }
     }
   };
+  //persist
+  const togglePersist = () => {
+    setPersist(prev => !prev);
+  };
+  useEffect(()=>{
+    localStorage.setItem("persist",persist);
+  },[persist])
 
   return (
     <>
@@ -156,6 +163,16 @@ const Login = () => {
                   {errors.password?.message}
                 </span>
               )}
+            </div>
+            {/* Keep me signed in */}
+            <div className="keepMeSigned-wrapper">
+              <input
+                type="checkbox"
+                id="persist"
+                onChange={togglePersist}
+                checked={persist}
+              />
+              <label htmlFor="persist">Keep me signed in</label>
             </div>
             <div className="forgot-password-wrapper">
               <a href="#">Forgot Password?</a>

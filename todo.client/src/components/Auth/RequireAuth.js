@@ -2,10 +2,10 @@ import { useLocation, Navigate, Outlet } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const RequireAuth = () => {
-  const { auth } = useAuth({});
+  const { auth } = useAuth();
   const location = useLocation();
 
-  return auth?.userObject ? (
+  return auth?.accessToken ? (
     // we used from location and replace so we want to save the previous location of the visited page by user so he is able to go back to it
     <Outlet />
   ) : (

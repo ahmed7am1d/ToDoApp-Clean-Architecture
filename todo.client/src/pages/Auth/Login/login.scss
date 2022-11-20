@@ -146,6 +146,17 @@
     color: $main-text-color-gray;
   }
 }
+
+.keepMeSigned-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  padding-left: 30px;
+  margin-top: 10px;
+}
+
+
 .signup-wrapper {
   font-weight: bold;
   margin-top: 20px;

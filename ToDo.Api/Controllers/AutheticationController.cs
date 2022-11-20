@@ -49,7 +49,7 @@ namespace ToDo.Api.Controllers
                     HttpOnly = true,
                     Expires = authResult.Value.Expires,
                     IsEssential = true,
-                    Secure= false
+                    Secure = false
                 };
                 Response.Cookies.Append("refreshToken", authResult.Value.RefreshToken, cookieOptions);
                 return Ok(_mapper.Map<AutheticationResponse>(authResult.Value));
@@ -63,7 +63,8 @@ namespace ToDo.Api.Controllers
             var refreshToken = Request.Cookies["refreshToken"];
             var authResult = await _mediator.Send(new RefreshTokenQuery(refreshToken));
 
-            if (!authResult.IsError) {
+            if (!authResult.IsError)
+            {
                 var cookieOptions = new CookieOptions
                 {
                     HttpOnly = true,
@@ -74,5 +75,26 @@ namespace ToDo.Api.Controllers
             }
             return Problem(authResult.Errors);
         }
+
+        [HttpPost("log-out")]
+        public async Task<IActionResult> Logout()
+        {
+            //[1]- It accepts to recive a cookie 
+            //If cookie not received then return no content (because there is nothing to logout)
+            var refreshToken = Request.Cookies["refreshToken"];
+            if (refreshToken is null)
+                return NoContent();
+
+            //[2]- check if the refresh token is in the db
+            var isUserExists = _mediator.Send(new LogoutQuery(refreshToken));
+            if (isUserExists is null)
+                return NoContent();
+
+            //[3]- User exists and we need to logout 
+            Response.Cookies.Delete("refreshToken");
+            return NoContent();
+
+        }
+
     }
 }

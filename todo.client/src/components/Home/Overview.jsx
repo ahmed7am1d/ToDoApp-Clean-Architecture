@@ -27,7 +27,6 @@ const Overview = () => {
 
   //[2]- Getting the tasks of the current user - (ToDo - In Progress - Done)
   //[3]- call the function one time when the page load
-
   useEffect(() => {
     let isMounted = true;
     //to cancel our request if the component is unmounted

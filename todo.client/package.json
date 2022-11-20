@@ -48,5 +48,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://localhost:3000/auth/register"
+  "homepage": "http://localhost:3000/auth/login"
 }
