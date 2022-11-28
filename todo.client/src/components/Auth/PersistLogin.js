@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useRefreshToken from "../../hooks/useRefreshToken";
 import useAuth from "../../hooks/useAuth";
-
+import {Spin,Space} from 'antd'
 const PersistLogin = () => {
   const [isLoading, setIsLoading] = useState(true);
   const refresh = useRefreshToken();
@@ -33,7 +33,11 @@ const PersistLogin = () => {
   }, [isLoading]);
 
   return (
-    <>{!persist ? <Outlet /> : isLoading ? <p>Loading .....</p> : <Outlet />}</>
+    <>{!persist ?
+       <Outlet /> 
+       : isLoading
+        ? <Space size="large"> <Spin size="large" /></Space>
+        : <Outlet />}</>
   );
 };
 

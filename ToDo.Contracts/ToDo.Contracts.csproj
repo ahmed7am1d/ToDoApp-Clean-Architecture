@@ -7,12 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ToDos\Commands\**" />
+    <EmbeddedResource Remove="ToDos\Commands\**" />
+    <None Remove="ToDos\Commands\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Mapster" Version="7.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ToDos\Commands\" />
     <Folder Include="ToDos\Requests\" />
   </ItemGroup>
 

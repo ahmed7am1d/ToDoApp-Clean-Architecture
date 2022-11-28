@@ -13,7 +13,7 @@
   background-clip: content-box;
   object-fit: cover;
   height: 100vh;
-  color: $main-text-color;
+  color: $main-text-color-white;
 
   .main-content {
     position: fixed;
@@ -33,7 +33,7 @@
   }
 }
 .main-content-ml-20 {
-  margin-left: 100px;
+  margin-left: 70px;
   animation: maincontent-ml-20 1.3s;
 }
 @keyframes maincontent-ml-20 {
@@ -41,6 +41,6 @@
     margin-left: 200px;
   }
   to {
-    margin-left: 100px;
+    margin-left: 70px;
   }
 }

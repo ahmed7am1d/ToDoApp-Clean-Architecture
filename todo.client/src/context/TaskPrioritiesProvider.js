@@ -6,7 +6,7 @@ const TaskPrioritiesContext = createContext({});
 
 export const TaskPrioritiesProvider = ({ children }) => {
   const axiosPrivate = useAxiosPrivate();
-  const [taskPriorities, setTaskPriorities] = useState();
+  const [taskPriorities, setTaskPriorities] = useState([]);
 
   useEffect(() => {
     const controller = new AbortController();

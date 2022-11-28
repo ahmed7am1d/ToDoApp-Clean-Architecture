@@ -4,8 +4,8 @@
 .login-Page-Wrapper {
   background-image: linear-gradient(
       to left,
-      rgba(29, 144, 244, 0.3),
-      rgba(57, 61, 78, 2)
+      rgba($main-color, 0.3),
+      rgba($main-color, 2)
     ),
     url("../../../assets/images/leaves_plant_bw_167185_3840x2160.jpg");
   background-repeat: no-repeat;
@@ -57,7 +57,7 @@
   align-items: center;
   input {
     border: none;
-    border-bottom: 1px solid $main-text-color-gray;
+    border-bottom: 1px solid $main-text-color-white-gray;
     outline: none;
   }
   .password-input-wrapper {
@@ -124,14 +124,14 @@
     background: linear-gradient(
       to left,
       rgba(57, 61, 78, 1),
-      rgba(29, 144, 244, 1)
+      rgba($main-color, 1)
     );
     width: 100%;
     transition: 3s;
   }
 
   .register-button {
-    background-color: $body-background-color;
+    background-color: $main-color;
   }
 }
 
@@ -143,7 +143,7 @@
 
   a {
     text-decoration: none;
-    color: $main-text-color-gray;
+    color: $main-text-color-white-gray;
   }
 }
 

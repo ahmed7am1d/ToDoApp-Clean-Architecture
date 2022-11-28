@@ -9,11 +9,13 @@ namespace ToDo.Application.Common.Interfaces.Persistence
 {
     public interface ITaskRepository
     {
-        Task<List<ClientTask>> GetAllTasksAsync(string userId);
+        Task<List<ClientTask>> GetUserToDosTasksAsync(string userId);
+        Task<List<ClientTask>> GetUserTasksInProgressAsync(string userId);
+        Task<List<ClientTask>> GetUserDoneTasksAsync(string userId);
         Task<ClientTask> GetTaskAsync(Guid taskId);
-        Task<ClientTask> AddTaskAsync(ClientTask task);
-        Task<ClientTask> UpdateTaskAsync(ClientTask task);
-        Task<bool> DeleteTaskAsync(ClientTask task);
+        Task<ClientTask> AddTaskAsync(ClientTask task, string userId);
+        Task<ClientTask> UpdateTaskAsync(ClientTask task, string userId);
+        Task<bool> DeleteTaskAsync(string taskId);
         Task<List<TaskPriority>> GetTaskPrioritiesAsync();
         Task<List<TaskProgress>> GetTaskProgressesAsync();
         Task<List<TaskType>> GetTaskTypesAsync();

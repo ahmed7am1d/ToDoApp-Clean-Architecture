@@ -4,10 +4,11 @@ $column-padding: 50px;
 
 
 .register-page-wrapper {
+  overflow-x: hidden;
   background-image: linear-gradient(
       to left,
-      rgba(29, 144, 244, 0.3),
-      rgba(57, 61, 78, 2)
+      rgba($main-color, 0.3),
+      rgba($main-color, 0.6)
     ),
     url("../../../assets/images/leaves_plant_bw_167185_3840x2160.jpg");
   background-repeat: no-repeat;
@@ -17,7 +18,7 @@ $column-padding: 50px;
   height: 100vh;
 }
 .login-headerTitle {
-  color: $main-text-color;
+  color: $main-text-color-white;
   text-align: center;
   font-size: 3rem;
   padding: 10px;
@@ -78,7 +79,7 @@ $column-padding: 50px;
 .login-wrapper {
   h1,
   input {
-    color: $main-text-color;
+    color: $main-text-color-white;
   }
   input {
     background-color: $input-registerform-background-color;
@@ -99,7 +100,7 @@ $column-padding: 50px;
       color: $secondary-color;
     }
     p {
-      color: $main-text-color-gray;
+      color: $main-text-color-white-gray;
       margin: 0;
     }
     a {
@@ -133,7 +134,7 @@ $column-padding: 50px;
         position: absolute;
         left: 19px;
         top: 5px;
-        color: $main-text-color-gray;
+        color: $main-text-color-white-gray;
       }
       .first-name-wrapper span:nth-child(3),
       .last-name-wrapper span:nth-child(3) {
@@ -142,7 +143,7 @@ $column-padding: 50px;
         right: 19px;
         top: 18px;
         padding-right: 4px;
-        color: $main-text-color-gray;
+        color: $main-text-color-white-gray;
         font-size: 1.7rem;
       }
 
@@ -159,7 +160,7 @@ $column-padding: 50px;
       position: absolute;
       left: 19px;
       top: 5px;
-      color: $main-text-color-gray;
+      color: $main-text-color-white-gray;
     }
 
     .email-wrapper span:nth-child(3),
@@ -169,7 +170,7 @@ $column-padding: 50px;
       right: 19px;
       top: 18px;
       padding-right: 4px;
-      color: $main-text-color-gray;
+      color: $main-text-color-white-gray;
       font-size: 1.7rem;
     }
 
@@ -200,7 +201,7 @@ $column-padding: 50px;
         transition: 0.5s;
       }
       input:hover {
-        background-color: $body-background-color;
+        background-color: $main-color;
         outline: 1px solid $secondary-color;
         color: $secondary-color;
       }

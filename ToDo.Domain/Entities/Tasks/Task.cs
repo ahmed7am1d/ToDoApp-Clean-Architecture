@@ -5,7 +5,7 @@ namespace ToDo.Domain.Entities.Tasks
         public Guid TaskId { get; set; }
         public string TaskTitle { get; set; }
         public string TaskDescription { get; set; }
-        public DateTime DateCreated { get; set; }
+        public DateTime DateCreated { get; set; } = DateTime.UtcNow;
         public DateTime DeadlineDate { get; set; }
         public Guid UserId { get; set; }
         public User User { get; set; }

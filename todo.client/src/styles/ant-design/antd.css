@@ -5155,7 +5155,7 @@ a.ant-btn-sm {
   direction: ltr;
   background-color: #fff;
   border: 1px solid #d9d9d9;
-  border-radius: 40px;
+  border-radius: 3px;
   border-collapse: separate;
   transition: all 0.3s;
 }
@@ -7638,7 +7638,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   margin-bottom: 0;
 }
 .ant-form-inline .ant-form-item-with-help {
-  margin-bottom: 24px;
+  
 }
 .ant-form-inline .ant-form-item > .ant-form-item-label,
 .ant-form-inline .ant-form-item > .ant-form-item-control {
@@ -7811,6 +7811,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
 }
 .ant-form-item-explain-error {
   color: #ff4d4f;
+  margin-bottom: 5px;
 }
 .ant-form-item-explain-warning {
   color: #faad14;
@@ -7870,9 +7871,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
 .ant-form input[type='file']:focus,
 .ant-form input[type='radio']:focus,
 .ant-form input[type='checkbox']:focus {
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
+
 }
 .ant-form output {
   display: block;
@@ -7907,7 +7906,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   line-height: 1.5715;
   list-style: none;
   font-feature-settings: 'tnum';
-  margin-bottom: 24px;
+  margin-bottom: 10px;
   vertical-align: top;
 }
 .ant-form-item-with-help {
@@ -13762,8 +13761,8 @@ textarea.ant-input-affix-wrapper {
 }
 .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input,
 .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover {
-  background: #fff;
-  border-color: #ff4d4f;
+  /* background: #fff;
+  border-color: #ff4d4f; */
 }
 .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus,
 .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input-focused {
@@ -13872,9 +13871,9 @@ textarea.ant-input-affix-wrapper {
 }
 .ant-input:focus,
 .ant-input-focused {
-  border-color: #f7867c;
+  /* border-color: #f7867c;
   box-shadow: 0 0 0 2px rgba(235, 86, 79, 0.2);
-  border-right-width: 1px;
+  border-right-width: 1px; */
   outline: 0;
 }
 .ant-input-rtl .ant-input:focus,

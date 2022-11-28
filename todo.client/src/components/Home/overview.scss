@@ -5,15 +5,12 @@ $content-margin-top: 10px;
 @import "https://fonts.googleapis.com/css?family=Courgette";
 @import "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BenchNine&family=DM+Serif+Display&family=Quattrocento+Sans&family=Telex&display=swap";
 
-body {
-
-}
-
 .overview-wrapper {
   padding: 20px;
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+  background-color: $background-color;
 
   //Header wrapper for title and dropdown menu
   .header-wrapper {
@@ -35,16 +32,16 @@ body {
       text-align: center;
       margin: 0;
       padding: 0;
-      color: black;
+      color: $main-text-color-white;
     }
     .pageTitle::first-letter {
-      background-color: $body-background-color;
+      background-color: $main-color;
       font-weight: bold;
-      color: $main-text-color;
+      color: $main-text-color-white;
       padding: 5px;
     }
     .ant-dropdown-tasksDate {
-      color: black;
+      color: $main-text-color-white;
     }
   }
 
@@ -71,8 +68,8 @@ body {
         align-items: center;
       }
       .counter {
-        background-color: $body-background-color;
-        color: $main-text-color;
+        background-color: $main-color;
+        color: $main-text-color-white;
         padding: 3px;
         font-weight: bold;
         border-radius: 4px;
@@ -84,12 +81,12 @@ body {
           border-radius: 15px;
           border: none;
           outline: none;
-          background-color: rgba(29, 144, 244, 0.21);
+          background-color: rgba($secondary-color, 0.21);
           padding: 5px 0px 5px 0px;
-          transition: .5s;
+          transition: 0.5s;
           &:hover {
             cursor: pointer;
-            background-color: $body-background-color;
+            background-color: $main-color;
           }
         }
         .addButtonIcon {
@@ -99,22 +96,27 @@ body {
     }
   }
 
-  //Add Task fields 
+  //Add Task fields
   .addTask-inputFields-container {
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
+      color: $main-text-color-white;
       background-color: rgba(238, 238, 238, 0.557);
       padding: 5px;
       outline: none;
       border: none;
       margin-bottom: 5px;
-      transition: .3s;
+      transition: 0.3s;
       font-size: 0.8rem;
+      border-radius: 0;
     }
     :focus {
+      outline: none;
       border-bottom: 1px solid $secondary-color;
     }
   }
+
   .addTask-overdue-priorty-container {
     display: flex;
     justify-content: space-around;
@@ -123,17 +125,22 @@ body {
     font-size: 0.8rem;
     .deadline-container,
     .priorty-container {
-      width: 120px;
+      width: 100%;
       .ant-picker,
       .ant-select-selector {
         border-radius: 5px;
       }
+      h5 {
+        color: $main-text-color-white;
+      }
     }
-    .deadline-container {
 
+    .deadline-container {
+      width: 40%;
+      margin-right: 5px;
     }
     .priorty-container {
-      
+      width: auto;
     }
   }
 
@@ -141,58 +148,73 @@ body {
     font-size: 0.8rem;
     display: flex;
     justify-content: flex-end;
+    width: 100%;
     button {
       padding: 5px 17px 5px 17px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      transition: .3s;
+      transition: 0.3s;
+      width: 90%;
     }
     :hover {
       opacity: 0.6;
     }
     :nth-child(1) {
-      background-color: #36CB80;
-      margin-right: 7px;
-      color: white;
+      background-color: $create-button-background-color;
+      margin-right: 5%;
+      color: $button-white-text-color;
     }
     :nth-child(2) {
+      background-color: $cancel-button-background-color;
+      color: $button-white-text-color;
     }
   }
 
   //Single task container for the input fields
-   .addTask {
-   animation-name: addTaskFieldsAnimation;
-   animation-duration: 1.7s;
-   opacity: 1;
-   box-shadow: 1px 2px 5px $secondary-color;
+  .addTask {
+    animation-name: addTaskFieldsAnimation;
+    animation-duration: 1.7s;
+    opacity: 1;
+    box-shadow: 1px 2px 5px $secondary-color;
     @keyframes addTaskFieldsAnimation {
       from {
         opacity: 0.4;
         box-shadow: 1px 1px 6px $secondary-color;
-      } to { 
+      }
+      to {
         opacity: 1;
       }
-      
     }
   }
 
   //Single task container
   .task-item-container {
-    background-color: white;
+    background-color: $container-white-background-color;
     padding: 12px 10px 15px 12px;
     margin: 6px;
     margin-top: 10px;
     border-radius: 15px;
-    color: black;
+    color: $main-text-color-white;
     .header-container {
       display: flex;
       justify-content: space-between;
       align-content: center;
       margin-bottom: 5px;
-      .pinIcon {
+
+      .deleteIcon {
         font-size: 1.2rem;
-        color: $secondary-color;
+        height: fit-content;
+        width: fit-content;
+        border-radius: 50%;
+        background-color: $container-delete-icon-background-color;
+        color: $container-delete-icon-text-color;
+        cursor: pointer;
+
+        :hover {
+          transition: 0.7s;
+          opacity: 0.7;
+        }
       }
       .task-header-bullet {
         color: $secondary-color;
@@ -201,16 +223,20 @@ body {
       }
     }
     .task-description-container {
-      color: gray;
-      padding: 2px;
+      color: $main-text-color-white-gray;
       font-size: 12px;
+      p {
+        margin-left: 10px;
+      }
     }
 
     .overdue-priority-container {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       .ant-picker {
         border-radius: 5px;
+        width: 90%;
+        margin-left: 10px;
       }
     }
     .priority-highest,
@@ -231,18 +257,32 @@ body {
     .priority-low {
       background-color: gray;
     }
+
+    .move-to-container {
+      margin-top: 10px;
+      width: 100%;
+      .move-to-container-checkbox-container {
+        width: 100%;
+        margin-left: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        :nth-child(1) {
+          margin-right: 4px;
+        }
+      }
+    }
   }
 
   .addTask-container,
   .todayTasks-container,
   .tomorrowTasks-container {
-    color: black;
+    color: $main-text-color-white;
     width: 30%;
     border-radius: 15px;
     background: linear-gradient(
       0deg,
-      rgba(118, 180, 149, 0) 0%,
-      rgba(29, 144, 244, 0.073) 100%
+      rgba($secondary-color, 0) 0%,
+      rgba($secondary-color, 0.073) 100%
     );
   }
 
@@ -264,24 +304,40 @@ body {
       flex-direction: column;
     }
   }
-  // Small devices (landscape phones, 576px and up)
 
+  // Small devices (landscape phones, 576px and up)
   @media (max-width: 766px) {
     .header-wrapper {
       padding-left: 0;
       padding-right: 0;
+      height: 10%;
     }
     .tasks-overview-wrapper {
       height: 100%;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-around;
+      align-content: space-between;
+      position: relative;
+      width: 100%;
     }
     .addTask-container,
     .todayTasks-container,
     .tomorrowTasks-container {
       width: 100%;
+      height: auto;
+    }
+    .todayTasks-container,
+    .tomorrowTasks-container {
+      margin-top: 30px;
+    }
+    .tomorrowTasks-container {
+      margin-bottom: 30px;
+    }
+
+    .NoTasks-Image-Container {
+      img {
+        width: 30%;
+      }
     }
   }
 
@@ -291,6 +347,61 @@ body {
     .todayTasks-container,
     .tomorrowTasks-container {
       width: 27%;
+    }
+  }
+
+  //this media query for the purpose of adding new task fields
+  @media (max-width: 992px) and (min-width: 767px) {
+    .addTask-overdue-priorty-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .deadline-container {
+        width: 100%;
+        .ant-picker {
+          width: 100%;
+        }
+      }
+      .priorty-container {
+        width: 100%;
+        .ant-select {
+          width: 100%;
+        }
+      }
+    }
+    .addTask-cancel-add-container {
+      justify-content: center;
+      button {
+        width: fit-content;
+      }
+    }
+  }
+
+  @media (max-width: 450px) and (min-width: 10px) {
+    .addTask-overdue-priorty-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .deadline-container {
+        width: 100%;
+        .ant-picker {
+          width: 100%;
+        }
+      }
+      .priorty-container {
+        width: 100%;
+        .ant-select {
+          width: 100%;
+        }
+      }
+    }
+    .addTask-cancel-add-container {
+      justify-content: center;
+      button {
+        width: fit-content;
+      }
     }
   }
 

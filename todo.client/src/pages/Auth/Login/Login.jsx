@@ -10,7 +10,7 @@ import {
   TwitterCircleFilled,
   SecurityScanOutlined,
 } from "@ant-design/icons";
-import { message, Tree } from "antd";
+import { message } from "antd";
 import { useForm } from "react-hook-form";
 import LoginValidationSchema from "../../../validation/Auth/LoginValidationSchema";
 import useAuth from "../../../hooks/useAuth";
@@ -109,6 +109,7 @@ const Login = () => {
   const togglePersist = () => {
     setPersist(prev => !prev);
   };
+  
   useEffect(()=>{
     localStorage.setItem("persist",persist);
   },[persist])

@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Row, message } from "antd";
 import { ContactsOutlined, MailOutlined } from "@ant-design/icons";
 import "./register.scss";
-import ToDoPicture from "../../../assets/images/Todo-list.png";
+import ToDoPicture from "../../../assets/images/Todo-list.svg";
 import { useState } from "react";
 import ShowHidePasswordIcon from "../../../components/Auth/ShowHidePasswordIcon";
 import { useForm } from "react-hook-form";
@@ -69,6 +69,7 @@ const Register = () => {
   } = useForm({
     resolver: yupResolver(RegisterValidationSchema()),
   });
+  
   const handleRegisterSubmit = async (e) => {
     try {
       const response = await axios.post(

@@ -9,11 +9,11 @@ using ToDo.Domain.Entities.Tasks;
 
 namespace ToDo.Application.ToDos.Queries
 {
-    public class GetTaskProgressesHandler : IRequestHandler<GetTaskProgressesQuery, List<TaskProgress>>
+    public class GetTaskProgressesQueryHandler : IRequestHandler<GetTaskProgressesQuery, List<TaskProgress>>
     {
         private readonly ITaskRepository _taskRepository;
 
-        public GetTaskProgressesHandler(ITaskRepository taskRepository)
+        public GetTaskProgressesQueryHandler(ITaskRepository taskRepository)
         {
             _taskRepository = taskRepository;
         }

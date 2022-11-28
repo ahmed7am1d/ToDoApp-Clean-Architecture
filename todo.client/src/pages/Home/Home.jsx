@@ -5,6 +5,7 @@ import { Col } from "antd";
 import "./home.scss";
 import useSideNavBarToggle from "../../hooks/useSideNavBarToggle";
 import { TaskPrioritiesProvider } from "../../context/TaskPrioritiesProvider";
+import { TaskProgressesProvider } from "../../context/TaskProgressesProvider";
 const Home = () => {
   const { collapseButtonClicked } = useSideNavBarToggle({});
   const mainClass = !collapseButtonClicked
@@ -12,13 +13,15 @@ const Home = () => {
     : "main-content-wrapper main-content-ml-20";
   return (
     <>
-      <TaskPrioritiesProvider>
-        <Navbar />
-        <main className={mainClass}>
-          <Outlet className="main-content" />
-        </main>
-        {/* footer */}
-      </TaskPrioritiesProvider>
+      <TaskProgressesProvider>
+        <TaskPrioritiesProvider>
+          <Navbar />
+          <main className={mainClass}>
+            <Outlet className="main-content" />
+          </main>
+          {/* footer */}
+        </TaskPrioritiesProvider>
+      </TaskProgressesProvider>
     </>
   );
 };

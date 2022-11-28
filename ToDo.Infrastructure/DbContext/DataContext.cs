@@ -37,8 +37,8 @@ namespace ToDo.Infrastructure
             modelBuilder.Entity<TaskProgress>().HasData(new List<TaskProgress>
             {
                 new TaskProgress{TaskProgressId = 1,Progress = "Done"},
-                new TaskProgress{TaskProgressId = 2,Progress = "In Progress"},
-                new TaskProgress{TaskProgressId = 3,Progress = "Overdue"}
+                new TaskProgress{TaskProgressId = 2,Progress = "ToDo"},
+                new TaskProgress{TaskProgressId = 3,Progress = "In Progress"}
             });
 
             modelBuilder.Entity<TaskType>().HasData(new List<TaskType>

@@ -9,7 +9,20 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #eee;
+  background-color: $background-color;
+}
+::-webkit-scrollbar {
+  width: 0.4em;
+  margin: 10px;
+}
+
+::-webkit-scrollbar-track {
+  
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $secondary-color;
+  outline: 1px solid $secondary-color;
 }
 
 a {
@@ -21,9 +34,8 @@ code {
     monospace;
 }
 
-
 .required-field {
-  color:$input-required-color;
+  color: $input-required-color;
 }
 
 .validation-error-input {
@@ -31,9 +43,10 @@ code {
   font-weight: bold;
   margin-left: 10px;
   overflow: hidden;
-  overflow:hidden; display:block;
+  overflow: hidden;
+  display: block;
 }
 
-.error-pop-up-message  {
+.error-pop-up-message {
   margin-top: 10vh;
 }
