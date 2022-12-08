@@ -1,8 +1,6 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
-
 import ProfileIcon from "../../assets/images/262883343_743681627026575_2615310581595321543_n.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,21 +11,23 @@ import {
   faLessThan,
   faGreaterThan,
 } from "@fortawesome/free-solid-svg-icons";
-
+import emptyProfilePicture from '../../assets/images/emptyProfilePicture.png'
 import QuotesAPI from "../../api/RandomQuotesAPI";
 import ApiConstants from "../../constants/ApiConstants";
-
 import useSideNavBarToggle from "../../hooks/useSideNavBarToggle";
 import useLogout from "../../hooks/useLogout";
+import useAuth from "../../hooks/useAuth";
 
 import "./navbar.scss";
 
 const Navbar = () => {
   const [randomQuotes, setRandomQuotes] = useState([]);
-  const { collapseButtonClicked, setCollapseButtonClicked } =useSideNavBarToggle({});
+  const { collapseButtonClicked, setCollapseButtonClicked } =
+    useSideNavBarToggle({});
   const logOut = useLogout();
   const navigate = useNavigate();
-
+  const currentPath = window.location.pathname;
+  const userObject = useAuth()?.auth?.userObject;
   const loadQuotes = async () => {
     try {
       const quotesAPIResponse = await QuotesAPI.get(
@@ -60,20 +60,31 @@ const Navbar = () => {
         !collapseButtonClicked ? "aside-nav-full" : "aside-nav-collapsed"
       }
     >
-      <div className="arrowWrapper" onClick={CollapseNav}>
-        <FontAwesomeIcon
-          icon={!collapseButtonClicked ? faLessThan : faGreaterThan}
-          className="arrow-icon"
-        />
-      </div>
+      {currentPath.includes("settings") && (
+        <div className="arrowWrapper-settingsPage" onClick={CollapseNav}>
+          <FontAwesomeIcon
+            icon={!collapseButtonClicked ? faLessThan : faGreaterThan}
+            className="arrow-icon"
+          />
+        </div>
+      )}
+      {!currentPath.includes("settings") && (
+        <div className="arrowWrapper" onClick={CollapseNav}>
+          <FontAwesomeIcon
+            icon={!collapseButtonClicked ? faLessThan : faGreaterThan}
+            className="arrow-icon"
+          />
+        </div>
+      )}
+
       {/* profile picture & user name  */}
       <div className="user-wrapper">
         <div className="user-image-wrapper">
-          <img src={ProfileIcon} />
+          <img src={userObject?.profilePictureBytes ? `data:image/*;base64,${userObject?.profilePictureBytes}` :emptyProfilePicture } />
         </div>
         {!collapseButtonClicked && (
           <>
-            <p>Al-Doori </p>
+            <p>{userObject?.firstName} </p>
             <q className="quote">
               {randomQuotes[Math.floor(Math.random() * 150 + 1)]?.text}
             </q>
@@ -113,9 +124,9 @@ const Navbar = () => {
           )}
           <ul>
             <li>
-              <Link to="/home/accountsettings" className="navigation-anchor">
+              <Link to="/home/settings" className="navigation-anchor">
                 <FontAwesomeIcon icon={faGear} />
-                {!collapseButtonClicked && "Account Settings"}
+                {!collapseButtonClicked && "Settings"}
               </Link>
             </li>
           </ul>

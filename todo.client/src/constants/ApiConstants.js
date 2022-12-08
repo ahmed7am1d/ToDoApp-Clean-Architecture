@@ -29,6 +29,7 @@ const ApiConstants = {
   GET_DELETE_USER_TASK_ENDPOINT:(taskId) =>{
     return `/todo/delete-task/${taskId}`;
   },
+  UPDATE_PERSONAL_INFO : "/user/update-personal-info",
 
   //Content type for post request
   CONTENT_TYPE_POST_REQUEST: { "Content-Type": "application/json" },

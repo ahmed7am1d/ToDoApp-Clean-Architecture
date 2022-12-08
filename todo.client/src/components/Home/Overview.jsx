@@ -21,6 +21,7 @@ import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import useTaskPrioritiesData from "../../hooks/useTaskPrioritiesData";
 import moment from "moment";
+import ToDosImage from "../../assets/images/undraw_note_list_re_r4u9.svg";
 import InProgressImage from "../../assets/images/undraw_progress_overview_re_tvcl.svg";
 import TasksDoneImage from "../../assets/images/undraw_complete_task_re_44tb.svg";
 import AddTaskValidationSchema from "../../validation/ToDos/AddTaskValidationSchema";
@@ -40,7 +41,6 @@ const Overview = () => {
   //[1]- Accessing react context / user object + getting JWT Token
   const authObject = useAuth();
   const userObject = authObject?.auth?.userObject;
-
   //[2]- Getting the tasks of the current user - (ToDo - In Progress - Done)
   //[3]- call the function one time when the page load
   useEffect(() => {
@@ -140,22 +140,46 @@ const Overview = () => {
       ? setIsAddTaskFormOpen(false)
       : setIsAddTaskFormOpen(true);
   };
+  //[6]- Chaning of the overdue date of each task category
+  //----------------Better idea is on change and that's set :(
+  const handleOverdueDateChange = (e, t, setUt) => {
+    var taskToUpdate = t;
+    taskToUpdate.deadlineDate = e?._d || undefined;
+    taskToUpdate["userId"] = userObject.id;
+    const updateOverdueDate = async () => {
+      try {
+        const response = await axiosPrivate.put(
+          ApiConstants.UPDATE_USER_TASK,
+          JSON.stringify(taskToUpdate)
+        );
+        //update the task to the received value
+        setUt((current) =>
+          current.map((obj) => {
+            if (obj.taskId === t.taskId) {
+              return { ...obj, deadlineDate: response.data.deadlineDate };
+            }
 
-  //[7]- Adding task functions
-  const handleAddedTaskOverDueDateChange = (value) => {
-    console.log(`selected ${value}`);
+            return obj;
+          })
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    updateOverdueDate();
   };
 
+  //[7]- Adding task functions
   //yup validation
   const yupSync = {
     async validator({ field }, value) {
       await AddTaskValidationSchema().validateSyncAt(field, { [field]: value });
     },
   };
-
   const [form] = Form.useForm();
 
-  const handleAddTaskFormSubmission = async (e) => {
+  const handleAddTaskFormSubmission = async (e, task) => {
     const userId = authObject.auth.userObject.id;
     const taskTitle = e.taskTitle;
     const taskDescription = e?.taskDescription;
@@ -268,6 +292,7 @@ const Overview = () => {
     //[2]- call the delete function
     deleteTask();
   };
+
   return (
     <>
       <div className="overview-wrapper">
@@ -395,7 +420,20 @@ const Overview = () => {
                   <div className="overdue-priority-container">
                     <div className="task-overduedate-container">
                       <h5>Overdue date:</h5>
-                      <DatePicker defaultValue={moment(task.deadlineDate)} />
+                      {task.deadlineDate ? (
+                        <DatePicker
+                          value={moment(task.deadlineDate)}
+                          defaultValue="Select a date..."
+                          onChange={(e) =>
+                            handleOverdueDateChange(e, task, setUserToDoTasks)
+                          }
+                        />
+                      ) : (
+                        <DatePicker
+                          placeholder="Select a date..."
+                          onChange={(e) => handleOverdueDateChange(e, task)}
+                        />
+                      )}
                     </div>
                     <div className="task-priority-container">
                       {/* example of Very important */}
@@ -422,7 +460,10 @@ const Overview = () => {
                         return (
                           !(item.label === "ToDo") && (
                             <>
-                              <div className="single-checkboxlabel-container">
+                              <div
+                                className="single-checkboxlabel-container"
+                                key={item.value}
+                              >
                                 <Checkbox
                                   key={item.label}
                                   onChange={(e) =>
@@ -442,13 +483,15 @@ const Overview = () => {
               ))
             ) : (
               <>
-                <p>No Current tasks to do :( </p>
+                <div className="NoTasks-Image-Container">
+                  <img src={ToDosImage} />
+                </div>
               </>
             )}
           </div>
 
           {/* In Progress container */}
-          <div className="todayTasks-container">
+          <div className="inProgress-container">
             <div className="innertask-container-header">
               <div className="title">
                 <h3>In Progress</h3>
@@ -488,7 +531,24 @@ const Overview = () => {
                       <div className="overdue-priority-container">
                         <div className="task-overduedate-container">
                           <h5>Overdue date:</h5>
-                          <DatePicker defaultValue={moment(t.deadlineDate)} />
+                          {t.deadlineDate ? (
+                            <DatePicker
+                              value={moment(t.deadlineDate)}
+                              defaultValue="Select a date..."
+                              onChange={(e) =>
+                                handleOverdueDateChange(
+                                  e,
+                                  t,
+                                  setUserInProgressTasks
+                                )
+                              }
+                            />
+                          ) : (
+                            <DatePicker
+                              placeholder="Select a date..."
+                              onChange={(e) => handleOverdueDateChange(e, t)}
+                            />
+                          )}
                         </div>
                         <div className="task-priority-container">
                           <h5>Priority:</h5>
@@ -514,7 +574,10 @@ const Overview = () => {
                             return (
                               !(item.label === "In Progress") && (
                                 <>
-                                  <div className="single-checkboxlabel-container">
+                                  <div
+                                    className="single-checkboxlabel-container"
+                                    key={item.value}
+                                  >
                                     <Checkbox
                                       key={item.label}
                                       onChange={(e) =>
@@ -538,7 +601,7 @@ const Overview = () => {
           </div>
 
           {/* Done container */}
-          <div className="tomorrowTasks-container">
+          <div className="doneTasks-container">
             <div className="innertask-container-header">
               <div className="title">
                 <h3>Done</h3>
@@ -578,7 +641,20 @@ const Overview = () => {
                       <div className="overdue-priority-container">
                         <div className="task-overduedate-container">
                           <h5>Overdue date:</h5>
-                          <DatePicker defaultValue={moment(t.deadlineDate)} />
+                          {t.deadlineDate ? (
+                            <DatePicker
+                              value={moment(t.deadlineDate)}
+                              defaultValue="Select a date..."
+                              onChange={(e) =>
+                                handleOverdueDateChange(e, t, setUserDoneTasks)
+                              }
+                            />
+                          ) : (
+                            <DatePicker
+                              placeholder="Select a date..."
+                              onChange={(e) => handleOverdueDateChange(e, t)}
+                            />
+                          )}
                         </div>
                         <div className="task-priority-container">
                           <h5>Priority:</h5>
@@ -604,7 +680,10 @@ const Overview = () => {
                             return (
                               !(item.label === "Done") && (
                                 <>
-                                  <div className="single-checkboxlabel-container">
+                                  <div
+                                    className="single-checkboxlabel-container"
+                                    key={item.value}
+                                  >
                                     <Checkbox
                                       key={item.label}
                                       onChange={(e) =>

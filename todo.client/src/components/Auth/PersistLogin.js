@@ -36,7 +36,7 @@ const PersistLogin = () => {
     <>{!persist ?
        <Outlet /> 
        : isLoading
-        ? <Space size="large"> <Spin size="large" /></Space>
+        ? <Space size="large" align="center" className="bigSpin-loader"> <Spin size="large" /></Space>
         : <Outlet />}</>
   );
 };

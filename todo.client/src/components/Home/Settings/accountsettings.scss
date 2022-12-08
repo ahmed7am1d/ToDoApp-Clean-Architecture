@@ -1,0 +1,176 @@
+@import "../../../styles/varaibles";
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BenchNine&family=DM+Serif+Display&family=Quattrocento+Sans&family=Roboto:wght@300&family=Telex&display=swap");
+$main-wrappers-top-margin: 30px;
+
+.account-settings-page-wrapper {
+  padding: 20px 20px 20px 0px;
+  overflow-y: scroll;
+  margin-left: 30px;
+  margin-bottom: 1000px;
+  height: 100vh;
+  button {
+    padding: 5px;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Bebas Neue", cursive;
+    font-family: "BenchNine", sans-serif;
+    font-family: "DM Serif Display", serif;
+    font-family: "Quattrocento Sans", sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-family: "Telex", sans-serif;
+  }
+
+  h1 {
+    width: fit-content;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      height: 2px;
+      width: 100%;
+      background-color: $main-color;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  .profile-picture-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: $main-wrappers-top-margin;
+    .image-wrapper {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+
+    .button-wrapper {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 10px;
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .custom-file-upload {
+        border: 1px solid $main-text-color-white-gray;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .change-profilepic-button {
+        color: $main-text-color-black;
+      }
+      .remove-profilepic-button {
+        color: $main-text-color-white;
+        background-color: $main-color;
+      }
+    }
+  }
+
+  .information-security-wrapper {
+    p {
+      color: $main-text-color-white-gray;
+    }
+  }
+
+  .first-last-name-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: $main-wrappers-top-margin;
+    gap: 40px;
+    .firstname-wrapper,
+    .lastname-wrapper {
+      width: 100%;
+      p {
+        font-weight: bold;
+      }
+      input {
+        width: 100%;
+        border-radius: 7px;
+        color: $main-text-color-black;
+        padding: 7px;
+        outline: none;
+        &:focus {
+          border-bottom: 2px solid red;
+        }
+      }
+    }
+  }
+
+  .about-me-wrapper {
+    margin-top: $main-wrappers-top-margin;
+
+    p:nth-child(1) {
+      font-weight: bold;
+    }
+
+    textarea {
+      width: 100%;
+      border-radius: 7px;
+      color: $main-text-color-black;
+      padding: 7px;
+      outline: none;
+      &:focus {
+        border-bottom: 2px solid red;
+      }
+    }
+    p:last-child {
+      color: $main-text-color-white-gray;
+    }
+  }
+
+  .save-cancel-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    button:nth-child(1) {
+      color: $main-text-color-white;
+      background-color: $main-color;
+    }
+    button:nth-child(2) {
+      color: $main-text-color-white-gray;
+      background-color: transparent;
+      border: 1px solid $main-text-color-white-gray;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .react-tel-input .form-control {
+    width:100% !important;
+  }
+  .title-description-wrapper,
+  .header-wrapper {
+    display: none;
+  }
+
+  .account-settings-wrapper,
+  .security-settings-wrapper,
+  .appearance-settings-wrapper {
+    justify-content: center;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    .icon-wrapper {
+      font-size: 20px;
+    }
+  }
+}

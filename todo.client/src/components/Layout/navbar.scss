@@ -24,7 +24,8 @@
     }
   }
 
-  .arrowWrapper {
+  .arrowWrapper,
+  .arrowWrapper-settingsPage {
     display: flex;
     justify-content: flex-end;
     margin-right: 0;
@@ -77,7 +78,7 @@
       }
     }
   }
-  
+
   .navigation-category-paragraph {
     color: $main-text-color-white-gray;
   }
@@ -111,13 +112,13 @@
           color: $main-text-color-black;
         }
         svg {
-          color:$navbar-icons-color-hover;
+          color: $navbar-icons-color-hover;
         }
       }
 
       svg {
         color: $navbar-icons-color;
-        margin-right: 25px;
+        margin-right: 15px;
       }
     }
 
@@ -137,7 +138,6 @@
       }
     }
   }
-
 }
 
 // Collapsed asideNav
@@ -173,6 +173,31 @@
       border-radius: 0px 20px 20px 0px;
     }
   }
+  .arrowWrapper-settingsPage {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0;
+    padding-right: 0;
+    position: absolute;
+    top: 60px;
+    cursor: pointer;
+    animation-name:arrowSettingsPage-animation ;
+    animation-duration: 2.2s;
+    .arrow-icon {
+      background-color: $secondary-color;
+      padding: 10px;
+      color: white;
+      border-radius: 20px 20px 20px 0px;
+    }
+  }
+  @keyframes arrowSettingsPage-animation {
+    from {
+      top: 35px;
+      right: 0;
+    } to {
+      top: 60px;
+    }
+  }
 
   @keyframes collapse-navbar {
     from {
@@ -196,7 +221,7 @@
       text-transform: uppercase;
     }
     .quote {
-      color: $main-text-color-white-gray;;
+      color: $main-text-color-white-gray;
       text-align: center;
     }
     p,
@@ -250,6 +275,9 @@
       justify-content: space-around;
       align-content: space-around;
       gap: 15px;
+      li:hover {
+        cursor: pointer;
+      }
     }
     svg {
       font-size: 12px;

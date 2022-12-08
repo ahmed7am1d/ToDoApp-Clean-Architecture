@@ -9,7 +9,10 @@ import RequireAuth from "./components/Auth/RequireAuth";
 import AuthLayout from "./pages/Auth/AuthLayout";
 import DailyTasks from "./components/Home/Overview";
 import WeeklyTasks from "./components/Home/UpComingTasks";
-import AccountSettings from "./components/Home/AccountSettings";
+import Settings from "./components/Home/Settings/Settings";
+import AccountSettings from "./components/Home/Settings/AccountSettings";
+import SecuritySettings from "./components/Home/Settings/SecuritySettings";
+import AppearanceSettings from "./components/Home/Settings/AppearanceSettings";
 import PersistLogin from "./components/Auth/PersistLogin";
 function App() {
   return (
@@ -29,7 +32,17 @@ function App() {
               <Route path="overview" element={<DailyTasks />} />
               <Route path="upcoming" element={<WeeklyTasks />} />
               {/* <Route path="monthlytasks" element={<MonthlyTasks/>}/> */}
-              <Route path="accountsettings" element={<AccountSettings />} />
+              <Route path="settings" element={<Settings />}>
+                <Route path="account-settings" element={<AccountSettings />} />
+                <Route
+                  path="security-settings"
+                  element={<SecuritySettings />}
+                />
+                <Route
+                  path="appearance-settings"
+                  element={<AppearanceSettings />}
+                />
+              </Route>
             </Route>
           </Route>
         </Route>

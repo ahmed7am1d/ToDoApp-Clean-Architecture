@@ -35,10 +35,10 @@ $content-margin-top: 10px;
       color: $main-text-color-white;
     }
     .pageTitle::first-letter {
-      background-color: $main-color;
+      border: 5px solid $main-color;
       font-weight: bold;
       color: $main-text-color-white;
-      padding: 5px;
+      padding: 3px;
     }
     .ant-dropdown-tasksDate {
       color: $main-text-color-white;
@@ -101,8 +101,8 @@ $content-margin-top: 10px;
     input,
     textarea {
       width: 100%;
-      color: $main-text-color-white;
-      background-color: rgba(238, 238, 238, 0.557);
+      color: $main-text-color-black;
+      background-color: $text-area-addtask-background-color;
       padding: 5px;
       outline: none;
       border: none;
@@ -110,6 +110,10 @@ $content-margin-top: 10px;
       transition: 0.3s;
       font-size: 0.8rem;
       border-radius: 0;
+      &::placeholder {
+        color: $main-color;
+        opacity: 0.4;
+      }
     }
     :focus {
       outline: none;
@@ -196,6 +200,9 @@ $content-margin-top: 10px;
     margin-top: 10px;
     border-radius: 15px;
     color: $main-text-color-white;
+    animation-name: taskItemContainerAnimation;
+    animation-duration: 4s;
+
     .header-container {
       display: flex;
       justify-content: space-between;
@@ -273,9 +280,19 @@ $content-margin-top: 10px;
     }
   }
 
+  //animation
+  @keyframes taskItemContainerAnimation {
+    from {
+      opacity: 0.3;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   .addTask-container,
-  .todayTasks-container,
-  .tomorrowTasks-container {
+  .inProgress-container,
+  .doneTasks-container {
     color: $main-text-color-white;
     width: 30%;
     border-radius: 15px;
@@ -292,7 +309,7 @@ $content-margin-top: 10px;
     display: flex;
     justify-content: center;
     align-content: flex-end;
-    align-items: flex-end;
+    align-items: flex-start;
     margin-top: 60px;
     img {
       width: 60%;
@@ -321,16 +338,16 @@ $content-margin-top: 10px;
       width: 100%;
     }
     .addTask-container,
-    .todayTasks-container,
-    .tomorrowTasks-container {
+    .inProgress-container,
+    .doneTasks-container {
       width: 100%;
       height: auto;
     }
-    .todayTasks-container,
-    .tomorrowTasks-container {
+    .inProgress-container,
+    .doneTasks-container {
       margin-top: 30px;
     }
-    .tomorrowTasks-container {
+    .doneTasks-container {
       margin-bottom: 30px;
     }
 
@@ -344,14 +361,32 @@ $content-margin-top: 10px;
   // Medium devices (tablets, 768px and up)
   @media (min-width: 768px) {
     .addTask-container,
-    .todayTasks-container,
-    .tomorrowTasks-container {
+    .inProgress-container,
+    .doneTasks-container {
       width: 27%;
     }
   }
 
   //this media query for the purpose of adding new task fields
   @media (max-width: 992px) and (min-width: 767px) {
+    .overdue-priority-container {
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      .ant-picker {
+        margin-left: 0 !important;
+      }
+    }
+    .task-priority-container {
+      width: 100%;
+
+      .priority-medium,
+      .priority-highest,
+      .priority-low {
+        width: 100%;
+        text-align: center;
+      }
+    }
     .addTask-overdue-priorty-container {
       display: flex;
       flex-direction: column;

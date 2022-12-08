@@ -13,5 +13,7 @@ namespace ToDo.Application.Common.Interfaces.Persistence
         void Add(User user);
         bool SetUserRefereshToken(string refreshToken, User user, DateTime DateCreated, DateTime RefreshTokenExipryTime);
         User? GetUserByRefreshToken(string refreshToken);
+        User? UpdateUserPersonalInfo(User user);
+
     }
 }

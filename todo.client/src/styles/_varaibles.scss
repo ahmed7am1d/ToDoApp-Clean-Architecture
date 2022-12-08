@@ -37,17 +37,23 @@ $navbar-icons-color-hover: #c3073f;
 $arrow-icon-background-color: #323645;
 $arrow-icon-text-color: white;
 
+/*Nav bar - settings - colors */
+$navbar-account-settings-background-color:#ffff;
+$navbar-account-settings-icons-color:#c3073f;
+$navbar-account-settings-container-hover-bg-color:#6f22310f;
+
+
 
 /* Text colors */
 $main-text-color-white: #ffffff;
 $main-text-color-white-gray: #c5c6d0;
 $main-text-color-black: #1a1a1d;
 
-/* Inputs and forms colors */
+/* Inputs and textarea and forms colors */
 $input-registerform-background-color: #323645;
 $input-required-color: #ff0000;
 $login-form-background-color: #ffffff;
-
+$text-area-addtask-background-color:#ffff;
 /* Buttons colors */
 
 $button-white-text-color: #ffffff;
@@ -61,4 +67,7 @@ $delete-button-background-color: #ba0202;
 $container-white-background-color: #323645;
 $container-delete-icon-background-color: #ba0202;
 $container-delete-icon-text-color: #ffff;
+
+
+
 /*#endregion*/

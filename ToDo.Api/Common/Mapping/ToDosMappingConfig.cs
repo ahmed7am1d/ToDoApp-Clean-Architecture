@@ -20,7 +20,11 @@ namespace ToDo.Api.Common.Mapping
                 .Map(dest => dest.Type, src => src.Type.Type)
                 .Map(dest => dest.Priority, src => src.Priority.Priority);
 
-            config.NewConfig<ClientTask, ClientTask>().IgnoreNullValues(true);
+            config.NewConfig<ClientTask, ClientTask>().IgnoreNullValues(true).AfterMapping((src, dest) =>
+            {
+                if (src.DeadlineDate is null)
+                    dest.DeadlineDate = null;
+            });
         }
     }
 }

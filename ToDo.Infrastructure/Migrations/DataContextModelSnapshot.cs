@@ -33,7 +33,7 @@ namespace ToDo.Infrastructure.Migrations
                         .HasColumnType("DATETIME")
                         .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<DateTime>("DeadlineDate")
+                    b.Property<DateTime?>("DeadlineDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("TaskDescription")
@@ -130,12 +130,12 @@ namespace ToDo.Infrastructure.Migrations
                         new
                         {
                             TaskProgressId = 2,
-                            Progress = "In Progress"
+                            Progress = "ToDo"
                         },
                         new
                         {
                             TaskProgressId = 3,
-                            Progress = "Overdue"
+                            Progress = "In Progress"
                         });
                 });
 
@@ -199,6 +199,10 @@ namespace ToDo.Infrastructure.Migrations
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("ProfilePictureBytes")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("RefreshToken")
                         .IsRequired()

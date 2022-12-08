@@ -11,5 +11,6 @@ public record AutheticationResponse
     string LastName,
     string Email,
     string PhoneNumber,
-    string Token
+    string Token,
+    byte[] ProfilePictureBytes
 );

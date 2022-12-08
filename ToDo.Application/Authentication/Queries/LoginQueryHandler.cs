@@ -37,17 +37,28 @@ namespace ToDo.Application.Authentication.Queries
             //[2] Create JWT token
             var token = _jwtTokenGenerator.GenerateToken(user);
             //[3] Generate refresh token
-            var refreshToken = _jwtTokenGenerator.GenerateRefreshToken();
-
+            try
+            {
+                var refreshToken = _jwtTokenGenerator.GenerateRefreshToken();
+                _userRepository.SetUserRefereshToken(refreshToken, user, _dateTimeProvider.UtcNow, _dateTimeProvider.RefreshTokenExipryTime);
+                return new AuthenticationResult(
+                 user,
+                 token,
+                 refreshToken,
+                 _dateTimeProvider.UtcNow,
+                 _dateTimeProvider.RefreshTokenExipryTime
+                 );
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
             //[4] Update user refresh token (set the refresh token)
-            _userRepository.SetUserRefereshToken(refreshToken,user,_dateTimeProvider.UtcNow,_dateTimeProvider.RefreshTokenExipryTime);
-            return new AuthenticationResult(
-             user,
-             token,
-             refreshToken,
-             _dateTimeProvider.UtcNow,
-             _dateTimeProvider.RefreshTokenExipryTime
-             );
+            return new AuthenticationResult(user,
+                 token,
+                 "2424",
+                 _dateTimeProvider.UtcNow,
+                 _dateTimeProvider.RefreshTokenExipryTime);
         }
     }
 }

@@ -33,6 +33,7 @@ C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.Identit
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\System.Drawing.Common.dll
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
@@ -76,4 +77,3 @@ C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\obj\Debug\net6.0\refint\ToDo.Api.d
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\obj\Debug\net6.0\ToDo.Api.pdb
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\obj\Debug\net6.0\ToDo.Api.genruntimeconfig.cache
 C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\obj\Debug\net6.0\ref\ToDo.Api.dll
-C:\Users\a_al_\OneDrive\Desktop\ToDo\ToDo.Api\bin\Debug\net6.0\Newtonsoft.Json.dll

@@ -98,7 +98,7 @@ public class ToDosController : ApiController
         var command = _mapper.Map<UpdateTaskCommand>(updateTaskReqeust);
         var updateTaskResult = await _mediator.Send(command);
         var updatedTaskResponse = _mapper.Map<UserTaskResponse>(updateTaskResult);
-        if (updatedTaskResponse is null) return NoContent();
+        if (updatedTaskResponse is null) return BadRequest();
         return Ok(updatedTaskResponse);
     }
 

@@ -13,7 +13,7 @@ namespace ToDo.Application.ToDos.Commands
         Guid UserId,
         string TaskTitle,
         string TaskDescription,
-        DateTime DeadlineDate,
+        DateTime? DeadlineDate,
         int TaskPriorityId,
         int TaskProgressId
         ) : IRequest<ClientTask>;

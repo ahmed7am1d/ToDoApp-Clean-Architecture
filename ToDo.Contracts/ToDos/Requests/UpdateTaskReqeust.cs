@@ -12,7 +12,7 @@ namespace ToDo.Contracts.ToDos.Requests
         public Guid UserId { get; set; }
         public string TaskTitle { get; set; }
         public string TaskDescription { get; set; }
-        public DateTime DeadlineDate { get; set; }
+        public DateTime? DeadlineDate { get; set; }
         public int TaskPriorityId { get; set; }
         public int TaskProgressId { get; set; }
 
