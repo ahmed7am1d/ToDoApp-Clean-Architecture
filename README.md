@@ -23,11 +23,15 @@ What you will be able to do as User:
 --------
 The system will allow you to do the following:
  - Having your own database of your tasks 
- - Having your own profile 
- - Loggin daily tasks
- - Logging weekly tasks
- - Tracking your habits 
- - Usage of pormodo technique <br>
+ - Having your own profile (Profile picture, 
+ - Loggin todo tasks
+ - Logging InProgress tasks
+ - Loggin finished tasks
+ - Deadline for your tasks 
+ - Modifying tasks
+ - Delete tasks
+ - Tracking your habits (Soon...)
+ - Usage of pormodo technique (Soon...) <br>
  And More is coming ... !
  
  App Internal Features:
@@ -62,5 +66,7 @@ Internal App ScreenShots:
  **- Register Page:**
 <img src="todo.client/src/assets/appScreenShots/SignupPage.png"></img>
  **- Home Page:** <br/>
+<img src="todo.client/src/assets/appScreenShots/HomePageGIF.gif"></img>
+**- Settings Page (Account settings):** <br/>
 <img src="todo.client/src/assets/appScreenShots/HomePageGIF.gif"></img>
 
