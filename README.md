@@ -31,6 +31,7 @@ The system will allow you to do the following:
  - Modifying tasks
  - Delete tasks
  - Tracking your habits (Soon...)
+ - You will see motivations qoutes in your navbar :)
  - Usage of pormodo technique (Soon...) <br>
  And More is coming ... !
  
