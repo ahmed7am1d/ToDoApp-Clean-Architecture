@@ -4,11 +4,11 @@ To-Do managment application [Under development].
 Introduction:
 ------
 Welcome to To-Do managment application where you manage:
-  - Daily Tasks
-  - Weekly Tasks
-  - Monthly Tasks
-  - Habit tracking
-  - Pormodo Timer <br>
+  - Current Tasks
+  - In Progress Tasks
+  - Done Tasks
+  - Habit tracking (Soon ..)
+  - Pormodo Timer (Soon ..) <br>
   And more is coming !
 
 App Inforamtion:
