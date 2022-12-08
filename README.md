@@ -68,5 +68,5 @@ Internal App ScreenShots:
  **- Home Page:** <br/>
 <img src="todo.client/src/assets/appScreenShots/HomePageGIF.gif"></img>
 **- Settings Page (Account settings):** <br/>
-<img src="todo.client/src/assets/appScreenShots/HomePageGIF.gif"></img>
+<img src="todo.client/src/assets/appScreenShots/SettingsAccountSettings.png"></img>
 
