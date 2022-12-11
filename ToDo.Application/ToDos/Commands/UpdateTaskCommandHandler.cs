@@ -22,7 +22,6 @@ namespace ToDo.Application.ToDos.Commands
         public async Task<ClientTask> Handle(UpdateTaskCommand request, CancellationToken cancellationToken)
         {
             var task = _mapper.Map<ClientTask>(request);
-            task.TaskTypeId = 1;
             var updatedTask = await _taskRepository.UpdateTaskAsync(task, request.UserId.ToString());
             return updatedTask;
         }

@@ -29,7 +29,6 @@ namespace ToDo.Application.ToDos.Commands
                 TaskPriorityId = request.TaskPriorityId,
                 DeadlineDate = request.DeadlineDate,
                 TaskProgressId = 2,
-                TaskTypeId = 1,
             };
 
             var task = await _taskRepository.AddTaskAsync(taskToAdd,request.UserId);

@@ -14,15 +14,15 @@ import { useEffect } from "react";
 
 const AccountSettings = () => {
   const { auth, setAuth } = useAuth();
-  const userObject = useAuth()?.auth?.userObject;
-
+  const userObject = auth?.userObject;
   const axiosPrivate = useAxiosPrivate();
   const [selectedImage, setSelectedImage] = useState("");
   const [selectedImageBytes, setSelectedImageBytes] = useState("");
-
+  const [imageRemoved, setImageRemoved] = useState(false);
   //Handle Image changing
   const imageChange = async (e) => {
     if (e.target.files[0]) {
+      setImageRemoved(false);
       const base64ImageNotFormatted = await fileToBase64(e.target.files[0]);
       const base64ImageFormatted = base64ImageNotFormatted.slice(
         base64ImageNotFormatted.indexOf(",") + 1,
@@ -35,6 +35,7 @@ const AccountSettings = () => {
 
   const removeImage = (e) => {
     e.preventDefault();
+    setImageRemoved(true);
     setSelectedImage("");
   };
 
@@ -53,15 +54,34 @@ const AccountSettings = () => {
   };
   const [updatePersonalInfoForm] = Form.useForm();
 
-
   const handleSaveNewPersonalInfoSave = (e) => {
+    let profilePictureBytesTemp = "";
+
+    if (selectedImage === "" && imageRemoved) {
+      profilePictureBytesTemp = "";
+    } else if (
+      selectedImage === "" &&
+      !userObject.profilePictureBytes &&
+      userObject.profilePictureBytes.length === 0
+    ) {
+      profilePictureBytesTemp = "";
+    } else if (
+      selectedImage === "" &&
+      userObject.profilePictureBytes &&
+      userObject.profilePictureBytes.length !== 0
+    ) {
+      profilePictureBytesTemp = userObject.profilePictureBytes;
+    } else if (selectedImage && !imageRemoved) {
+      profilePictureBytesTemp = selectedImageBytes;
+    }
     const personalInfoToUpdate = {
       id: userObject.id,
       firstName: e.firstName,
       lastName: e.lastName,
       phoneNumber: e?.phoneNumber,
-      profilePictureBytes: selectedImageBytes,
+      profilePictureBytes: profilePictureBytesTemp,
     };
+    console.log(personalInfoToUpdate);
     const updatePersonalInfo = async () => {
       const controller = new AbortController();
 
@@ -75,9 +95,16 @@ const AccountSettings = () => {
         );
         if (response?.status === 200) {
           message.success("Information updated successfully.");
+          console.log(response?.data);
           setAuth((prev) => ({
             ...prev,
-            userObject: {...prev.userObject, profilePictureBytes: selectedImageBytes}
+            userObject: {
+              ...prev.userObject,
+              profilePictureBytes: response?.data?.profilePictureBytes,
+              firstName: response?.data?.firstName,
+              phoneNumber: response?.data?.phoneNumber,
+              lastName: response?.data?.lastName,
+            },
           }));
         }
         //navigate to login or refresh the page
@@ -114,7 +141,7 @@ const AccountSettings = () => {
               src={
                 selectedImage !== ""
                   ? URL.createObjectURL(selectedImage)
-                  : userObject?.profilePictureBytes
+                  : userObject?.profilePictureBytes && !imageRemoved
                   ? "data:image/jpeg;base64," + userObject?.profilePictureBytes
                   : emptyProfilePicture
               }
@@ -160,11 +187,7 @@ const AccountSettings = () => {
           </div>
           <div className="lastname-wrapper">
             <p>Last name:</p>
-            <Form.Item
-              rules={[yupSync]}
-              name="lastName"
-              initialValue={userObject?.lastName}
-            >
+            <Form.Item name="lastName" initialValue={userObject?.lastName}>
               <input />
             </Form.Item>
           </div>

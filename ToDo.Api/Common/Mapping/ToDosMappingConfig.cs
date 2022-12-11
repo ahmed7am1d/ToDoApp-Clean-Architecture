@@ -12,12 +12,10 @@ namespace ToDo.Api.Common.Mapping
             //config.NewConfig<source, destinitaion>
             config.NewConfig<ClientTask, UserTaskResponse>()
                 .Map(dest => dest.Progress, src => src.Progress.Progress)
-                .Map(dest => dest.Type, src => src.Type.Type)
                 .Map(dest => dest.Priority, src => src.Priority.Priority);
 
             config.NewConfig<AddTaskResult, UserTaskResponse>()
                 .Map(dest => dest.Progress, src => src.Progress.Progress)
-                .Map(dest => dest.Type, src => src.Type.Type)
                 .Map(dest => dest.Priority, src => src.Priority.Priority);
 
             config.NewConfig<ClientTask, ClientTask>().IgnoreNullValues(true).AfterMapping((src, dest) =>

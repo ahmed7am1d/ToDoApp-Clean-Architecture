@@ -33,7 +33,7 @@ function App() {
               <Route path="upcoming" element={<WeeklyTasks />} />
               {/* <Route path="monthlytasks" element={<MonthlyTasks/>}/> */}
               <Route path="settings" element={<Settings />}>
-                <Route path="account-settings" element={<AccountSettings />} />
+                <Route path="account-settings" index element={<AccountSettings />} />
                 <Route
                   path="security-settings"
                   element={<SecuritySettings />}

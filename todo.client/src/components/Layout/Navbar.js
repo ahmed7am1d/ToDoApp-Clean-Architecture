@@ -11,7 +11,7 @@ import {
   faLessThan,
   faGreaterThan,
 } from "@fortawesome/free-solid-svg-icons";
-import emptyProfilePicture from '../../assets/images/emptyProfilePicture.png'
+import emptyProfilePicture from "../../assets/images/emptyProfilePicture.png";
 import QuotesAPI from "../../api/RandomQuotesAPI";
 import ApiConstants from "../../constants/ApiConstants";
 import useSideNavBarToggle from "../../hooks/useSideNavBarToggle";
@@ -28,6 +28,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const currentPath = window.location.pathname;
   const userObject = useAuth()?.auth?.userObject;
+  const [winWidth, setWinWidth] = useState(window.innerWidth);
   const loadQuotes = async () => {
     try {
       const quotesAPIResponse = await QuotesAPI.get(
@@ -54,13 +55,24 @@ const Navbar = () => {
     setCollapseButtonClicked(!collapseButtonClicked);
   };
 
+  useEffect(() => {
+    function handleResize() {
+      setWinWidth(window.innerWidth);
+      if (window.innerWidth < 800) {
+        setCollapseButtonClicked(true);
+      }
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [collapseButtonClicked]);
+
   return (
     <aside
       className={
         !collapseButtonClicked ? "aside-nav-full" : "aside-nav-collapsed"
       }
     >
-      {currentPath.includes("settings") && (
+      {currentPath.includes("settings") && winWidth > 800 && (
         <div className="arrowWrapper-settingsPage" onClick={CollapseNav}>
           <FontAwesomeIcon
             icon={!collapseButtonClicked ? faLessThan : faGreaterThan}
@@ -68,7 +80,7 @@ const Navbar = () => {
           />
         </div>
       )}
-      {!currentPath.includes("settings") && (
+      {!currentPath.includes("settings") && winWidth > 800 && (
         <div className="arrowWrapper" onClick={CollapseNav}>
           <FontAwesomeIcon
             icon={!collapseButtonClicked ? faLessThan : faGreaterThan}
@@ -80,7 +92,13 @@ const Navbar = () => {
       {/* profile picture & user name  */}
       <div className="user-wrapper">
         <div className="user-image-wrapper">
-          <img src={userObject?.profilePictureBytes ? `data:image/*;base64,${userObject?.profilePictureBytes}` :emptyProfilePicture } />
+          <img
+            src={
+              userObject?.profilePictureBytes
+                ? `data:image/*;base64,${userObject?.profilePictureBytes}`
+                : emptyProfilePicture
+            }
+          />
         </div>
         {!collapseButtonClicked && (
           <>
@@ -124,7 +142,10 @@ const Navbar = () => {
           )}
           <ul>
             <li>
-              <Link to="/home/settings" className="navigation-anchor">
+              <Link
+                to="/home/settings/account-settings"
+                className="navigation-anchor"
+              >
                 <FontAwesomeIcon icon={faGear} />
                 {!collapseButtonClicked && "Settings"}
               </Link>

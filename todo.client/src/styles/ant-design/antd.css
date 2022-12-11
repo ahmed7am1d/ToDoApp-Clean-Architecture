@@ -13586,7 +13586,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   background-color: #fff;
   background-image: none;
   border: 1px solid #d9d9d9;
-  border-radius: 40px;
+
   transition: all 0.3s;
   display: inline-flex;
 }
@@ -13607,10 +13607,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
 }
 .ant-input-affix-wrapper:focus,
 .ant-input-affix-wrapper-focused {
-  border-color: #f7867c;
-  box-shadow: 0 0 0 2px rgba(235, 86, 79, 0.2);
-  border-right-width: 1px;
-  outline: 0;
+ 
 }
 .ant-input-rtl .ant-input-affix-wrapper:focus,
 .ant-input-rtl .ant-input-affix-wrapper-focused {

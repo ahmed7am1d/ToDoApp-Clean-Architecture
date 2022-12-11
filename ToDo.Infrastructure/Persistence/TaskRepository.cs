@@ -36,7 +36,7 @@ namespace ToDo.Infrastructure.Persistence
             var taskDB = await _dataContext.Tasks.Include(t => t.Priority)
                         .Include(t => t.Progress)
                         .Include(t => t.Priority)
-                        .Include(t => t.Type).FirstOrDefaultAsync(t => t.TaskId == task.TaskId);
+                        .FirstOrDefaultAsync(t => t.TaskId == task.TaskId);
             return taskDB;
         }
 
@@ -48,7 +48,6 @@ namespace ToDo.Infrastructure.Persistence
             var taskDB = await _dataContext.Tasks.
                 Include(t => t.Priority)
                 .Include(t => t.Progress)
-                .Include(t => t.Type)
                 .FirstOrDefaultAsync(t => t.TaskId == task.TaskId);
 
             _mapper.Map(task, taskDB);
@@ -61,8 +60,6 @@ namespace ToDo.Infrastructure.Persistence
         public async Task<List<TaskPriority>> GetTaskPrioritiesAsync() => await _dataContext.TaskPriorities.ToListAsync();
 
         public async Task<List<TaskProgress>> GetTaskProgressesAsync() => await _dataContext.TaskProgresses.ToListAsync();
-
-        public async Task<List<TaskType>> GetTaskTypesAsync() => await _dataContext.TaskTypes.ToListAsync();
 
         public async Task<ClientTask> AddTask(ClientTask taskToAdd)
         {
@@ -77,8 +74,7 @@ namespace ToDo.Infrastructure.Persistence
             .Where(t => t.TaskProgressId == 2)
             .Include(t => t.Priority)
             .Include(t => t.Progress)
-            .Include(t => t.Priority)
-            .Include(t => t.Type).ToListAsync();
+          .ToListAsync();
 
         public async Task<List<ClientTask>> GetUserTasksInProgressAsync(string userId) =>
          await _dataContext.Tasks
@@ -87,7 +83,7 @@ namespace ToDo.Infrastructure.Persistence
         .Include(t => t.Priority)
         .Include(t => t.Progress)
         .Include(t => t.Priority)
-        .Include(t => t.Type).ToListAsync();
+        .ToListAsync();
 
         public async Task<List<ClientTask>> GetUserDoneTasksAsync(string userId) =>
                     await _dataContext.Tasks
@@ -96,14 +92,14 @@ namespace ToDo.Infrastructure.Persistence
         .Include(t => t.Priority)
         .Include(t => t.Progress)
         .Include(t => t.Priority)
-        .Include(t => t.Type).ToListAsync();
+       .ToListAsync();
 
         public async Task<bool> DeleteTaskAsync(string taskId)
         {
             var clientTask = new ClientTask { TaskId = Guid.Parse(taskId) };
             _dataContext.Tasks.Attach(clientTask);
             _dataContext.Tasks.Remove(clientTask);
-            var deleteResult=  await _dataContext.SaveChangesAsync();
+            var deleteResult = await _dataContext.SaveChangesAsync();
             return deleteResult > 0;
         }
     }

@@ -16,7 +16,6 @@ namespace ToDo.Domain.Entities.Tasks
                    .HasColumnType("DATETIME")
                    .HasDefaultValueSql("GETDATE()");
             builder.HasOne(t => t.User).WithMany().HasForeignKey(t => t.UserId);
-            builder.HasOne(t => t.Type).WithMany().HasForeignKey(t => t.TaskTypeId);
             builder.HasOne(t => t.Progress).WithMany().HasForeignKey(t => t.TaskProgressId);
             builder.HasOne(t => t.Priority).WithMany().HasForeignKey(t => t.TaskPriorityId);
         }

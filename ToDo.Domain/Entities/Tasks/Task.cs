@@ -4,7 +4,7 @@ namespace ToDo.Domain.Entities.Tasks
     {
         public Guid TaskId { get; set; }
         public string TaskTitle { get; set; }
-        public string TaskDescription { get; set; }
+        public string? TaskDescription { get; set; }
         public DateTime DateCreated { get; set; } = DateTime.UtcNow;
         public DateTime? DeadlineDate { get; set; }
         public Guid UserId { get; set; }
@@ -13,7 +13,6 @@ namespace ToDo.Domain.Entities.Tasks
         public TaskPriority Priority { get; set; }
         public int TaskProgressId { get; set; }
         public TaskProgress Progress { get; set; }
-        public int TaskTypeId { get; set; }
-        public TaskType Type { get; set; }
+
     }
 }

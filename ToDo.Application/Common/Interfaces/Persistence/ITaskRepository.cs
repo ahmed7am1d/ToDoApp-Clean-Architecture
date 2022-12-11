@@ -18,6 +18,5 @@ namespace ToDo.Application.Common.Interfaces.Persistence
         Task<bool> DeleteTaskAsync(string taskId);
         Task<List<TaskPriority>> GetTaskPrioritiesAsync();
         Task<List<TaskProgress>> GetTaskProgressesAsync();
-        Task<List<TaskType>> GetTaskTypesAsync();
     }
 }

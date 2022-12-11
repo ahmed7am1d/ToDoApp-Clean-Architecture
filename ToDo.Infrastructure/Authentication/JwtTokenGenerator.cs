@@ -35,8 +35,8 @@ namespace ToDo.Infrastructure.Authentication
             {
                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
                new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName),
-               new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName),
-               new Claim("PhoneNumber", user.PhoneNumber),
+               new Claim(JwtRegisteredClaimNames.FamilyName, String.IsNullOrEmpty( user.LastName) ? "" : user.LastName),
+               new Claim("PhoneNumber", String.IsNullOrEmpty( user.PhoneNumber) ? "" : user.PhoneNumber),
                new Claim("JwtRegisteredClaimNames.Jti", Guid.NewGuid().ToString()),
             };
             //Token

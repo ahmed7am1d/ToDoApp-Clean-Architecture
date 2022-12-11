@@ -16,7 +16,6 @@ namespace ToDo.Contracts.ToDos.Responses
         public string Priority { get; set; }
         public int TaskProgressId { get; set; }
         public string Progress { get; set; }
-        public int TaskTypeId { get; set; }
-        public string Type { get; set; }
+  
     }
 }

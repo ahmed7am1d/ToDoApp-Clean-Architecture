@@ -14,6 +14,7 @@ namespace ToDo.Api.Controllers
     {
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
+        
         public UserController(IMapper mapper, IMediator mediator)
         {
             _mapper = mapper;
@@ -28,6 +29,18 @@ namespace ToDo.Api.Controllers
             if (userUpdatedResponse is null) return BadRequest();
 
             return Ok(userUpdatedResponse);
+        }
+
+        [HttpPut("update-personal-password")]
+        public async Task<IActionResult> UpdateUserPassword([FromBody] UpdateUserPasswordRequest updateUserPasswordRequest)
+        {
+            var command = _mapper.Map<UpdatePersonalPasswordCommand>(updateUserPasswordRequest);
+            var updatePasswordResult = await _mediator.Send(command);
+            if(!updatePasswordResult.IsError)
+            {
+                return Ok();
+            }
+            return Problem(updatePasswordResult.Errors);
         }
     }
 }

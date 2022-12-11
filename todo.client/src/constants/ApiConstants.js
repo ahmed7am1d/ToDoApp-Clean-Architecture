@@ -30,7 +30,7 @@ const ApiConstants = {
     return `/todo/delete-task/${taskId}`;
   },
   UPDATE_PERSONAL_INFO : "/user/update-personal-info",
-
+  UPDATE_PERSONAL_PASSWORD: "/user/update-personal-password",
   //Content type for post request
   CONTENT_TYPE_POST_REQUEST: { "Content-Type": "application/json" },
 };

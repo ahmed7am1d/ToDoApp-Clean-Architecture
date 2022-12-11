@@ -25,7 +25,6 @@ namespace ToDo.Infrastructure
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(TaskMapper).Assembly);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(TaskPriorityMapper).Assembly);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(TaskProgressMapper).Assembly);
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(TaskTypeMapper).Assembly);
             //Data Seeding
             modelBuilder.Entity<TaskPriority>().HasData(new List<TaskPriority>
             {
@@ -41,18 +40,11 @@ namespace ToDo.Infrastructure
                 new TaskProgress{TaskProgressId = 3,Progress = "In Progress"}
             });
 
-            modelBuilder.Entity<TaskType>().HasData(new List<TaskType>
-            {
-                new TaskType{TaskTypeId = 1,Type = "Daily"},
-                new TaskType{TaskTypeId = 2,Type = "Weekly"},
-                new TaskType{TaskTypeId = 3,Type = "Monthly"}
-            });
 
         }
         //DbSets
         public DbSet<User> Users { get; set; }
         public DbSet<Task> Tasks { get; set; }
-        public DbSet<TaskType> TaskTypes { get; set; }
         public DbSet<TaskProgress> TaskProgresses { get; set; }
         public DbSet<TaskPriority> TaskPriorities { get; set; }
     }

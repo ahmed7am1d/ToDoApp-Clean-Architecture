@@ -1,0 +1,147 @@
+@import "../../../styles/varaibles";
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BenchNine&family=DM+Serif+Display&family=Quattrocento+Sans&family=Roboto:wght@300&family=Telex&display=swap");
+$main-wrappers-top-margin: 30px;
+
+.security-settings-page-wrapper {
+  padding: 20px 20px 20px 0px;
+  overflow-y: scroll;
+  margin-left: 30px;
+  margin-bottom: 1000px;
+  height: 100vh;
+  button {
+    padding: 5px;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Bebas Neue", cursive;
+    font-family: "BenchNine", sans-serif;
+    font-family: "DM Serif Display", serif;
+    font-family: "Quattrocento Sans", sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-family: "Telex", sans-serif;
+  }
+
+  h1 {
+    width: fit-content;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      height: 2px;
+      width: 100%;
+      background-color: $main-color;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  .information-security-wrapper {
+    p {
+      color: $main-text-color-white-gray;
+    }
+  }
+
+  .password-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: $main-wrappers-top-margin;
+    gap: 40px;
+    .write-password-wrapper,
+    .new-password-wrapper {
+      width: 100%;
+      p {
+        font-weight: bold;
+      }
+      input {
+        width: 100%;
+        color: $main-text-color-black;
+        padding: 7px;
+        outline: none;
+        border-radius: 7px;
+      }
+      .ant-input-affix-wrapper {
+        border-radius: 7px;
+      }
+    }
+  }
+
+  .error-message-both {
+    width: 100%;
+    p {
+      text-align: center;
+      color: #ff4d4f;
+    }
+  }
+  .email-wrapper {
+    margin-top: $main-wrappers-top-margin;
+
+    p:nth-child(1) {
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      border-radius: 7px;
+      color: $main-text-color-black;
+      padding: 7px;
+      outline: none;
+      &:focus {
+        border-bottom: 2px solid red;
+        outline: none;
+      }
+    }
+    input:disabled {
+      background-color: rgba(216, 112, 112, 0.626);
+      color: white;
+      border: 1px solid white;
+      cursor: not-allowed;
+    }
+    p:nth-child(2) {
+      color: $main-text-color-white-gray;
+    }
+  }
+
+  .save-cancel-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    gap: 10px;
+    button:nth-child(1) {
+      color: $main-text-color-white;
+      background-color: $main-color;
+    }
+    button:nth-child(2) {
+      color: $main-text-color-white-gray;
+      background-color: transparent;
+      border: 1px solid $main-text-color-white-gray;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .title-description-wrapper,
+  .header-wrapper {
+    display: none;
+  }
+
+  .account-settings-wrapper,
+  .security-settings-wrapper,
+  .appearance-settings-wrapper {
+    justify-content: center;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    .icon-wrapper {
+      font-size: 20px;
+    }
+  }
+
+  .password-wrapper {
+    flex-direction: column;
+  }
+}

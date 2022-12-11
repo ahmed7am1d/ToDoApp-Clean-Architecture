@@ -30,13 +30,6 @@ public class ToDosController : ApiController
         _mapper = mapper;
     }
 
-    [HttpGet("task-types")]
-    public async Task<IActionResult> GetTaskTypes()
-    {
-        var taskTypes = await _mediator.Send(new GetTaskTypesQuery());
-        if (taskTypes is null) return NoContent();
-        return Ok(taskTypes);
-    }
 
     [HttpGet("task-progresses")]
     public async Task<IActionResult> GetTaskProgresses()

@@ -14,6 +14,8 @@ namespace ToDo.Application.Common.Interfaces.Persistence
         bool SetUserRefereshToken(string refreshToken, User user, DateTime DateCreated, DateTime RefreshTokenExipryTime);
         User? GetUserByRefreshToken(string refreshToken);
         User? UpdateUserPersonalInfo(User user);
+        bool ValidateUserPassword (Guid id, string hashedPassword);
+        bool UpdateUserPassword(Guid id, string newHashedPassword);
 
     }
 }

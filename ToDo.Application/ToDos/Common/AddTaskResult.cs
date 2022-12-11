@@ -21,7 +21,5 @@ namespace ToDo.Application.ToDos.Common
      int TaskPriorityId,
      TaskPriority Priority,
      int TaskProgressId,
-     TaskProgress Progress,
-     int TaskTypeId,
-     TaskType Type);
+     TaskProgress Progress);
 }
