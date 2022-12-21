@@ -74,5 +74,5 @@ Internal App ScreenShots:
 <img src="todo.client/src/assets/appScreenShots/SecurityPage.png"></img> <br/>
 **- Settings Page (Appearance settings):** <br/>
 <img src="todo.client/src/assets/appScreenShots/AppearancePage.png"></img> <br/>
-**- Upcoming Page: ** <br/>
+**- Upcoming Page:** <br/>
 <img src="todo.client/src/assets/appScreenShots/UpcomingPage.png"></img>
