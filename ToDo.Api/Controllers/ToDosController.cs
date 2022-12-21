@@ -103,4 +103,12 @@ public class ToDosController : ApiController
         return NoContent();
     }
 
+    [HttpGet("all/{userId}")]
+    public async Task<IActionResult> GetAllUserTasks(Guid userId)
+    {
+        var allTasks = await _mediator.Send(new GetAllUserTasksQuery(userId));
+        if(allTasks is null) return NotFound();
+        var allTasksResponse = _mapper.Map<List<UserTaskResponse>>(allTasks);
+        return Ok(allTasksResponse);
+    }
 }

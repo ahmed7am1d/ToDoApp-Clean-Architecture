@@ -3,6 +3,7 @@ import { Col, Row, message } from "antd";
 import { ContactsOutlined, MailOutlined } from "@ant-design/icons";
 import "./register.scss";
 import ToDoPicture from "../../../assets/images/Todo-list.svg";
+import ToDoPictureLight from "../../../assets/images/ToDoLight.svg";
 import { useState } from "react";
 import ShowHidePasswordIcon from "../../../components/Auth/ShowHidePasswordIcon";
 import { useForm } from "react-hook-form";
@@ -69,7 +70,7 @@ const Register = () => {
   } = useForm({
     resolver: yupResolver(RegisterValidationSchema()),
   });
-  
+
   const handleRegisterSubmit = async (e) => {
     try {
       const response = await axios.post(
@@ -123,9 +124,18 @@ const Register = () => {
       }
     }
   };
+
   return (
     <>
-      <div className="register-page-wrapper">
+      <div
+        className={
+          localStorage.getItem("darkmode") === "true"
+            ? "register-page-wrapper dark"
+            : localStorage.getItem("lightmode") === "true"
+            ? "register-page-wrapper light"
+            : "register-page-wrapper dark"
+        }
+      >
         <h1 className="login-headerTitle">Be Productive, Be Successful</h1>
         <Row>
           <Col xs={24} sm={14} lg={12} className="login-column">
@@ -255,8 +265,18 @@ const Register = () => {
             </div>
           </Col>
           <Col xs={24} sm={8} lg={12} className="image-column">
-            <div className="image-wrapper">
-              <img src={ToDoPicture} className="todo-image" alt="ToDo" />
+            <div className="image-wrapper-rg">
+              <img
+                src={
+                  localStorage.getItem("darkmode") === "true"
+                    ? ToDoPicture
+                    : localStorage.getItem("lightmode") === "true"
+                    ? ToDoPictureLight
+                    : ToDoPicture
+                }
+                className="todo-image"
+                alt="ToDo"
+              />
             </div>
           </Col>
         </Row>

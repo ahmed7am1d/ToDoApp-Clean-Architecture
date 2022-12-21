@@ -82,7 +82,6 @@ namespace ToDo.Infrastructure.Persistence
         .Where(t => t.TaskProgressId == 3)
         .Include(t => t.Priority)
         .Include(t => t.Progress)
-        .Include(t => t.Priority)
         .ToListAsync();
 
         public async Task<List<ClientTask>> GetUserDoneTasksAsync(string userId) =>
@@ -101,6 +100,15 @@ namespace ToDo.Infrastructure.Persistence
             _dataContext.Tasks.Remove(clientTask);
             var deleteResult = await _dataContext.SaveChangesAsync();
             return deleteResult > 0;
+        }
+
+        public async Task<List<ClientTask>> GetAllUserTasksAsync(Guid userId)
+        {
+            return await _dataContext.Tasks.Where(t => t.UserId == userId)
+                    .Include(t => t.Progress)
+                    .Include(t => t.Priority)
+                    .Include(t => t.User)
+                    .ToListAsync();
         }
     }
 }

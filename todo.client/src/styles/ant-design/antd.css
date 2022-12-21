@@ -13598,8 +13598,7 @@ _:-ms-fullscreen .ant-picker-range-wrapper .ant-picker-year-panel .ant-picker-ce
   text-overflow: ellipsis;
 }
 .ant-input-affix-wrapper:hover {
-  border-color: #f7867c;
-  border-right-width: 1px;
+
 }
 .ant-input-rtl .ant-input-affix-wrapper:hover {
   border-right-width: 0;
@@ -13667,9 +13666,7 @@ textarea.ant-input-affix-wrapper {
   direction: rtl;
 }
 .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
-  border-color: #f7867c;
-  border-right-width: 1px;
-  z-index: 1;
+
 }
 .ant-input-rtl .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
   border-right-width: 0;
@@ -13783,19 +13780,14 @@ textarea.ant-input-affix-wrapper {
   outline: 0;
 }
 .ant-input-status-warning .ant-input-prefix {
-  color: #faad14;
 }
 .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper,
 .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:hover {
-  background: #fff;
-  border-color: #ff4d4f;
+
 }
 .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:focus,
 .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper-focused {
-  border-color: #ff7875;
-  box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
-  border-right-width: 1px;
-  outline: 0;
+
 }
 .ant-input-affix-wrapper-status-error .ant-input-prefix {
   color: #ff4d4f;

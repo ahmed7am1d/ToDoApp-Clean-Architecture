@@ -1,0 +1,36 @@
+@import "../../styles/varaibles";
+.upcomingtasks-wrapper {
+  padding: 20px;
+  .header-wrapper {
+    h1 {
+      width: fit-content;
+      position: relative;
+      color: $main-text-color-white;
+      &::after {
+        background-color: $main-color;
+        position: absolute;
+        content: "";
+        height: 2px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+  .timeline-wrapper {
+    .ant-timeline {
+      color: $main-text-color-white;
+      .timeline-wrapper-left {
+        font-size: 20px;
+      }
+      .ant-timeline-item-head {
+        width: 20px;
+        margin-left: -9px;
+        height: 20px;
+      }
+      .ant-timeline-item-tail {
+      
+      }
+    }
+  }
+}

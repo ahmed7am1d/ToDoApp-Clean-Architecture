@@ -2,224 +2,385 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Telex&display=swap");
 $column-padding: 50px;
 
-
 .register-page-wrapper {
   overflow-x: hidden;
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-clip: content-box;
+  height: 100vh;
+  .login-headerTitle {
+    text-align: center;
+    font-size: 3rem;
+    padding: 10px;
+    font-family: "Bebas Neue", cursive;
+    animation: login-headerTitle-animation 2s ease-in-out;
+    text-decoration: underline;
+  }
+
+  @keyframes login-headerTitle-animation {
+    0% {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .login-column,
+  .image-column {
+    padding-right: $column-padding;
+    padding-left: $column-padding;
+    margin: 0;
+  }
+
+  .login-column {
+    animation: login-column-animation 2s ease-in-out;
+  }
+
+  .image-column {
+    animation: image-column-animation 2s ease-in-out;
+  }
+
+  @keyframes image-column-animation {
+    0% {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes login-column-animation {
+    from {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .login-wrapper {
+    h1,
+    input {
+    }
+    input {
+      border: none;
+      padding: 25px 10px 20px 19px;
+      border-radius: 25px;
+      margin-right: 10px;
+    }
+    input:focus {
+      outline: none;
+    }
+
+    .login-header-wrapper {
+      margin-left: 10px;
+      span {
+        font-size: 40px;
+      }
+      p {
+        margin: 0;
+      }
+      a {
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: none;
+      }
+    }
+
+    .login-form-inputs-wrapper {
+      margin-top: 15px;
+      div {
+        margin-bottom: 20px;
+      }
+
+      .first-last-name-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        div {
+          width: 100%;
+          position: relative;
+        }
+        .first-name-wrapper,
+        .last-name-wrapper {
+          position: relative;
+        }
+        .first-name-wrapper span:nth-child(1),
+        .last-name-wrapper span:nth-child(1) {
+          position: absolute;
+          left: 19px;
+          top: 5px;
+        }
+        .first-name-wrapper span:nth-child(3),
+        .last-name-wrapper span:nth-child(3) {
+          display: flex;
+          position: absolute;
+          right: 19px;
+          top: 18px;
+          padding-right: 4px;
+          font-size: 1.7rem;
+        }
+
+        input {
+          width: 98%;
+        }
+      }
+      .email-wrapper,
+      .password-wrapper {
+        position: relative;
+      }
+      .email-wrapper span:nth-child(1),
+      .password-wrapper span:nth-child(1) {
+        position: absolute;
+        left: 19px;
+        top: 5px;
+      }
+
+      .email-wrapper span:nth-child(3),
+      .password-wrapper span:nth-child(3) {
+        display: flex;
+        position: absolute;
+        right: 19px;
+        top: 18px;
+        padding-right: 4px;
+        font-size: 1.7rem;
+      }
+
+      .email-wrapper,
+      .password-wrapper,
+      .buttons-wrapper {
+        input {
+          width: 100%;
+        }
+      }
+      .eye-icon {
+        transition: 0.5s;
+      }
+      .eye-icon:hover {
+        transform: scale(1) !important;
+        font-size: 35px !important;
+      }
+
+      .buttons-wrapper {
+        input {
+          padding: 10px 50px 10px 50px;
+          border-radius: 20px;
+          border: none;
+          text-transform: uppercase;
+          cursor: pointer;
+          transition: 0.5s;
+        }
+        input:hover {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+
+  .image-wrapper-rg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+    .todo-image {
+      height: auto;
+      width: 100%;
+      min-width: 300px;
+      max-width: 700px;
+    }
+  }
+}
+
+.register-page-wrapper.dark {
   background-image: linear-gradient(
       to left,
       rgba($main-color, 0.3),
       rgba($main-color, 0.6)
     ),
     url("../../../assets/images/leaves_plant_bw_167185_3840x2160.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center;
-  background-clip: content-box;
-  height: 100vh;
-}
-.login-headerTitle {
-  color: $main-text-color-white;
-  text-align: center;
-  font-size: 3rem;
-  padding: 10px;
-  font-family: "Bebas Neue", cursive;
-  text-shadow: 3px 7px 20px $secondary-color;
-  animation: login-headerTitle-animation 2s ease-in-out;
-  text-decoration: underline;
-}
-@keyframes login-headerTitle-animation {
-  0% {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-.login-column,
-.image-column {
-  padding-right: $column-padding;
-  padding-left: $column-padding;
-  margin: 0;
-}
-
-.login-column {
-  animation: login-column-animation 2s ease-in-out;
-}
-
-.image-column {
-  animation: image-column-animation 2s ease-in-out;
-}
-
-@keyframes image-column-animation {
-  0% {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes login-column-animation {
-  from {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.login-wrapper {
-  h1,
-  input {
+  .login-headerTitle {
     color: $main-text-color-white;
-  }
-  input {
-    background-color: $input-registerform-background-color;
-    border: none;
-    padding: 25px 10px 20px 19px;
-    border-radius: 25px;
-    margin-right: 10px;
-  }
-  input:focus {
-    outline: none;
-    border-bottom: 1px solid $secondary-color;
+    text-shadow: 3px 7px 20px $secondary-color;
   }
 
-  .login-header-wrapper {
-    margin-left: 10px;
-    span {
-      font-size: 40px;
-      color: $secondary-color;
+  .login-wrapper {
+    h1,
+    input {
+      color: $main-text-color-white;
     }
-    p {
-      color: $main-text-color-white-gray;
-      margin: 0;
+    input {
+      background-color: $input-registerform-background-color;
     }
-    a {
-      color: $secondary-color;
-      font-weight: bold;
-      text-decoration: none;
-      text-transform: none;
-    }
-  }
-
-  .login-form-inputs-wrapper {
-    margin-top: 15px;
-    div {
-      margin-bottom: 20px;
+    input:focus {
+      border-bottom: 1px solid $secondary-color;
     }
 
-    .first-last-name-wrapper {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      div {
-        width: 100%;
-        position: relative;
+    .login-header-wrapper {
+      span {
+        color: $secondary-color;
       }
-      .first-name-wrapper,
-      .last-name-wrapper {
-        position: relative;
-      }
-      .first-name-wrapper span:nth-child(1),
-      .last-name-wrapper span:nth-child(1) {
-        position: absolute;
-        left: 19px;
-        top: 5px;
+      p {
         color: $main-text-color-white-gray;
       }
-      .first-name-wrapper span:nth-child(3),
-      .last-name-wrapper span:nth-child(3) {
-        display: flex;
-        position: absolute;
-        right: 19px;
-        top: 18px;
-        padding-right: 4px;
-        color: $main-text-color-white-gray;
-        font-size: 1.7rem;
-      }
-
-      input {
-        width: 98%;
-      }
-    }
-    .email-wrapper,
-    .password-wrapper {
-      position: relative;
-    }
-    .email-wrapper span:nth-child(1),
-    .password-wrapper span:nth-child(1) {
-      position: absolute;
-      left: 19px;
-      top: 5px;
-      color: $main-text-color-white-gray;
-    }
-
-    .email-wrapper span:nth-child(3),
-    .password-wrapper span:nth-child(3) {
-      display: flex;
-      position: absolute;
-      right: 19px;
-      top: 18px;
-      padding-right: 4px;
-      color: $main-text-color-white-gray;
-      font-size: 1.7rem;
-    }
-
-
-    .email-wrapper,
-    .password-wrapper,
-    .buttons-wrapper {
-      input {
-        width: 100%;
-      }
-    }
-    .eye-icon {
-      transition: .5s;
-    }
-    .eye-icon:hover {
-     transform: scale(1) !important;
-     font-size: 35px !important;
-    }
-
-    .buttons-wrapper {
-      input {
-        padding: 10px 50px 10px 50px;
-        background-color: $secondary-color;
-        border-radius: 20px;
-        border: none;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: 0.5s;
-      }
-      input:hover {
-        background-color: $main-color;
-        outline: 1px solid $secondary-color;
+      a {
         color: $secondary-color;
       }
     }
+
+    .login-form-inputs-wrapper {
+      div {
+      }
+
+      .first-last-name-wrapper {
+        div {
+        }
+        .first-name-wrapper,
+        .last-name-wrapper {
+        }
+        .first-name-wrapper span:nth-child(1),
+        .last-name-wrapper span:nth-child(1) {
+          color: $main-text-color-white-gray;
+        }
+        .first-name-wrapper span:nth-child(3),
+        .last-name-wrapper span:nth-child(3) {
+          color: $main-text-color-white-gray;
+        }
+
+        input {
+        }
+      }
+      .email-wrapper,
+      .password-wrapper {
+      }
+      .email-wrapper span:nth-child(1),
+      .password-wrapper span:nth-child(1) {
+        color: $main-text-color-white-gray;
+      }
+
+      .email-wrapper span:nth-child(3),
+      .password-wrapper span:nth-child(3) {
+        color: $main-text-color-white-gray;
+      }
+
+      .buttons-wrapper {
+        input {
+          background-color: $secondary-color;
+        }
+        input:hover {
+          background-color: $main-color;
+          outline: 1px solid $secondary-color;
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+
+  .image-wrapper-rg {
+    .todo-image {
+    }
   }
 }
 
-.image-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.register-page-wrapper.light {
+  background-image: linear-gradient(
+      to left,
+      rgba($main-color-light, 0.3),
+      rgba($main-color-light, 0.6)
+    ),
+    url("../../../assets/images/leaves_plant_bw_167185_3840x2160.jpg");
 
-  height: 100%;
-  width: 100%;
-  .todo-image {
-    height: auto;
-    width: 100%;
-    min-width: 300px;
-    max-width: 700px;
+  .login-headerTitle {
+    color: $main-text-color-white;
+    text-shadow: 3px 7px 20px $main-color-light;
+  }
+
+  .login-wrapper {
+    h1,
+    input {
+      color: $main-text-color-white;
+    }
+    input {
+      background-color: $input-registerform-background-color;
+    }
+    input:focus {
+      border-bottom: 1px solid $secondary-color-light;
+    }
+
+    .login-header-wrapper {
+      span {
+        color: $main-text-color-white;
+      }
+      p {
+        color: $main-text-color-white-gray;
+      }
+      a {
+        color: $main-color-light;
+      }
+    }
+
+    .login-form-inputs-wrapper {
+      div {
+      }
+
+      .first-last-name-wrapper {
+        div {
+        }
+        .first-name-wrapper,
+        .last-name-wrapper {
+        }
+        .first-name-wrapper span:nth-child(1),
+        .last-name-wrapper span:nth-child(1) {
+          color: $main-text-color-white-gray;
+        }
+        .first-name-wrapper span:nth-child(3),
+        .last-name-wrapper span:nth-child(3) {
+          color: $main-text-color-white-gray;
+        }
+
+        input {
+        }
+      }
+      .email-wrapper,
+      .password-wrapper {
+      }
+      .email-wrapper span:nth-child(1),
+      .password-wrapper span:nth-child(1) {
+        color: $main-text-color-white-gray;
+      }
+
+      .email-wrapper span:nth-child(3),
+      .password-wrapper span:nth-child(3) {
+        color: $main-text-color-white-gray;
+      }
+
+      .buttons-wrapper {
+        input {
+          background-color: $main-color-light
+        }
+        input:hover {
+          background-color: $secondary-color-light;
+          outline: 1px solid $secondary-color-light;
+          color: $main-text-color-white;
+        }
+      }
+    }
+  }
+
+  .image-wrapper-rg {
+    .todo-image {
+    }
   }
 }

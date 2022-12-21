@@ -1,14 +1,9 @@
 @import "../../../styles/varaibles";
 .settings-wrapper {
-  .account-settings-outlet {
-  }
-
   // Navbar for account settings
   nav {
-    background-color: $navbar-account-settings-background-color;
     height: 100vh;
     .header-wrapper {
-      color: $main-text-color-black;
       padding: 10px;
       padding-left: 14px;
     }
@@ -19,9 +14,30 @@
       align-content: center;
       gap: 15px;
       padding: 10px;
-      border: 1px solid #eee;
       transition: 0.3s;
       cursor: pointer;
+
+      p {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+
+.settings-wrapper.dark {
+  .account-settings-outlet {
+  }
+
+  // Navbar for account settings
+  nav {
+    background-color: $navbar-account-settings-background-color;
+    .header-wrapper {
+      color: $main-text-color-black;
+    }
+    .account-settings-wrapper,
+    .security-settings-wrapper,
+    .appearance-settings-wrapper {
+      border: 1px solid #eee;
       svg {
         color: $navbar-account-settings-icons-color;
       }
@@ -30,7 +46,37 @@
       }
       p {
         color: $main-text-color-white-gray;
-        font-size: 0.7rem;
+      }
+
+      &:hover {
+        background-color: $navbar-account-settings-container-hover-bg-color;
+      }
+    }
+  }
+}
+
+.settings-wrapper.light {
+  // Navbar for account settings
+  nav {
+    background-color: $navbar-account-settings-background-color;
+    .header-wrapper {
+      color: $main-text-color-black;
+    }
+    .account-settings-wrapper,
+    .security-settings-wrapper,
+    .appearance-settings-wrapper {
+      border: 1px solid #eee;
+      .icon-wrapper {
+        svg {
+          color: $navbar-account-settings-icons-color-light;
+        }
+      }
+
+      h5 {
+        color: $main-text-color-black;
+      }
+      p {
+        color: $main-text-color-white-gray;
       }
 
       &:hover {

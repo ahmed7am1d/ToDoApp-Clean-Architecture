@@ -1,6 +1,7 @@
 @import "../../styles/varaibles";
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Telex&display=swap");
-.aside-nav-full {
+.aside-nav-full.dark {
+  transition: 1s;
   font-family: "Bebas Neue", cursive;
   font-family: "Telex", sans-serif;
   position: fixed;
@@ -140,8 +141,149 @@
   }
 }
 
+.aside-nav-full.light {
+  transition: 1s;
+  font-family: "Bebas Neue", cursive;
+  font-family: "Telex", sans-serif;
+  position: fixed;
+  padding: 10px;
+  width: 200px;
+  height: 100%;
+  background-color: $navbar-background-color-light;
+  float: left;
+  animation-name: expand-navbar;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+
+  @keyframes expand-navbar {
+    from {
+      width: 50px;
+    }
+
+    to {
+      width: 200px;
+    }
+  }
+
+  .arrowWrapper,
+  .arrowWrapper-settingsPage {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0;
+    padding-right: 0;
+    position: absolute;
+    top: 35px;
+    right: 0;
+    cursor: pointer;
+
+    .arrow-icon {
+      background-color: $arrow-icon-background-color;
+      padding: 10px;
+      color: $arrow-icon-text-color;
+      border-radius: 20px 0px 0px 20px;
+    }
+  }
+
+  .user-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    margin-bottom: 30px;
+    p {
+      font-weight: 600;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      font-size: 18px;
+      text-transform: uppercase;
+      color: $main-text-color-white;
+    }
+    .quote {
+      color: $main-text-color-white-gray;
+      text-align: center;
+    }
+    p,
+    img {
+      margin: 0;
+      padding: 0;
+    }
+    .user-image-wrapper {
+      width: 85px;
+      height: 85px;
+      overflow: hidden;
+      border: 5px solid $main-color-light;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .navigation-category-paragraph {
+    color: $main-text-color-white-gray;
+  }
+
+  .navigation-wrapper {
+    margin-left: 10px;
+    height: 150px;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      li:not(:first-child) {
+        margin-top: 30px;
+      }
+      li {
+        width: 170px;
+        transition: 0.5s;
+        a {
+          color: $main-text-color-white;
+        }
+      }
+      li:hover {
+        background-color: $navbar-icons-color;
+        padding: 10px;
+        border-radius: 5px;
+        .navigation-anchor {
+          color: $main-text-color-black;
+        }
+        svg {
+          color: $navbar-icons-color-hover-light;
+        }
+      }
+
+      svg {
+        color: $navbar-icons-color;
+        margin-right: 15px;
+      }
+    }
+
+    .settings-navigation-wrapper {
+      margin-top: 30px;
+    }
+
+    .logout-navigation-wrapper {
+      height: 100%;
+      li {
+        margin-top: 30px;
+        color: $main-text-color-white;
+      }
+      li:hover {
+        cursor: pointer;
+        color: $main-text-color-black;
+      }
+    }
+  }
+}
+
 // Collapsed asideNav
-.aside-nav-collapsed {
+.aside-nav-collapsed.dark {
   font-family: "Bebas Neue", cursive;
   font-family: "Telex", sans-serif;
   position: fixed;
@@ -181,7 +323,7 @@
     position: absolute;
     top: 60px;
     cursor: pointer;
-    animation-name:arrowSettingsPage-animation ;
+    animation-name: arrowSettingsPage-animation;
     animation-duration: 2.2s;
     .arrow-icon {
       background-color: $secondary-color;
@@ -194,7 +336,8 @@
     from {
       top: 35px;
       right: 0;
-    } to {
+    }
+    to {
       top: 60px;
     }
   }
@@ -282,6 +425,153 @@
     svg {
       font-size: 12px;
       background-color: $main-color;
+      color: white;
+      padding: 10px;
+      border-radius: 40%;
+    }
+  }
+}
+
+.aside-nav-collapsed.light {
+  font-family: "Bebas Neue", cursive;
+  font-family: "Telex", sans-serif;
+  position: fixed;
+  padding: 10px;
+  width: 220px;
+  height: 100%;
+  background-color: white;
+  float: left;
+  animation-name: collapse-navbar;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+
+  .arrowWrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0;
+    padding-right: 0;
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    background-color: $main-color-light;
+    border-radius: 0px 20px 20px 0px;
+    cursor: pointer;
+
+    .arrow-icon {
+      padding: 10px;
+    }
+  }
+  .arrowWrapper-settingsPage {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0;
+    padding-right: 0;
+    position: absolute;
+    top: 60px;
+    cursor: pointer;
+    animation-name: arrowSettingsPage-animation;
+    animation-duration: 2.2s;
+    .arrow-icon {
+      background-color: $secondary-color-light;
+      padding: 10px;
+      color: $arrow-icon-text-color;
+      border-radius: 20px 20px 20px 0px;
+    }
+  }
+  @keyframes arrowSettingsPage-animation {
+    from {
+      top: 35px;
+      right: 0;
+    }
+    to {
+      top: 60px;
+    }
+  }
+
+  @keyframes collapse-navbar {
+    from {
+      width: 200px;
+    }
+
+    to {
+      width: 50px;
+    }
+  }
+  // user wrapper [logo + name]
+  .user-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    p {
+      font-weight: 600;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+    .quote {
+      color: $main-text-color-white-gray;
+      text-align: center;
+    }
+    p,
+    img {
+      margin: 0;
+      padding: 0;
+    }
+    .user-image-wrapper {
+      width: 85px;
+      height: 85px;
+      overflow: hidden;
+      border: 5px solid $main-color-light;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      animation-name: ImageAnimation;
+      animation-duration: 0.7s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      @keyframes ImageAnimation {
+        from {
+          width: 85px;
+          height: 85px;
+          border: 5px solid $main-color;
+        }
+        to {
+          width: 30px;
+          height: 30px;
+          border: none;
+        }
+      }
+    }
+  }
+  //navigation links
+  .navigation-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-content: space-around;
+      gap: 15px;
+      li:hover {
+        cursor: pointer;
+      }
+    }
+    svg {
+      font-size: 12px;
+      background-color: $main-color-light;
       color: white;
       padding: 10px;
       border-radius: 40%;

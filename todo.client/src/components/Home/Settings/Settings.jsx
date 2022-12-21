@@ -9,8 +9,6 @@ import {
 import "./settings.scss";
 
 const AccountSettings = () => {
-
-  
   //Navigation on click of nav items
   const navigate = useNavigate();
   const handleNavigationClick = (e, navigateTo) => {
@@ -34,7 +32,15 @@ const AccountSettings = () => {
 
   return (
     <>
-      <Row className="settings-wrapper">
+      <Row
+        className={
+          localStorage.getItem("darkmode") === "true"
+            ? "settings-wrapper dark"
+            : localStorage.getItem("lightmode") === "true"
+            ? "settings-wrapper light"
+            : "settings-wrapper dark"
+        }
+      >
         {/* Navbar */}
         <Col span={5}>
           <nav>

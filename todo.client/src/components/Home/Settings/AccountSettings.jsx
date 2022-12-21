@@ -121,7 +121,15 @@ const AccountSettings = () => {
   }, [auth]);
 
   return (
-    <div className="account-settings-page-wrapper">
+    <div
+      className={
+        localStorage.getItem("darkmode") === "true"
+          ? "account-settings-page-wrapper dark"
+          : localStorage.getItem("lightmode") === "true"
+          ? "account-settings-page-wrapper light"
+          : "account-settings-page-wrapper dark"
+      }
+    >
       <h1>Account settings</h1>
       <Form
         form={updatePersonalInfoForm}

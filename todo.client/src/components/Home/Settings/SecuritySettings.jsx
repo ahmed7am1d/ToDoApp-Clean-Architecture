@@ -87,9 +87,18 @@ const SecuritySettings = () => {
       setIsPasswordsDuplicated(true);
     }
   }, [currentPassword, newPassword]);
+
   return (
     <>
-      <div className="security-settings-page-wrapper">
+      <div
+        className={
+          localStorage.getItem("darkmode") === "true"
+            ? "security-settings-page-wrapper dark"
+            : localStorage.getItem("lightmode") === "true"
+            ? "security-settings-page-wrapper light"
+            : "security-settings-page-wrapper dark"
+        }
+      >
         <h1>Security settings</h1>
         <Form
           form={updatePasswordForm}

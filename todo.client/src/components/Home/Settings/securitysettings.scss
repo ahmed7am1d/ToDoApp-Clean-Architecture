@@ -121,6 +121,164 @@ $main-wrappers-top-margin: 30px;
   }
 }
 
+.security-settings-page-wrapper.dark {
+  button {
+
+  }
+
+  h1 {
+    &::after {
+      background-color: $main-color;
+    }
+  }
+
+  .information-security-wrapper {
+    p {
+      color: $main-text-color-white-gray;
+    }
+  }
+
+  .password-wrapper {
+    .write-password-wrapper,
+    .new-password-wrapper {
+      width: 100%;
+      p {
+      }
+      input {
+        color: $main-text-color-black;
+      }
+      .ant-input-affix-wrapper {
+      }
+    }
+  }
+
+  .error-message-both {
+    p {
+      color: #ff4d4f;
+    }
+  }
+  .email-wrapper {
+    p:nth-child(1) {
+    }
+
+    input {
+      color: $main-text-color-black;
+
+      &:focus {
+        border-bottom: 2px solid red;
+      }
+    }
+    input:disabled {
+      background-color: rgba(216, 112, 112, 0.626);
+      color: white;
+      border: 1px solid white;
+    }
+    p:nth-child(2) {
+      color: $main-text-color-white-gray;
+    }
+  }
+
+  .save-cancel-wrapper {
+    button:nth-child(1) {
+      color: $main-text-color-white;
+      background-color: $main-color;
+    }
+    button:nth-child(2) {
+      color: $main-text-color-white-gray;
+      background-color: transparent;
+      border: 1px solid $main-text-color-white-gray;
+    }
+  }
+}
+
+.security-settings-page-wrapper.light {
+  button {
+  }
+
+  h1 {
+    color: $main-text-color-black;
+    &::after {
+      background-color: $main-color-light;
+    }
+  }
+
+  .information-security-wrapper {
+    h3 {
+      color: $main-text-color-black;
+    }
+    p {
+      color: $main-text-color-white-gray;
+    }
+  }
+
+  .password-wrapper {
+    .write-password-wrapper,
+    .new-password-wrapper {
+      width: 100%;
+      p {
+        color: $main-text-color-black;
+
+      }
+      input {
+        color: $main-text-color-black;
+        &:focus {
+          outline: none;
+          border: none;
+        }
+      }
+      
+      .ant-input-affix-wrapper {
+        &:hover {
+          border-bottom: 1px solid $main-color-light;
+        }
+        &:focus {
+          border-bottom: 1px solid $main-color-light;
+
+        }
+      }
+    }
+  }
+
+  .error-message-both {
+    p {
+      color: $error-message;
+    }
+  }
+  .email-wrapper {
+    p:nth-child(1) {
+      color: $main-text-color-black;
+    }
+
+    input {
+      color: $main-text-color-black;
+
+      &:focus {
+        border-bottom: 2px solid $main-color-light;
+      }
+    }
+    input:disabled {
+      background-color: rgba($main-color-light, 0.626);
+      color: $main-text-color-black;
+      border: 1px solid $main-text-color-black;
+    }
+    p:nth-child(2) {
+      color: $main-text-color-white-gray;
+    }
+  }
+
+  .save-cancel-wrapper {
+    button:nth-child(1) {
+      color: $main-text-color-white;
+      background-color: $main-color-light;
+    }
+    button:nth-child(2) {
+      color: $main-text-color-white-gray;
+      background-color: transparent;
+      border: 1px solid $main-text-color-white-gray;
+    }
+  }
+}
+
 @media (max-width: 850px) {
   .title-description-wrapper,
   .header-wrapper {

@@ -107,16 +107,24 @@ const Login = () => {
   };
   //persist
   const togglePersist = () => {
-    setPersist(prev => !prev);
+    setPersist((prev) => !prev);
   };
-  
-  useEffect(()=>{
-    localStorage.setItem("persist",persist);
-  },[persist])
+
+  useEffect(() => {
+    localStorage.setItem("persist", persist);
+  }, [persist]);
 
   return (
     <>
-      <div className="login-Page-Wrapper">
+      <div
+        className={
+          localStorage.getItem("darkmode") === "true"
+            ? "login-Page-Wrapper dark"
+            : localStorage.getItem("lightmode") === "true"
+            ? "login-Page-Wrapper light"
+            : "login-Page-Wrapper dark"
+        }
+      >
         <div className="login-form-wrapper">
           <form
             className="form-wrapper"

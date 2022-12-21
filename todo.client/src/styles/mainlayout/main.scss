@@ -6,23 +6,39 @@ html {
   box-sizing: border-box;
 }
 
-body {
+.App.dark {
   margin: 0;
   padding: 0;
   background-color: $background-color;
+  ::-webkit-scrollbar {
+    width: 0.4em;
+    margin: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: $secondary-color;
+    outline: 1px solid $secondary-color;
+  }
 }
-::-webkit-scrollbar {
-  width: 0.4em;
-  margin: 10px;
+.App.light {
+  background-color: $background-color-light;
+  ::-webkit-scrollbar {
+    width: 0.4em;
+    margin: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: $secondary-color-light;
+    outline: 1px solid $secondary-color-light;
+  }
 }
 
-::-webkit-scrollbar-track {
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: $secondary-color;
-  outline: 1px solid $secondary-color;
-}
 
 a {
   text-decoration: none;

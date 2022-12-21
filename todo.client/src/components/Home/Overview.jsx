@@ -27,7 +27,9 @@ import TasksDoneImage from "../../assets/images/undraw_complete_task_re_44tb.svg
 import AddTaskValidationSchema from "../../validation/ToDos/AddTaskValidationSchema";
 import TextArea from "antd/lib/input/TextArea";
 import useTaskProgressesData from "../../hooks/useTaskProgressesData";
-
+import ToDoLightImage from "../../assets/images/todo-light.png";
+import InProgressLightImage from "../../assets/images/progress-light.png";
+import DoneLightImage from "../../assets/images/done-light.png";
 const Overview = () => {
   const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
@@ -295,7 +297,15 @@ const Overview = () => {
 
   return (
     <>
-      <div className="overview-wrapper">
+      <div
+        className={
+          localStorage.getItem("darkmode") === "true"
+            ? "overview-wrapper dark"
+            : localStorage.getItem("lightmode") === "true"
+            ? "overview-wrapper light"
+            : "overview-wrapper dark"
+        }
+      >
         {/* Header title */}
         <div className="header-wrapper">
           <h2 className="pageTitle">Task's overview</h2>
@@ -484,7 +494,16 @@ const Overview = () => {
             ) : (
               <>
                 <div className="NoTasks-Image-Container">
-                  <img src={ToDosImage} />
+                  <img
+                    src={
+                      localStorage.getItem("darkmode") === "true"
+                        ? ToDosImage
+                        : localStorage.getItem("lightmode") === "true"
+                        ? ToDoLightImage
+                        : ToDosImage
+                    }
+                    alt="To Dos"
+                  />
                 </div>
               </>
             )}
@@ -502,7 +521,16 @@ const Overview = () => {
               {userInProgressTasks?.length <= 0 ? (
                 <>
                   <div className="NoTasks-Image-Container">
-                    <img src={InProgressImage} />
+                    <img
+                      src={
+                        localStorage.getItem("darkmode") === "true"
+                          ? InProgressImage
+                          : localStorage.getItem("lightmode") === "true"
+                          ? InProgressLightImage
+                          : InProgressImage
+                      }
+                      alt="In Progress"
+                    />
                   </div>
                 </>
               ) : (
@@ -612,7 +640,16 @@ const Overview = () => {
               {userDoneTasks?.length <= 0 ? (
                 <>
                   <div className="NoTasks-Image-Container">
-                    <img src={TasksDoneImage} />
+                    <img
+                      src={
+                        localStorage.getItem("darkmode") === "true"
+                          ? TasksDoneImage
+                          : localStorage.getItem("lightmode") === "true"
+                          ? DoneLightImage
+                          : TasksDoneImage
+                      }
+                      alt="Done tasks"
+                    />
                   </div>
                 </>
               ) : (

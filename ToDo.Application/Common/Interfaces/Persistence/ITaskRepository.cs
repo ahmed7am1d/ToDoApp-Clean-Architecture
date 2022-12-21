@@ -13,6 +13,7 @@ namespace ToDo.Application.Common.Interfaces.Persistence
         Task<List<ClientTask>> GetUserTasksInProgressAsync(string userId);
         Task<List<ClientTask>> GetUserDoneTasksAsync(string userId);
         Task<ClientTask> GetTaskAsync(Guid taskId);
+        Task<List<ClientTask>> GetAllUserTasksAsync(Guid userId);
         Task<ClientTask> AddTaskAsync(ClientTask task, string userId);
         Task<ClientTask> UpdateTaskAsync(ClientTask task, string userId);
         Task<bool> DeleteTaskAsync(string taskId);

@@ -17,10 +17,12 @@ import ApiConstants from "../../constants/ApiConstants";
 import useSideNavBarToggle from "../../hooks/useSideNavBarToggle";
 import useLogout from "../../hooks/useLogout";
 import useAuth from "../../hooks/useAuth";
+import useDarkLightMode from "../../hooks/useDarkLightMode";
 
 import "./navbar.scss";
 
 const Navbar = () => {
+  const { darkMode, setDarkMode, lightMode, setLightMode } = useDarkLightMode();
   const [randomQuotes, setRandomQuotes] = useState([]);
   const { collapseButtonClicked, setCollapseButtonClicked } =
     useSideNavBarToggle({});
@@ -69,7 +71,17 @@ const Navbar = () => {
   return (
     <aside
       className={
-        !collapseButtonClicked ? "aside-nav-full" : "aside-nav-collapsed"
+        !collapseButtonClicked
+          ? localStorage.getItem("darkmode") ==='true'
+            ? "aside-nav-full dark"
+            : localStorage.getItem("lightmode") === 'true'
+            ? "aside-nav-full light"
+            : "aside-nav-full dark"
+          : localStorage.getItem("darkmode") === 'true'
+          ? "aside-nav-collapsed dark"
+          : localStorage.getItem("lightmode") === 'true'
+          ? "aside-nav-collapsed light"
+          : "aside-nav-collapsed dark"
       }
     >
       {currentPath.includes("settings") && winWidth > 800 && (

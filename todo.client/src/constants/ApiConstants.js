@@ -22,6 +22,9 @@ const ApiConstants = {
   GETALL_USER_DONE_TASKS_ENDPOINT: (userId) => {
     return `/todo/todo-done-tasks/${userId}`;
   },
+  GETALL_USER_TASKS: (userId) => {
+    return `/todo/all/${userId}`
+  },
   GET_TASK_PRIORITIES: "/todo/task-priorities",
   GET_TASK_PROGRESSES: "/todo/task-progresses",
   ADD_USER_TASK: "/todo/addTask",

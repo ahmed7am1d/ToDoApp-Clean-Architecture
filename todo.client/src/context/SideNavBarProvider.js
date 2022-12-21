@@ -1,4 +1,3 @@
-import { faL } from "@fortawesome/free-solid-svg-icons";
 import { createContext, useState } from "react";
 
 const SideNavBarContext = createContext({});

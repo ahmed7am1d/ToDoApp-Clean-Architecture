@@ -10,7 +10,6 @@ $content-margin-top: 10px;
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: $background-color;
 
   //Header wrapper for title and dropdown menu
   .header-wrapper {
@@ -446,5 +445,242 @@ $content-margin-top: 10px;
 
   // Extra large devices (large desktops, 1200px and up)
   @media (min-width: 1200px) {
+  }
+}
+
+.overview-wrapper.dark {
+  //Header wrapper for title and dropdown menu
+  .header-wrapper {
+    .pageTitle {
+      color: $main-text-color-white;
+    }
+    .pageTitle::first-letter {
+      border: 5px solid $main-color;
+      color: $main-text-color-white;
+    }
+    .ant-dropdown-tasksDate {
+      color: $main-text-color-white;
+    }
+  }
+
+  //Main content [ToDo, InProgress, Done]
+  .tasks-overview-wrapper {
+    .innertask-container-header {
+      .counter {
+        background-color: $main-color;
+        color: $main-text-color-white;
+      }
+      .innertask-headerContainer-button-container {
+        button {
+          background-color: rgba($secondary-color, 0.21);
+          &:hover {
+            background-color: $main-color;
+          }
+        }
+        .addButtonIcon {
+          color: white;
+        }
+      }
+    }
+  }
+
+  //Add Task fields
+  .addTask-inputFields-container {
+    input,
+    textarea {
+      color: $main-text-color-black;
+      background-color: $text-area-addtask-background-color;
+      &::placeholder {
+        color: $main-color;
+      }
+    }
+    :focus {
+      border-bottom: 1px solid $secondary-color;
+    }
+  }
+
+  .addTask-overdue-priorty-container {
+    .deadline-container,
+    .priorty-container {
+      h5 {
+        color: $main-text-color-white;
+      }
+    }
+  }
+
+  .addTask-cancel-add-container {
+    :nth-child(1) {
+      background-color: $create-button-background-color;
+      color: $button-white-text-color;
+    }
+    :nth-child(2) {
+      background-color: $cancel-button-background-color;
+      color: $button-white-text-color;
+    }
+  }
+
+  //Single task container
+  .task-item-container {
+    background-color: $container-white-background-color;
+    color: $main-text-color-white;
+    .header-container {
+      .deleteIcon {
+        background-color: $container-delete-icon-background-color;
+        color: $container-delete-icon-text-color;
+      }
+      .task-header-bullet {
+        color: $secondary-color;
+      }
+    }
+    .task-description-container {
+      color: $main-text-color-white-gray;
+    }
+
+    .priority-highest,
+    .priority-medium,
+    .priority-low {
+      color: white;
+    }
+    .priority-highest {
+      background-color: #b20000;
+    }
+    .priority-medium {
+      background-color: rgb(229, 173, 31);
+    }
+    .priority-low {
+      background-color: gray;
+    }
+  }
+
+  .addTask-container,
+  .inProgress-container,
+  .doneTasks-container {
+    color: $main-text-color-white;
+
+    background: linear-gradient(
+      0deg,
+      rgba($secondary-color, 0) 0%,
+      rgba($secondary-color, 0.073) 100%
+    );
+  }
+}
+
+.overview-wrapper.light {
+  //Header wrapper for title and dropdown menu
+  .header-wrapper {
+    .pageTitle {
+      color: $main-text-color-black;
+    }
+    .pageTitle::first-letter {
+      border: 5px solid $main-color-light;
+      color: $main-text-color-black;
+    }
+    .ant-dropdown-tasksDate {
+      color: $main-text-color-black;
+    }
+  }
+
+  //Main content [ToDo, InProgress, Done]
+  .tasks-overview-wrapper {
+    .innertask-container-header {
+      h3 {
+        color: $main-text-color-black;
+      }
+      .counter {
+        background-color: $main-color-light;
+        color: $main-text-color-white;
+      }
+      .innertask-headerContainer-button-container {
+        button {
+          background-color: rgba($secondary-color-light, 0.21);
+          &:hover {
+            background-color: $main-color-light;
+          }
+        }
+        .addButtonIcon {
+          color: white;
+        }
+      }
+    }
+  }
+
+  //Add Task fields
+  .addTask-inputFields-container {
+    input,
+    textarea {
+      color: $main-text-color-black;
+      background-color: $text-area-addtask-background-color;
+      &::placeholder {
+        color: $main-color-light;
+      }
+    }
+    :focus {
+      border-bottom: 1px solid $secondary-color-light;
+    }
+  }
+
+  .addTask-overdue-priorty-container {
+    .deadline-container,
+    .priorty-container {
+      h5 {
+        color: $main-text-color-white;
+      }
+    }
+  }
+
+  .addTask-cancel-add-container {
+    :nth-child(1) {
+      background-color: $create-button-background-color;
+      color: $button-white-text-color;
+    }
+    :nth-child(2) {
+      background-color: $cancel-button-background-color;
+      color: $button-white-text-color;
+    }
+  }
+
+  //Single task container
+  .task-item-container {
+    background-color: $container-white-background-color-light;
+    color: $main-text-color-white;
+    .header-container {
+      .deleteIcon {
+        background-color: $container-delete-icon-background-color-light;
+        color: $container-delete-icon-text-color;
+      }
+      .task-header-bullet {
+        color: $main-color-light;
+      }
+    }
+    .task-description-container {
+      color: $main-text-color-white-gray;
+    }
+
+    .priority-highest,
+    .priority-medium,
+    .priority-low {
+      color: white;
+    }
+    .priority-highest {
+      background-color: #b20000;
+    }
+    .priority-medium {
+      background-color: rgb(229, 173, 31);
+    }
+    .priority-low {
+      background-color: gray;
+    }
+  }
+
+  .addTask-container,
+  .inProgress-container,
+  .doneTasks-container {
+    color: $main-text-color-white;
+
+    background: linear-gradient(
+      0deg,
+      rgba($main-color-light, 0.3) 0%,
+      rgba($main-color-light, 0.073) 100%
+    );
   }
 }

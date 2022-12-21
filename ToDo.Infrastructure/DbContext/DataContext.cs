@@ -13,11 +13,12 @@ namespace ToDo.Infrastructure
         }
 
         public DataContext(DbContextOptions options) : base(options)
-        {
+        {   
             Database.EnsureCreated();
+          
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)  
         {
             base.OnModelCreating(modelBuilder);
             //EF Core Mapping Configuration

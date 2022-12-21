@@ -1,34 +1,14 @@
-/*#region Light Theme Scheme - Colors */
-
-/*$main-text-color-white-gray: gray;
-/*$secondary-color: #1D90F4;
-
-
-
-/* Inputs and forms colors */
-/*$input-registerform-background-color: #323645;
-$input-required-color: #FF0000;
-$login-form-background-color:#FFFFFF;
-
-/* Buttons colors */
-
-/*$button-white-text-color:#FFFFFF;
-$button-black-text-color:#323645;
-
-$create-button-background-color:#36cb80;
-$cancel-button-background-color:#B3B3B3;
-$delete-button-background-color:#ba0202;
-
-/*Containers colors*/
-/*$container-white-background-color: white;
-
-/*#endregion*/
-
-/*#region Light Theme Scheme - Colors */
-/* Body background colors */
+/* Body background colors - dark colors */
 $background-color: #1a1a1d;
 $main-color: #6f2232;
 $secondary-color: #c3073f;
+
+/* Body background colors - light colors */
+$background-color-light: rgb(255, 255, 255);
+$main-color-light: #1D90F4;
+$secondary-color-light: #1a1a1d;
+
+/*===================================================*/
 
 /*Nav bar colors */
 $navbar-background-color: #c3073f;
@@ -37,23 +17,49 @@ $navbar-icons-color-hover: #c3073f;
 $arrow-icon-background-color: #323645;
 $arrow-icon-text-color: white;
 
+/*Nav bar colors - light */
+
+$navbar-background-color-light:#1D90F4;
+$navbar-icons-color: #ffff;
+$navbar-icons-color-hover-light: #1D90F4;
+$arrow-icon-background-color: #323645;
+$arrow-icon-text-color: white;
+
+/*===================================================*/
+
+
+
 /*Nav bar - settings - colors */
 $navbar-account-settings-background-color:#ffff;
 $navbar-account-settings-icons-color:#c3073f;
 $navbar-account-settings-container-hover-bg-color:#6f22310f;
 
+/*Nav bar - settings - colors -light */
+$navbar-account-settings-background-color:#ffff;
+$navbar-account-settings-icons-color-light:#1D90F4;
+$navbar-account-settings-container-hover-bg-color:#6f22310f;
 
 
+/*===================================================*/
 /* Text colors */
 $main-text-color-white: #ffffff;
 $main-text-color-white-gray: #c5c6d0;
 $main-text-color-black: #1a1a1d;
+
+/* Text colors - light*/
+$main-text-color-white-gray-light: #77787d;
+
+
+/*===================================================*/
 
 /* Inputs and textarea and forms colors */
 $input-registerform-background-color: #323645;
 $input-required-color: #ff0000;
 $login-form-background-color: #ffffff;
 $text-area-addtask-background-color:#ffff;
+
+/*===================================================*/
+
 /* Buttons colors */
 
 $button-white-text-color: #ffffff;
@@ -62,12 +68,18 @@ $button-black-text-color: #323645;
 $create-button-background-color: #36cb80;
 $cancel-button-background-color: #b3b3b3;
 $delete-button-background-color: #ba0202;
+/*===================================================*/
 
 /*Containers colors*/
 $container-white-background-color: #323645;
-$container-delete-icon-background-color: #ba0202;
+$container-delete-icon-background-color-light: #1D90F4;
 $container-delete-icon-text-color: #ffff;
 
-
+/*Containers colors - light*/
+$container-white-background-color-light: #52576d;
+$container-delete-icon-background-color: #ba0202;
+$container-delete-icon-text-color: #ffff;
+/*===================================================*/
+$error-message:#ff3d4f;
 
 /*#endregion*/

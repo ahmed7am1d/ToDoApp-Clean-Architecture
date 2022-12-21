@@ -31,7 +31,6 @@ $main-wrappers-top-margin: 30px;
       content: "";
       height: 2px;
       width: 100%;
-      background-color: $main-color;
       bottom: 0;
       left: 0;
     }
@@ -65,7 +64,6 @@ $main-wrappers-top-margin: 30px;
       }
 
       .custom-file-upload {
-        border: 1px solid $main-text-color-white-gray;
         display: inline-block;
         padding: 6px 12px;
         cursor: pointer;
@@ -73,18 +71,14 @@ $main-wrappers-top-margin: 30px;
       }
 
       .change-profilepic-button {
-        color: $main-text-color-black;
       }
       .remove-profilepic-button {
-        color: $main-text-color-white;
-        background-color: $main-color;
       }
     }
   }
 
   .information-security-wrapper {
     p {
-      color: $main-text-color-white-gray;
     }
   }
 
@@ -103,11 +97,9 @@ $main-wrappers-top-margin: 30px;
       input {
         width: 100%;
         border-radius: 7px;
-        color: $main-text-color-black;
         padding: 7px;
         outline: none;
         &:focus {
-          border-bottom: 2px solid red;
         }
       }
     }
@@ -123,9 +115,62 @@ $main-wrappers-top-margin: 30px;
     textarea {
       width: 100%;
       border-radius: 7px;
-      color: $main-text-color-black;
       padding: 7px;
       outline: none;
+      &:focus {
+      }
+    }
+    p:last-child {
+    }
+  }
+
+  .save-cancel-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    button:nth-child(1) {
+    }
+    button:nth-child(2) {
+    }
+  }
+}
+
+.account-settings-page-wrapper.dark {
+  h1 {
+    color: $main-text-color-white;
+    &::after {
+      background-color: $main-color;
+    }
+  }
+
+  .information-security-wrapper {
+    p {
+      color: $main-text-color-white-gray;
+    }
+  }
+
+  .first-last-name-wrapper {
+    .firstname-wrapper,
+    .lastname-wrapper {
+      input {
+        color: $main-text-color-black;
+        &:focus {
+          border-bottom: 2px solid $main-color;
+        }
+      }
+    }
+  }
+
+  .about-me-wrapper {
+    margin-top: $main-wrappers-top-margin;
+
+    p:nth-child(1) {
+      font-weight: bold;
+    }
+
+    textarea {
+      color: $main-text-color-black;
+
       &:focus {
         border-bottom: 2px solid red;
       }
@@ -136,9 +181,6 @@ $main-wrappers-top-margin: 30px;
   }
 
   .save-cancel-wrapper {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
     button:nth-child(1) {
       color: $main-text-color-white;
       background-color: $main-color;
@@ -149,11 +191,111 @@ $main-wrappers-top-margin: 30px;
       border: 1px solid $main-text-color-white-gray;
     }
   }
+  .button-wrapper {
+    input[type="file"] {
+      display: none;
+    }
+
+    .custom-file-upload {
+      border: 1px solid $main-text-color-white-gray;
+    }
+
+    .change-profilepic-button {
+      color: $main-text-color-black;
+    }
+    .remove-profilepic-button {
+      color: $main-text-color-white;
+      background-color: $main-color;
+    }
+  }
+}
+
+.account-settings-page-wrapper.light {
+  h1 {
+    color: $main-text-color-black;
+    &::after {
+      background-color: $main-color-light;
+    }
+  }
+
+  .information-security-wrapper {
+    h3 {
+      color: $secondary-color-light;
+    }
+    p {
+      color: $secondary-color-light;
+    }
+  }
+
+  .first-last-name-wrapper {
+    p {
+      color: $main-text-color-black;
+    }
+    .firstname-wrapper,
+    .lastname-wrapper {
+      input {
+        color: $main-text-color-black;
+        &:focus {
+          border-bottom: 2px solid $main-color-light;
+        }
+      }
+    }
+  }
+
+  .about-me-wrapper {
+    margin-top: $main-wrappers-top-margin;
+
+    p:nth-child(1) {
+      color: $main-text-color-black;
+      font-weight: bold;
+    }
+
+    textarea {
+      color: $main-text-color-black;
+
+      &:focus {
+        border-bottom: 2px solid $main-color-light;
+      }
+    }
+    p:last-child {
+      color: $main-text-color-white-gray;
+    }
+  }
+
+  .save-cancel-wrapper {
+    button:nth-child(1) {
+      color: $main-text-color-white;
+      background-color: $main-color-light;
+    }
+    button:nth-child(2) {
+      color: $main-text-color-black;
+      background-color: main-color-light;
+      border: 1px solid $main-text-color-white-gray;
+    }
+  }
+  .button-wrapper {
+    input[type="file"] {
+      display: none;
+    }
+
+    .custom-file-upload {
+      border: 1px solid $main-text-color-white-gray;
+      color: $main-text-color-black;
+    }
+
+    .change-profilepic-button {
+      color: $main-text-color-black;
+    }
+    .remove-profilepic-button {
+      color: $main-text-color-white;
+      background-color: $main-color-light;
+    }
+  }
 }
 
 @media (max-width: 850px) {
   .react-tel-input .form-control {
-    width:100% !important;
+    width: 100% !important;
   }
   .title-description-wrapper,
   .header-wrapper {
