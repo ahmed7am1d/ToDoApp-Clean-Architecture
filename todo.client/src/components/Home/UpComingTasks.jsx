@@ -24,7 +24,11 @@ const UpComingTasks = () => {
           .get(ApiConstants.GETALL_USER_TASKS(auth.userObject.id))
           .then((response) => {
             setIsLoading(false);
-            setAllUserTasks(response.data);
+            setAllUserTasks(response.data.sort(function(a,b)  {
+              var c = new Date(a.deadlineDate);
+              var d = new Date(b.deadlineDate);
+              return c - d;
+            }));
           });
       } catch (err) {
         console.error(err);
@@ -42,7 +46,7 @@ const UpComingTasks = () => {
         </Space>
       ) : (
         <div className="upcomingtasks-wrapper">
-          <div className="header-wrapper">
+          <div className="header-wrapper-upcomingtasks">
             <h1>Your upcoming tasks</h1>
           </div>
           <div className="timeline-wrapper">
@@ -65,7 +69,12 @@ const UpComingTasks = () => {
                       : "timeline-wrapper-left gray"
                   }
                 >
-                  {task.taskTitle}
+                  <div className="task-title-wrapper">
+                    <h6>
+                      <span>●</span> {task.taskTitle}
+                    </h6>
+                    <p>{task.taskDescription}</p>
+                  </div>
                 </Timeline.Item>
               ))}
             </Timeline>

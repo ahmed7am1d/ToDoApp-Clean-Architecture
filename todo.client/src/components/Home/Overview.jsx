@@ -309,7 +309,7 @@ const Overview = () => {
         {/* Header title */}
         <div className="header-wrapper">
           <h2 className="pageTitle">Task's overview</h2>
-          <Dropdown
+          {/* <Dropdown
             overlay={menu}
             trigger={["click"]}
             className="ant-dropdown-tasksDate"
@@ -320,7 +320,7 @@ const Overview = () => {
                 <DownOutlined />
               </Space>
             </a>
-          </Dropdown>
+          </Dropdown> */}
         </div>
         {/* Content */}
         <div className="tasks-overview-wrapper">

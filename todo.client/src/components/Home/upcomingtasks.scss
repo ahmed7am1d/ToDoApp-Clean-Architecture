@@ -1,7 +1,7 @@
 @import "../../styles/varaibles";
 .upcomingtasks-wrapper {
   padding: 20px;
-  .header-wrapper {
+  .header-wrapper-upcomingtasks {
     h1 {
       width: fit-content;
       position: relative;
@@ -17,19 +17,40 @@
       }
     }
   }
+
   .timeline-wrapper {
     .ant-timeline {
       color: $main-text-color-white;
       .timeline-wrapper-left {
         font-size: 20px;
       }
+      //the circles
       .ant-timeline-item-head {
         width: 20px;
         margin-left: -9px;
         height: 20px;
-      }
-      .ant-timeline-item-tail {
-      
+      }   
+
+      //the left part
+      .ant-timeline-item-content {
+        display: flex;
+        justify-content: flex-end;
+        .task-title-wrapper {
+          background-color: white;
+          color: $main-text-color-black;
+          padding: 5px 0px 0px 5px;
+          border-radius: 10px;
+          width: 300px;
+          text-align: start;
+          p {
+            color: $main-text-color-white-gray;
+            font-size: 15px;
+            margin-left: 3px;
+          }
+          span {
+            color: $main-color;
+          }
+        }
       }
     }
   }
