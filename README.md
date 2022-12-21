@@ -31,6 +31,7 @@ The system will allow you to do the following:
  - Modifying tasks
  - Delete tasks
  - Tracking your habits (Soon...)
+ - You will see motivations qoutes in your navbar :)
  - Usage of pormodo technique (Soon...) <br>
  And More is coming ... !
  
@@ -66,7 +67,7 @@ Internal App ScreenShots:
  **- Register Page:**
 <img src="todo.client/src/assets/appScreenShots/SignupPage.png"></img>
  **- Home Page:** <br/>
-<img src="todo.client/src/assets/appScreenShots/HomePageGIF.gif"></img>
+<img src="todo.client/src/assets/appScreenShots/HomePageGIF.gif"></img> <br/>
 **- Settings Page (Account settings):** <br/>
-<img src="todo.client/src/assets/appScreenShots/HomePageGIF.gif"></img>
+<img src="todo.client/src/assets/appScreenShots/SettingsAccountSettings.png"></img>
 
