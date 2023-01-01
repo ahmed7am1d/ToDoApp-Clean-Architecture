@@ -9,10 +9,7 @@ export const DarkLightModeProvider = ({children}) => {
     }
     const [darkMode,setDarkMode] = useState(localStorage.getItem('darkmode') ? localStorage.getItem('darkmode') : setInitalDarkMode() );
     const [lightMode,setLightMode] = useState(localStorage.getItem('lightmode') ? localStorage.getItem('lightmode') : false);
-    useEffect(()=>{
-        console.log(`Dark mode => ${darkMode}`);
-        console.log(`Light mode => ${lightMode}`);
-    },[lightMode,darkMode])
+
     return(
         <DarkLightModeContext.Provider  value={{darkMode,setDarkMode,lightMode,setLightMode}}>
            {children}

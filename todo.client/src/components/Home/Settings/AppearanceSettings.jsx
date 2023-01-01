@@ -12,7 +12,6 @@ const AppearanceSettings = () => {
       case "lightUI":
         //[0]- Check if the light mode is active (disable it)
         if (darkMode && localStorage.getItem("darkmode")) {
-          console.log("s");
           setDarkMode(false);
           localStorage.setItem("darkmode", false);
         }

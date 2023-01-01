@@ -29,7 +29,7 @@
         width: 20px;
         margin-left: -9px;
         height: 20px;
-      }   
+      }
 
       //the left part
       .ant-timeline-item-content {
@@ -49,6 +49,78 @@
           }
           span {
             color: $main-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.upcomingtasks-wrapper.dark {
+  .header-wrapper-upcomingtasks {
+    h1 {
+      color: $main-text-color-white;
+      &::after {
+        background-color: $main-color;
+      }
+    }
+  }
+
+  .timeline-wrapper {
+    .ant-timeline {
+      color: $main-text-color-white;
+      .timeline-wrapper-left {
+      }
+      //the circles
+      .ant-timeline-item-head {
+      }
+
+      //the left part
+      .ant-timeline-item-content {
+        .task-title-wrapper {
+          background-color: white;
+          color: $main-text-color-black;
+          p {
+            color: $main-text-color-white-gray;
+          }
+          span {
+            color: $main-color;
+          }
+        }
+      }
+    }
+  }
+}
+.upcomingtasks-wrapper.light {
+  .header-wrapper-upcomingtasks {
+    h1 {
+      color: $main-text-color-black;
+      &::after {
+        background-color: $main-color-light;
+      }
+    }
+  }
+
+  .timeline-wrapper {
+    .ant-timeline {
+      color: $main-text-color-black;
+      .timeline-wrapper-left {
+      }
+      //the circles
+      .ant-timeline-item-head {
+        background-color: $main-text-color-white-gray;
+      }
+
+      //the left part
+      .ant-timeline-item-content {
+        .task-title-wrapper {
+          background-color: $secondary-color-light;
+          color: $main-text-color-white;
+          p {
+            color: $main-text-color-white-gray;
+          }
+          span {
+            color: $main-color-light;
           }
         }
       }

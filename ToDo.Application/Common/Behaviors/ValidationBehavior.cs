@@ -32,17 +32,17 @@ public class ValidationBehavior<TRequest,TResponse>
     /// <param name="CancellationToken">This is a token that can be used to cancel the request.</param>
     /// <param name="next">The next handler in the pipeline.</param>
 
-    public async Task<TResponse> Handle(
-        TRequest request,
-        CancellationToken cancellationToken,
-        RequestHandlerDelegate<TResponse> next)
+
+    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
-        if (_validator is null) {
+        if (_validator is null)
+        {
             return await next();
         }
-        
+
         var validationResult = await _validator.ValidateAsync(request, cancellationToken);
-        if(validationResult.IsValid) {
+        if (validationResult.IsValid)
+        {
             //if the validation is successful, we will call our handler and return the result
             return await next();
         }

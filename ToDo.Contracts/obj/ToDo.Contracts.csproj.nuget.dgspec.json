@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Amazon.Lambda.AspNetCoreServer": {
+              "target": "Package",
+              "version": "[7.3.0, )"
+            },
             "Mapster": {
               "target": "Package",
               "version": "[7.3.0, )"

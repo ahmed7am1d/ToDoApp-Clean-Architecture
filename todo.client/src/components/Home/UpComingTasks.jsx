@@ -15,8 +15,6 @@ const UpComingTasks = () => {
   const axiosPrivate = useAxiosPrivate();
   const { auth, setAuth } = useAuth();
 
-  console.log(auth.userObject.id);
-
   useEffect(() => {
     const getAllUserTasks = async function () {
       try {
@@ -24,11 +22,13 @@ const UpComingTasks = () => {
           .get(ApiConstants.GETALL_USER_TASKS(auth.userObject.id))
           .then((response) => {
             setIsLoading(false);
-            setAllUserTasks(response.data.sort(function(a,b)  {
-              var c = new Date(a.deadlineDate);
-              var d = new Date(b.deadlineDate);
-              return c - d;
-            }));
+            setAllUserTasks(
+              response.data.sort(function (a, b) {
+                var c = new Date(a.deadlineDate);
+                var d = new Date(b.deadlineDate);
+                return c - d;
+              })
+            );
           });
       } catch (err) {
         console.error(err);
@@ -36,7 +36,7 @@ const UpComingTasks = () => {
     };
     getAllUserTasks();
   }, []);
-  console.log(allUserTasks);
+
   return (
     <>
       {isLoading ? (
@@ -45,7 +45,15 @@ const UpComingTasks = () => {
           <Spin size="large" />
         </Space>
       ) : (
-        <div className="upcomingtasks-wrapper">
+        <div
+          className={
+            localStorage.getItem("darkmode") === "true"
+              ? "upcomingtasks-wrapper dark"
+              : localStorage.getItem("lightmode") === "true"
+              ? "upcomingtasks-wrapper light"
+              : "upcomingtasks-wrapper dark"
+          }
+        >
           <div className="header-wrapper-upcomingtasks">
             <h1>Your upcoming tasks</h1>
           </div>

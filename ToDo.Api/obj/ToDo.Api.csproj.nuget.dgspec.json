@@ -50,9 +50,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Amazon.Lambda.AspNetCoreServer": {
+              "target": "Package",
+              "version": "[7.3.0, )"
+            },
+            "Amazon.Lambda.AspNetCoreServer.Hosting": {
+              "target": "Package",
+              "version": "[1.5.0, )"
+            },
             "ErrorOr": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[1.2.1, )"
             },
             "Mapster": {
               "target": "Package",
@@ -64,25 +72,25 @@
             },
             "MediatR": {
               "target": "Package",
-              "version": "[10.0.1, )"
+              "version": "[11.1.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.9, )"
+              "version": "[7.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.9, )"
+              "version": "[7.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.9, )"
+              "version": "[7.0.1, )"
             },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -148,13 +156,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Amazon.Lambda.AspNetCoreServer": {
+              "target": "Package",
+              "version": "[7.3.0, )"
+            },
             "ErrorOr": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[1.2.1, )"
             },
             "FluentValidation": {
               "target": "Package",
-              "version": "[11.2.2, )"
+              "version": "[11.4.0, )"
             },
             "FluentValidation.AspNetCore": {
               "target": "Package",
@@ -166,27 +178,27 @@
             },
             "MediatR": {
               "target": "Package",
-              "version": "[10.0.1, )"
+              "version": "[11.1.0, )"
             },
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[10.0.1, )"
+              "version": "[11.0.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.9, )"
+              "version": "[7.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.9, )"
+              "version": "[7.0.1, )"
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.0, )"
             },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -245,6 +257,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Amazon.Lambda.AspNetCoreServer": {
+              "target": "Package",
+              "version": "[7.3.0, )"
+            },
             "Mapster": {
               "target": "Package",
               "version": "[7.3.0, )"
@@ -310,9 +326,13 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Amazon.Lambda.AspNetCoreServer": {
+              "target": "Package",
+              "version": "[7.3.0, )"
+            },
             "ErrorOr": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[1.2.1, )"
             },
             "Mapster": {
               "target": "Package",
@@ -320,11 +340,11 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.9, )"
+              "version": "[7.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[7.0.1, )"
             }
           },
           "imports": [
@@ -387,27 +407,31 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Amazon.Lambda.AspNetCoreServer": {
+              "target": "Package",
+              "version": "[7.3.0, )"
+            },
             "Mapster": {
               "target": "Package",
               "version": "[7.3.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[6.0.9, )"
+              "version": "[6.0.1, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.9, )"
+              "version": "[7.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.9, )"
+              "version": "[7.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.9, )"
+              "version": "[7.0.1, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
@@ -415,15 +439,15 @@
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.0, )"
             },
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.0, )"
             },
             "Microsoft.Extensions.Options.ConfigurationExtensions": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

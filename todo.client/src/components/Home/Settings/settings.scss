@@ -38,8 +38,10 @@
     .security-settings-wrapper,
     .appearance-settings-wrapper {
       border: 1px solid #eee;
-      svg {
-        color: $navbar-account-settings-icons-color;
+      .icon-wrapper {
+        svg {
+          color: $navbar-account-settings-icons-color;
+        }
       }
       h5 {
         color: $main-text-color-black;

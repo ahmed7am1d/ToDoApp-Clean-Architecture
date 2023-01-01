@@ -36,7 +36,6 @@ const Navbar = () => {
       const quotesAPIResponse = await QuotesAPI.get(
         ApiConstants.RANDOM_QUOTES_ENDPOINT
       );
-      //console.log(quotesAPIResponse?.data[( Math.floor((Math.random() * 1000) + 1))].text);
       const selectedQoutes = quotesAPIResponse?.data.filter((quote, index) => {
         return quote.text.length < 50;
       });

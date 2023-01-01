@@ -7,8 +7,11 @@ import {
   BgColorsOutlined,
 } from "@ant-design/icons";
 import "./settings.scss";
-
+import { useEffect } from "react";
+import useDarkLightMode from '../../../hooks/useDarkLightMode'
 const AccountSettings = () => {
+  const {darkMode,setDarkMode,lightMode,setLightMode} = useDarkLightMode();
+
   //Navigation on click of nav items
   const navigate = useNavigate();
   const handleNavigationClick = (e, navigateTo) => {
@@ -29,7 +32,9 @@ const AccountSettings = () => {
         break;
     }
   };
-
+  useEffect(()=> {
+    
+  },[lightMode,darkMode])
   return (
     <>
       <Row
@@ -57,7 +62,10 @@ const AccountSettings = () => {
               </div>
               <div className="title-description-wrapper">
                 <h5>Account settings</h5>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                <p>
+                  Here you can manage your public account information, such as
+                  name and phone number.
+                </p>
               </div>
             </div>
 
@@ -70,7 +78,10 @@ const AccountSettings = () => {
               </div>
               <div className="title-description-wrapper">
                 <h5>Security settings</h5>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                <p>
+                  Here you can manage your security settings, such as password
+                  and email address.
+                </p>
               </div>
             </div>
 
@@ -83,7 +94,10 @@ const AccountSettings = () => {
               </div>
               <div className="title-description-wrapper">
                 <h5>Appearance settings</h5>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                <p>
+                  Choose your favorite UI, don't worry all settings will be
+                  remembered.
+                </p>
               </div>
             </div>
           </nav>

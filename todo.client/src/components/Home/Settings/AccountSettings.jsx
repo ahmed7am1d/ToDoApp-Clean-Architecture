@@ -39,10 +39,6 @@ const AccountSettings = () => {
     setSelectedImage("");
   };
 
-  //HandlePhoneNumber Changing
-  const onPhoneNumberChange = (e) => {
-    console.log(e);
-  };
 
   //Handle saving new information
   const yupSync = {
@@ -81,7 +77,6 @@ const AccountSettings = () => {
       phoneNumber: e?.phoneNumber,
       profilePictureBytes: profilePictureBytesTemp,
     };
-    console.log(personalInfoToUpdate);
     const updatePersonalInfo = async () => {
       const controller = new AbortController();
 
@@ -95,7 +90,6 @@ const AccountSettings = () => {
         );
         if (response?.status === 200) {
           message.success("Information updated successfully.");
-          console.log(response?.data);
           setAuth((prev) => ({
             ...prev,
             userObject: {
@@ -115,10 +109,7 @@ const AccountSettings = () => {
     updatePersonalInfo();
   };
 
-  //useEffect to check values
-  useEffect(() => {
-    console.log(auth);
-  }, [auth]);
+
 
   return (
     <div
@@ -217,7 +208,6 @@ const AccountSettings = () => {
             <PhoneInput
               dropdownStyle={{ color: "black" }}
               inputStyle={{ color: "black" }}
-              onChange={(e) => onPhoneNumberChange(e)}
               placeholder="Enter Phone Number"
               country="cz"
             />

@@ -28,8 +28,8 @@ const PersistLogin = () => {
   }, []);
 
   useEffect(() => {
-    console.log(`isLoading: ${isLoading}`);
-    console.log(`aT: ${auth?.accessToken}`);
+    //console.log(`isLoading: ${isLoading}`);
+    //console.log(`aT: ${auth?.accessToken}`);
   }, [isLoading]);
 
   return (
