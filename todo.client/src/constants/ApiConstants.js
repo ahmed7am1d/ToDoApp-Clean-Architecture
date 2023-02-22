@@ -4,7 +4,7 @@ const ApiConstants = {
   RANDOM_QUOTES_ENDPOINT: "/api/quotes",
 
   //-ToDO API
-  TODO_API_BASE_URL: "https://todoapp-webapi.azurewebsites.net",
+  TODO_API_BASE_URL: "http://localhost:5133",
 
   //--Auth EndPoints
   REGISTER_ENDPOINT: "/auth/register",

@@ -183,22 +183,22 @@ const Login = () => {
               />
               <label htmlFor="persist">Keep me signed in</label>
             </div>
-            <div className="forgot-password-wrapper">
+            {/* <div className="forgot-password-wrapper">
               <a href="#">Forgot Password?</a>
-            </div>
+            </div> */}
             <div className="login-button-wrapper">
               <button type="submit" className="login-button">
                 Login
               </button>
             </div>
-            <div className="signup-wrapper">
+            {/* <div className="signup-wrapper">
               <p>Or sign up using:</p>
               <div className="sign-up-icons-wrapper">
                 <GoogleSquareFilled className="google-icon" />
                 <FacebookFilled className="facebook-icon" />
                 <TwitterCircleFilled className="twitter-icon" />
               </div>
-            </div>
+            </div> */}
 
             <div className="sign-up-email-wrapper">
               <p>Don't have an account?</p>
