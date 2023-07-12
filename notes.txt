@@ -1,0 +1,10 @@
+- For modifying and deploying to the domain:
+    - I should be at the branch demo [nothing should be commited to git]
+    - Modify the code I want 
+        - then run [npm run build]
+        - then If I want a stage before production (netlify deploy) and check draft 
+        - if everything is fine => netlify deploy --prod
+====================================================
+- For local development and DB:
+    - Just change the connection string in the secrets
+    
