@@ -138,7 +138,7 @@ const Login = () => {
                 placeholder="Type your email"
                 className="emailInput"
                 name="email"
-                onChange={(e) => handleInputChange(e)}
+                onInput={(e) => handleInputChange(e)}
               />
               <MailOutlined className="mail-icon" />
               {emailInputError.isError && (
@@ -159,7 +159,7 @@ const Login = () => {
                 placeholder="Type your password"
                 name="password"
                 className="passwordInput"
-                onChange={(e) => handleInputChange(e)}
+                onInput={(e) => handleInputChange(e)}
               />
               <SecurityScanOutlined />
               {passwordInputError.isError && (

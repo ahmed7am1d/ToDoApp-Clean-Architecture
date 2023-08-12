@@ -165,7 +165,7 @@ const Register = () => {
                       className="firstname"
                       name="firstName"
                       value={firstName}
-                      onChange={(e) => handleInputChange(e)}
+                      onInput={(e) => handleInputChange(e)}
                     />
                     <ContactsOutlined />
                     {firstNameInputError.isError && (
@@ -189,7 +189,7 @@ const Register = () => {
                       className="lastname"
                       name="lastName"
                       value={lastName}
-                      onChange={(e) => handleInputChange(e)}
+                      onInput={(e) => handleInputChange(e)}
                     />
                     <ContactsOutlined />
                     {lastNameInputError.isError && (
@@ -237,7 +237,7 @@ const Register = () => {
                     type={isShowPasswordClicked ? "text" : "password"}
                     value={password}
                     className="password"
-                    onChange={(e) => handleInputChange(e)}
+                    onInput={(e) => handleInputChange(e)}
                     name="password"
                   />
 
