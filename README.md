@@ -55,10 +55,29 @@ The system will allow you to do the following:
  - npm run time SDK
  - when using .NET CLI or CMD for commands follow (https://docs.microsoft.com/en-us/ef/core/cli/dotnet)
  
- Setup Instructions:
+ Steps to run the application:
  ------------
  (Prefered IDE: Visual Studio Code)<br>
- <strong>1-</strong> Download the GitRepo as Zip or Pull it to your local repo<br>
+1. Clone the repository from the main branch.
+2. Assuming you have Visual studio installed.
+3. Open "socialchain.solution.sln"
+4. Right click on "socialchain.api" and click "Manage user secrets".
+   1. Put your own local ms sql server db connection string.
+   2. put random secret for JWT.
+   3. Put 60 minutes as expire time of JWT token.
+5. In visual studio click on "View" in the top task bar => "Terminal"
+   1. Run the following command in the terminal to create migration (code first approach):
+    ``dotnet ef migrations add "1stToDoMigration" -p .\ToDo.infrastructure\ -s .\ToDo.api\``
+   2. From the terminal navigate to "ToDo.api" ``cd .\ToDo.api\ ``
+   3. Run the following command to update your database (make sure you are in the api project as step before): 
+    ``dotnet ef database update``
+6. Run/start the visual studio application  (To make the api running).
+> Note: Make sure to grab the address of the API that is running and put it in ``todo.client/constants/ApiConstants.js``
+7. Open Visual studio code and navigate to folder "todo.client" and run the following (to install all npm packages): 
+  ``npm i``
+10. Finally forward to "todo.client" and run the following:
+    ``npm start``
+ENJOY THE APP :)
 
 Internal App ScreenShots:
 -----------
