@@ -55,9 +55,9 @@ The system will allow you to do the following:
  - npm run time SDK
  - when using .NET CLI or CMD for commands follow (https://docs.microsoft.com/en-us/ef/core/cli/dotnet)
  
- # 2 How to run the application
+ # How to run the application
 
-## 2.1 Required SDKs and libraries
+## Required SDKs and libraries
 
 The following are required to run the application without problems:
 
@@ -74,7 +74,7 @@ The following are required to run the application without problems:
 - **For the IDEs:**
   - It is better to have both (VS code and Visual studio installed)
 
-## 2.2 Steps to run the application
+## Steps to run the application
 
  (Prefered IDE: Visual Studio Code)<br>
 1. Clone the repository from the main branch.
