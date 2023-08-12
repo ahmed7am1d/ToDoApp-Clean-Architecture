@@ -55,7 +55,26 @@ The system will allow you to do the following:
  - npm run time SDK
  - when using .NET CLI or CMD for commands follow (https://docs.microsoft.com/en-us/ef/core/cli/dotnet)
  
- Steps to run the application:
+ # 2 How to run the application
+
+## 2.1 Required SDKs and libraries
+
+The following are required to run the application without problems:
+
+- **For the back-end:**
+  - .net sdk and run time (.NET6 or .NET7) (https://dotnet.microsoft.com/en-us/download)
+  - .net tools for using terminal and ef (https://dotnet.microsoft.com/en-us/download)
+  - Your own local MS SQL Server database for that you need to install two things:
+    - SQL Server management studio: (https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
+    - SQL Server: (https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+
+- **For the front-end:**
+  - npm package manager and npm run time sdk (https://nodejs.org/en/download) (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
+- **For the IDEs:**
+  - It is better to have both (VS code and Visual studio installed)
+
+## 2.2 Steps to run the application
  ------------
  (Prefered IDE: Visual Studio Code)<br>
 1. Clone the repository from the main branch.
