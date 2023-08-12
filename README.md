@@ -75,7 +75,7 @@ The following are required to run the application without problems:
   - It is better to have both (VS code and Visual studio installed)
 
 ## 2.2 Steps to run the application
- ------------
+
  (Prefered IDE: Visual Studio Code)<br>
 1. Clone the repository from the main branch.
 2. Assuming you have Visual studio installed.
@@ -92,9 +92,9 @@ The following are required to run the application without problems:
     ``dotnet ef database update``
 6. Run/start the visual studio application  (To make the api running).
 > Note: Make sure to grab the address of the API that is running and put it in ``todo.client/constants/ApiConstants.js``
-7. Open Visual studio code and navigate to folder "todo.client" and run the following (to install all npm packages): 
+1. Open Visual studio code and navigate to folder "todo.client" and run the following (to install all npm packages): 
   ``npm i``
-10. Finally forward to "todo.client" and run the following:
+1.  Finally forward to "todo.client" and run the following:
     ``npm start``
 ENJOY THE APP :)
 
